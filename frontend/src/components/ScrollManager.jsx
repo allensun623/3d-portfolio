@@ -6,12 +6,12 @@ import gsap from 'gsap';
 export default function ScrollManager({ section, onSectionChange }) {
   const scrollData = useScroll();
   const lastScroll = useRef(0);
+  const lastSection = useRef(0);
   const isScrollAnimating = useRef(false);
 
+  // scroll to absolute top
   scrollData.fill.classList.add('top-0');
   scrollData.fill.classList.add('absolute');
-
-  useEffect(() => {}, [lastScroll.current]);
 
   useEffect(() => {
     gsap.to(scrollData.el, {
@@ -22,8 +22,9 @@ export default function ScrollManager({ section, onSectionChange }) {
       },
       onComplete: () => {
         isScrollAnimating.current = false;
-        // update lastScroll on complete
+        // update lastScroll and lastSection on complete
         lastScroll.current = scrollData.scroll.current;
+        lastSection.current = section;
       },
     });
   }, [section]);
@@ -33,11 +34,12 @@ export default function ScrollManager({ section, onSectionChange }) {
     if (isScrollAnimating.current) return;
 
     const curScroll = scrollData.scroll.current;
+
+    if (lastSection.current !== section) return;
     // ignore diff between lastScroll: 0.3333333333333333 and curScroll: 0.3338206627680312
     if (Math.abs(lastScroll.current - curScroll) < 0.001) return;
-    const lastSection = Math.floor(lastScroll.current * scrollData.pages);
-    if (lastSection !== section) return;
 
+    // update section
     if (lastScroll.current > curScroll) onSectionChange(section - 1);
     else onSectionChange(section + 1);
   });
