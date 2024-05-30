@@ -9,9 +9,13 @@ export default function ScrollManager({ section, onSectionChange }) {
   const lastSection = useRef(0);
   const isScrollAnimating = useRef(false);
 
-  // scroll to absolute top
-  scrollData.fill.classList.add('top-0');
-  scrollData.fill.classList.add('absolute');
+  // Initialize scrollData.fill styles once on mount
+  useEffect(() => {
+    if (scrollData.fill) {
+      // scroll to absolute top
+      scrollData.fill.classList.add('top-0', 'absolute');
+    }
+  }, [scrollData.fill]);
 
   useEffect(() => {
     gsap.to(scrollData.el, {

@@ -1,15 +1,17 @@
 import { Environment, Sky, ContactShadows } from '@react-three/drei';
 import { Model as Avatar } from './Avatar';
-import { useControls } from 'leva';
 import { animationOptions } from '../constants/avatar';
 
-export const Experience = () => {
-  const { animation } = useControls({
-    animation: {
-      value: 'Typing',
-      options: Object.values(animationOptions),
-    },
-  });
+// todo remove leva
+
+export const Experience = ({ section }) => {
+  // animation in order of sections
+  const avatarAnimations = [
+    animationOptions.TYPING,
+    animationOptions.FALLING,
+    animationOptions.STANDING,
+    animationOptions.TYPING,
+  ];
 
   return (
     <>
@@ -25,8 +27,8 @@ export const Experience = () => {
           resolution={256}
           color='#000000'
         />
-        <Avatar animation={animation} />
-        {animation === animationOptions.TYPING ? (
+        <Avatar animation={avatarAnimations[section]} />
+        {avatarAnimations[section] === animationOptions.TYPING ? (
           <mesh scale={[0.8, 0.5, 0.8]} position-y={0.25}>
             <boxGeometry />
             <meshStandardMaterial color='white' />

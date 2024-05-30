@@ -10,13 +10,15 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@react-three/drei": "^9.105.6",
-    "@react-three/fiber": "^8.16.6",
-    "@types/three": "^0.164.1",
+    "@react-three/drei": "9.75.0",
+    "@react-three/fiber": "8.13.3",
+    "framer-motion": "^11.2.9",
+    "framer-motion-3d": "^11.2.9",
+    "gsap": "^3.12.5",
     "leva": "^0.9.35",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "three": "^0.164.1"
+    "three": "0.146.0"
   },
   "devDependencies": {
     "@react-three/eslint-plugin": "^0.1.1",

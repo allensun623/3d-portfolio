@@ -43,6 +43,7 @@ export function Model(props) {
       group.current.getObjectByName('Head').lookAt(state.camera.position);
     }
     if (cursorFollow) {
+      // eslint-disable-next-line @react-three/no-new-in-loop
       const target = new THREE.Vector3(state.pointer.x, state.pointer.y, 1);
       group.current.getObjectByName('Spine2').lookAt(target);
     }
@@ -63,7 +64,8 @@ export function Model(props) {
 
   return (
     <group {...props} ref={group} dispose={null}>
-      <group rotation-x={-Math.PI / 2}>
+      {/* <group rotation-x={-Math.PI / 2}> */}
+      <group>
         <skinnedMesh
           name='EyeLeft'
           geometry={nodes.EyeLeft.geometry}
