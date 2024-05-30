@@ -21,7 +21,9 @@ export function Model(props) {
 
   const { nodes, materials } = useGLTF('models/Avatar.glb');
 
-  const { animations: typingAnimation } = useFBX('animations/Typing.fbx');
+  const { animations: typingAnimation } = useFBX(
+    'animations/Typing animation.fbx'
+  );
   const { animations: fallingAnimation } = useFBX(
     'animations/Falling Idle.fbx'
   );
@@ -62,7 +64,6 @@ export function Model(props) {
   return (
     <group {...props} ref={group} dispose={null}>
       <group rotation-x={-Math.PI / 2}>
-        <primitive object={nodes.Hips} />
         <skinnedMesh
           name='EyeLeft'
           geometry={nodes.EyeLeft.geometry}
@@ -80,25 +81,9 @@ export function Model(props) {
           morphTargetInfluences={nodes.EyeRight.morphTargetInfluences}
         />
         <skinnedMesh
-          name='Wolf3D_Head'
-          geometry={nodes.Wolf3D_Head.geometry}
-          material={materials.Wolf3D_Skin}
-          skeleton={nodes.Wolf3D_Head.skeleton}
-          morphTargetDictionary={nodes.Wolf3D_Head.morphTargetDictionary}
-          morphTargetInfluences={nodes.Wolf3D_Head.morphTargetInfluences}
-        />
-        <skinnedMesh
-          name='Wolf3D_Teeth'
-          geometry={nodes.Wolf3D_Teeth.geometry}
-          material={materials.Wolf3D_Teeth}
-          skeleton={nodes.Wolf3D_Teeth.skeleton}
-          morphTargetDictionary={nodes.Wolf3D_Teeth.morphTargetDictionary}
-          morphTargetInfluences={nodes.Wolf3D_Teeth.morphTargetInfluences}
-        />
-        <skinnedMesh
-          geometry={nodes.Wolf3D_Hair.geometry}
-          material={materials.Wolf3D_Hair}
-          skeleton={nodes.Wolf3D_Hair.skeleton}
+          geometry={nodes.Wolf3D_Body.geometry}
+          material={materials.Wolf3D_Body}
+          skeleton={nodes.Wolf3D_Body.skeleton}
         />
         <skinnedMesh
           geometry={nodes.Wolf3D_Glasses.geometry}
@@ -106,9 +91,17 @@ export function Model(props) {
           skeleton={nodes.Wolf3D_Glasses.skeleton}
         />
         <skinnedMesh
-          geometry={nodes.Wolf3D_Outfit_Top.geometry}
-          material={materials.Wolf3D_Outfit_Top}
-          skeleton={nodes.Wolf3D_Outfit_Top.skeleton}
+          geometry={nodes.Wolf3D_Hair.geometry}
+          material={materials.Wolf3D_Hair}
+          skeleton={nodes.Wolf3D_Hair.skeleton}
+        />
+        <skinnedMesh
+          name='Wolf3D_Head'
+          geometry={nodes.Wolf3D_Head.geometry}
+          material={materials.Wolf3D_Skin}
+          skeleton={nodes.Wolf3D_Head.skeleton}
+          morphTargetDictionary={nodes.Wolf3D_Head.morphTargetDictionary}
+          morphTargetInfluences={nodes.Wolf3D_Head.morphTargetInfluences}
         />
         <skinnedMesh
           geometry={nodes.Wolf3D_Outfit_Bottom.geometry}
@@ -121,9 +114,24 @@ export function Model(props) {
           skeleton={nodes.Wolf3D_Outfit_Footwear.skeleton}
         />
         <skinnedMesh
-          geometry={nodes.Wolf3D_Body.geometry}
-          material={materials.Wolf3D_Body}
-          skeleton={nodes.Wolf3D_Body.skeleton}
+          name='Wolf3D_Teeth'
+          geometry={nodes.Wolf3D_Teeth.geometry}
+          material={materials.Wolf3D_Teeth}
+          skeleton={nodes.Wolf3D_Teeth.skeleton}
+          morphTargetDictionary={nodes.Wolf3D_Teeth.morphTargetDictionary}
+          morphTargetInfluences={nodes.Wolf3D_Teeth.morphTargetInfluences}
+        />
+        <primitive object={nodes.Hips} />
+        <primitive object={nodes.neutral_bone} />
+        <skinnedMesh
+          geometry={nodes.Wolf3D_Outfit_Top_1.geometry}
+          material={materials.Wolf3D_Outfit_Top}
+          skeleton={nodes.Wolf3D_Outfit_Top_1.skeleton}
+        />
+        <skinnedMesh
+          geometry={nodes.Wolf3D_Outfit_Top_2.geometry}
+          material={materials['goku logo orange Background Removed']}
+          skeleton={nodes.Wolf3D_Outfit_Top_2.skeleton}
         />
       </group>
     </group>
@@ -131,6 +139,6 @@ export function Model(props) {
 }
 
 useGLTF.preload('models/Avatar.glb');
-useFBX.preload('animations/Typing.fbx');
+useFBX.preload('animations/Typing animation.fbx');
 useFBX.preload('animations/Standing Idle.fbx');
 useFBX.preload('animations/Falling Idle.fbx');
