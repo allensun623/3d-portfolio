@@ -1,6 +1,6 @@
 import { Scroll, ScrollControls } from '@react-three/drei';
 import { Canvas } from '@react-three/fiber';
-import { Experience } from './components/Experience';
+import Scene from './components/Scene';
 import Interface from './components/Interface';
 import ScrollManager from './components/ScrollManager';
 import { useState } from 'react';
@@ -18,7 +18,7 @@ export default function App() {
         <ScrollControls pages={4} damping={0.1}>
           <ScrollManager section={section} onSectionChange={setSection} />
           <Scroll>
-            <Experience section={section} />
+            <Scene section={section} />
           </Scroll>
           <Scroll html>
             <Interface />

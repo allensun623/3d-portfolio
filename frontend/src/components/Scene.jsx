@@ -4,36 +4,25 @@ import { Environment, Sky, ContactShadows } from '@react-three/drei';
 import { Model as Avatar } from './Avatar';
 import { animationOptions } from '../constants/avatar';
 import { useRef } from 'react';
-import * as THREE from 'three';
+import { selectedAnimations } from '../constants/avatar';
+import { getPosition } from '../utils/3dState';
 
-export const Experience = ({ section }) => {
+export default function Scene({ section }) {
   const { viewport } = useThree();
   const characterGroup = useRef();
-  // animation in order of sections
-  const avatarAnimations = [
-    animationOptions.SITING,
-    animationOptions.FALLING,
-    animationOptions.STANDING,
-    animationOptions.TYPING,
-  ];
   const ROTATION_SPEED = 0.3;
 
   useFrame(({ clock }) => {
-    if (section !== 0) return;
+    if (section !== 0 || !characterGroup.current) return;
+
     // Calculate the new position based on the rotation
     const angle = clock.getElapsedTime() * ROTATION_SPEED;
 
-    if (characterGroup.current) {
-      // get world position
-      // eslint-disable-next-line @react-three/no-new-in-loop
-      const position = new THREE.Vector3();
-      characterGroup.current.getWorldPosition(position);
-
-      const newX = position.x + Math.cos(angle);
-      const newY = position.y; // Keeping y constant for simplicity
-      const newZ = position.z + Math.sin(angle);
-      characterGroup.current.position.set(newX, newY, newZ);
-    }
+    const position = getPosition(characterGroup);
+    const newX = position.x + Math.cos(angle);
+    const newY = position.y; // Keeping y constant for simplicity
+    const newZ = position.z + Math.sin(angle);
+    characterGroup.current.position.set(newX, newY, newZ);
   });
 
   return (
@@ -72,22 +61,22 @@ export const Experience = ({ section }) => {
             x: 0,
             y: (-viewport.height - 1) * 2,
             z: -viewport.height,
-            rotateY: Math.PI / 2,
+            // rotateY: Math.PI / 2,
           },
           3: {
             x: 0,
             y: -viewport.height * 3 - 2,
             z: -viewport.height,
-            scaleX: 2,
-            scaleY: 2,
-            scaleZ: 2,
+            scaleX: 0.5,
+            scaleY: 0.5,
+            scaleZ: 0.5,
           },
         }}
       >
         <group ref={characterGroup}>
-          <Avatar animation={avatarAnimations[section]} />
+          <Avatar animation={selectedAnimations[section]} />
         </group>
-        {avatarAnimations[section] === animationOptions.TYPING ? (
+        {selectedAnimations[section] === animationOptions.TYPING ? (
           <mesh scale={[0.8, 0.5, 0.8]} position-y={0.25}>
             <boxGeometry />
             <meshStandardMaterial color='white' />
@@ -101,4 +90,4 @@ export const Experience = ({ section }) => {
       </motion.group>
     </>
   );
-};
+}
