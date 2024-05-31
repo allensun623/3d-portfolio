@@ -2,18 +2,20 @@ const animationOptions = Object.freeze({
   TYPING: 'Typing',
   STANDING: 'Standing',
   FALLING: 'Falling',
-  SITING: 'Sitting',
+  SITTING: 'Sitting',
   RUNNING_AND_JUMPING: 'RunningAndJumping',
   WAVING: 'Waving',
+  SITTING_CROSS_LEGGED: 'SittingCrossLegged',
 });
 
 const animationModelNames = Object.freeze({
   [animationOptions.TYPING]: 'Typing animation',
   [animationOptions.STANDING]: 'Standing Idle',
   [animationOptions.FALLING]: 'Falling Idle',
-  [animationOptions.SITING]: 'Sitting Idle',
+  [animationOptions.SITTING]: 'Sitting Idle',
   [animationOptions.RUNNING_AND_JUMPING]: 'Running Jump',
   [animationOptions.WAVING]: 'Waving',
+  [animationOptions.SITTING_CROSS_LEGGED]: 'Sitting Cross-legged',
 });
 
 // { animation: full path }
@@ -27,16 +29,26 @@ const animationModelPaths = Object.freeze(
   )
 );
 
-// animation in order of sections
+// animations used in the scene
 const selectedAnimations = Object.freeze([
-  // animationOptions.SITING,
-  // animationOptions.FALLING,
-  // animationOptions.STANDING,
-  // animationOptions.TYPING,
-  animationOptions.SITING,
+  animationOptions.SITTING,
+  animationOptions.FALLING,
   animationOptions.RUNNING_AND_JUMPING,
-  animationOptions.STANDING,
+  animationOptions.SITTING_CROSS_LEGGED,
   animationOptions.WAVING,
 ]);
 
-export { animationOptions, animationModelPaths, selectedAnimations };
+// transition animation in the order of section
+const sectionTransitAnimations = [
+  animationOptions.SITTING,
+  animationOptions.FALLING,
+  animationOptions.SITTING_CROSS_LEGGED,
+  animationOptions.WAVING,
+];
+
+export {
+  animationOptions,
+  animationModelPaths,
+  selectedAnimations,
+  sectionTransitAnimations,
+};

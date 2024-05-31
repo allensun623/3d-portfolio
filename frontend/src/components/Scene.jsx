@@ -2,27 +2,42 @@ import { motion } from 'framer-motion-3d';
 import { useFrame, useThree } from '@react-three/fiber';
 import { Environment, Sky, ContactShadows } from '@react-three/drei';
 import { Model as Avatar } from './Avatar';
-import { animationOptions } from '../constants/avatar';
-import { useRef } from 'react';
-import { selectedAnimations } from '../constants/avatar';
+import { useEffect, useRef, useState } from 'react';
+import {
+  animationOptions,
+  sectionTransitAnimations,
+} from '../constants/avatar';
 import { getPosition } from '../utils/3dState';
 
 export default function Scene({ section }) {
-  const { viewport } = useThree();
-  const characterGroup = useRef();
+  // section 0
   const ROTATION_SPEED = 0.3;
 
+  const { viewport } = useThree();
+  const characterGroup = useRef();
+  const [animation, setAnimation] = useState(sectionTransitAnimations[0]);
+
+  useEffect(() => {
+    setAnimation(sectionTransitAnimations[section]);
+  }, [section]);
+
   useFrame(({ clock }) => {
-    if (section !== 0 || !characterGroup.current) return;
+    if (!characterGroup.current) return;
+    // section 0 animation
+    if (section === 0) {
+      // TODO rotate character self axis
+      // Calculate the new position based on the rotation
+      const angle = clock.getElapsedTime() * ROTATION_SPEED;
 
-    // Calculate the new position based on the rotation
-    const angle = clock.getElapsedTime() * ROTATION_SPEED;
-
-    const position = getPosition(characterGroup);
-    const newX = position.x + Math.cos(angle);
-    const newY = position.y; // Keeping y constant for simplicity
-    const newZ = position.z + Math.sin(angle);
-    characterGroup.current.position.set(newX, newY, newZ);
+      const position = getPosition(characterGroup);
+      const newX = position.x + Math.cos(angle);
+      const newY = position.y; // Keeping y constant for simplicity
+      const newZ = position.z + Math.sin(angle);
+      characterGroup.current.position.set(newX, newY, newZ);
+    }
+    if (section === 1) {
+      setAnimation(animationOptions.RUNNING_AND_JUMPING);
+    }
   });
 
   return (
@@ -51,6 +66,7 @@ export default function Scene({ section }) {
             scaleX: 0.5,
             scaleY: 0.5,
             scaleZ: 0.5,
+            y: 0,
           },
           1: {
             x: 0,
@@ -74,15 +90,17 @@ export default function Scene({ section }) {
         }}
       >
         <group ref={characterGroup}>
-          <Avatar animation={selectedAnimations[section]} />
+          <motion.group position-y={0.5}>
+            <Avatar animation={animation} />
+          </motion.group>
+          {section === 0 &&
+          sectionTransitAnimations[section] === animationOptions.SITTING ? (
+            <mesh scale={[0.8, 0.5, 0.8]} position-y={0.25}>
+              <boxGeometry />
+              <meshStandardMaterial color='white' />
+            </mesh>
+          ) : null}
         </group>
-        {selectedAnimations[section] === animationOptions.TYPING ? (
-          <mesh scale={[0.8, 0.5, 0.8]} position-y={0.25}>
-            <boxGeometry />
-            <meshStandardMaterial color='white' />
-          </mesh>
-        ) : null}
-
         <mesh scale={5} rotation-x={-Math.PI * 0.5} position-y={-0.001}>
           {section === 0 ? <planeGeometry /> : null}
           <meshStandardMaterial color='white' />
