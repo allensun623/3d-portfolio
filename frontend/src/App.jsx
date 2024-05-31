@@ -6,6 +6,8 @@ import ScrollManager from './components/ScrollManager';
 import { useState } from 'react';
 import { Leva } from 'leva';
 
+// TODO remove leva
+
 export default function App() {
   const [section, setSection] = useState(0);
 
@@ -15,7 +17,9 @@ export default function App() {
         <color attach='background' args={['#ececec']} />
         <ScrollControls pages={4} damping={0.1}>
           <ScrollManager section={section} onSectionChange={setSection} />
-          <Experience section={section} />
+          <Scroll>
+            <Experience section={section} />
+          </Scroll>
           <Scroll html>
             <Interface />
           </Scroll>

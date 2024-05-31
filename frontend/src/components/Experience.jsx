@@ -1,13 +1,14 @@
+import { motion } from 'framer-motion-3d';
+import { useThree } from '@react-three/fiber';
 import { Environment, Sky, ContactShadows } from '@react-three/drei';
 import { Model as Avatar } from './Avatar';
 import { animationOptions } from '../constants/avatar';
 
-// todo remove leva
-
 export const Experience = ({ section }) => {
+  const { viewport } = useThree();
   // animation in order of sections
   const avatarAnimations = [
-    animationOptions.TYPING,
+    animationOptions.SITING,
     animationOptions.FALLING,
     animationOptions.STANDING,
     animationOptions.TYPING,
@@ -18,7 +19,41 @@ export const Experience = ({ section }) => {
       {/* <OrbitControls /> */}
       <Sky />
       <Environment preset='sunset' />
-      <group position-y={-1}>
+      <motion.group
+        position={[0, -viewport.height, -10]}
+        animate={`${section}`}
+        transition={{
+          duration: 1,
+          delay: 0.6,
+        }}
+        // avatar state on each section
+        variants={{
+          0: {
+            scaleX: 0.9,
+            scaleY: 0.9,
+            scaleZ: 0.9,
+          },
+          1: {
+            x: 0,
+            y: -viewport.height - 1,
+            z: -viewport.height,
+          },
+          2: {
+            x: 0,
+            y: (-viewport.height - 1) * 2,
+            z: -viewport.height,
+            rotateY: Math.PI / 2,
+          },
+          3: {
+            x: 0,
+            y: -viewport.height * 3 - 2,
+            z: -viewport.height,
+            scaleX: 2,
+            scaleY: 2,
+            scaleZ: 2,
+          },
+        }}
+      >
         <ContactShadows
           opacity={0.42}
           scale={10}
@@ -36,10 +71,10 @@ export const Experience = ({ section }) => {
         ) : null}
 
         <mesh scale={5} rotation-x={-Math.PI * 0.5} position-y={-0.001}>
-          <planeGeometry />
+          {section === 0 ? <planeGeometry /> : null}
           <meshStandardMaterial color='white' />
         </mesh>
-      </group>
+      </motion.group>
     </>
   );
 };
