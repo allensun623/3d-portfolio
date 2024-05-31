@@ -1,11 +1,14 @@
 import { motion } from 'framer-motion-3d';
-import { useThree } from '@react-three/fiber';
+import { useFrame, useThree } from '@react-three/fiber';
 import { Environment, Sky, ContactShadows } from '@react-three/drei';
 import { Model as Avatar } from './Avatar';
 import { animationOptions } from '../constants/avatar';
+import { useRef } from 'react';
+import * as THREE from 'three';
 
 export const Experience = ({ section }) => {
   const { viewport } = useThree();
+  const characterGroup = useRef();
   // animation in order of sections
   const avatarAnimations = [
     animationOptions.SITING,
@@ -13,14 +16,41 @@ export const Experience = ({ section }) => {
     animationOptions.STANDING,
     animationOptions.TYPING,
   ];
+  const ROTATION_SPEED = 0.3;
+
+  useFrame(({ clock }) => {
+    if (section !== 0) return;
+    // Calculate the new position based on the rotation
+    const angle = clock.getElapsedTime() * ROTATION_SPEED;
+
+    if (characterGroup.current) {
+      // get world position
+      // eslint-disable-next-line @react-three/no-new-in-loop
+      const position = new THREE.Vector3();
+      characterGroup.current.getWorldPosition(position);
+
+      const newX = position.x + Math.cos(angle);
+      const newY = position.y; // Keeping y constant for simplicity
+      const newZ = position.z + Math.sin(angle);
+      characterGroup.current.position.set(newX, newY, newZ);
+    }
+  });
 
   return (
     <>
       {/* <OrbitControls /> */}
       <Sky />
       <Environment preset='sunset' />
+      <ContactShadows
+        opacity={0.42}
+        scale={10}
+        blur={1}
+        far={10}
+        resolution={256}
+        color='#000000'
+      />
       <motion.group
-        position={[0, -viewport.height, -10]}
+        position={[0, 0, 0]}
         animate={`${section}`}
         transition={{
           duration: 1,
@@ -29,9 +59,9 @@ export const Experience = ({ section }) => {
         // avatar state on each section
         variants={{
           0: {
-            scaleX: 0.9,
-            scaleY: 0.9,
-            scaleZ: 0.9,
+            scaleX: 0.5,
+            scaleY: 0.5,
+            scaleZ: 0.5,
           },
           1: {
             x: 0,
@@ -54,15 +84,9 @@ export const Experience = ({ section }) => {
           },
         }}
       >
-        <ContactShadows
-          opacity={0.42}
-          scale={10}
-          blur={1}
-          far={10}
-          resolution={256}
-          color='#000000'
-        />
-        <Avatar animation={avatarAnimations[section]} />
+        <group ref={characterGroup}>
+          <Avatar animation={avatarAnimations[section]} />
+        </group>
         {avatarAnimations[section] === animationOptions.TYPING ? (
           <mesh scale={[0.8, 0.5, 0.8]} position-y={0.25}>
             <boxGeometry />
