@@ -5,6 +5,7 @@ import Interface from './components/Interface';
 import ScrollManager from './components/ScrollManager';
 import { useState } from 'react';
 import { Leva } from 'leva';
+// import About from './components/About';
 
 // TODO remove leva
 
@@ -13,6 +14,7 @@ export default function App() {
 
   return (
     <>
+      {/* <About /> */}
       <Canvas shadows camera={{ position: [0, 2, 5], fov: 30 }}>
         <color attach='background' args={['#ececec']} />
         <ScrollControls pages={4} damping={0.1}>

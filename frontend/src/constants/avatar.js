@@ -1,11 +1,12 @@
 const animationOptions = Object.freeze({
-  TYPING: 'Typing',
-  STANDING: 'Standing',
-  FALLING: 'Falling',
-  SITTING: 'Sitting',
-  RUNNING_AND_JUMPING: 'RunningAndJumping',
+  TYPING: 'Typing animation',
+  STANDING: 'Standing Idle',
+  FALLING: 'Falling Idle',
+  SITTING: 'Sitting Idle',
+  RUNNING_AND_JUMPING: 'Running Jump',
   WAVING: 'Waving',
-  SITTING_CROSS_LEGGED: 'SittingCrossLegged',
+  SITTING_CROSS_LEGGED: 'Sitting Cross-legged',
+  WALKING: 'Walking',
 });
 
 const animationModelNames = Object.freeze({
@@ -16,6 +17,7 @@ const animationModelNames = Object.freeze({
   [animationOptions.RUNNING_AND_JUMPING]: 'Running Jump',
   [animationOptions.WAVING]: 'Waving',
   [animationOptions.SITTING_CROSS_LEGGED]: 'Sitting Cross-legged',
+  [animationOptions.WALKING]: 'Walking',
 });
 
 // { animation: full path }
@@ -36,12 +38,14 @@ const selectedAnimations = Object.freeze([
   animationOptions.RUNNING_AND_JUMPING,
   animationOptions.SITTING_CROSS_LEGGED,
   animationOptions.WAVING,
+  animationOptions.STANDING,
+  animationOptions.WALKING,
 ]);
 
 // transition animation in the order of section
 const sectionTransitAnimations = [
   animationOptions.SITTING,
-  animationOptions.FALLING,
+  animationOptions.WALKING,
   animationOptions.SITTING_CROSS_LEGGED,
   animationOptions.WAVING,
 ];

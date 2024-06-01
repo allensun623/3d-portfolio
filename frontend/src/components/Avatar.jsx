@@ -9,7 +9,7 @@ import { useControls } from 'leva';
 import * as THREE from 'three';
 import { loadAnimations, preloadAnimations } from '../utils/avatarAnimations';
 
-export function Model(props) {
+export default function Avatar(props) {
   const { animation } = props;
   const group = useRef();
   const selectedAnimations = useMemo(loadAnimations, []);
@@ -36,10 +36,14 @@ export function Model(props) {
   });
 
   useEffect(() => {
-    console.log({ animation });
+    // if (animation === animationOptions.RUNNING_AND_JUMPING) {
+    //   actions[animation].setLoop(THREE.LoopOnce);
+    //   actions[animation].clampWhenFinished = true;
+    // }
     actions[animation].reset().fadeIn(0.5).play();
+
     return () => {
-      actions[animation].reset().fadeOut(0.5);
+      actions[animation].fadeOut(0.5);
     };
   }, [animation]);
 
