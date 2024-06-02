@@ -33,6 +33,9 @@ const skillNames = [
   'TypeScript',
   'Vue',
 ];
+
+
+
 const skills = skillNames.map((s) => ({
   name: s,
   iconURL: `src/assets/images/icons/${s}.svg`,

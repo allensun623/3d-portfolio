@@ -16,23 +16,24 @@ export default function Scene({ section }) {
   const { viewport } = useThree();
   const characterGroup = useRef();
   const carouselGroup = useRef();
+  const skillBallsGroup = useRef();
   const [animation, setAnimation] = useState(sectionTransitAnimations[0]);
 
-  const characterPositions = [[-1.5, 0.5, 0], [], [0, -1, 0], []];
+  // const characterPositions = [[-1.5, 0.5, 0], [], [0, -1, 0], []];
 
   useEffect(() => {
     setAnimation(sectionTransitAnimations[section]);
     if (!carouselGroup.current || !characterGroup.current) return;
-    switch (section) {
-      case 0:
-        characterGroup.current.position.set(...characterPositions[section]);
-        break;
-      case 2:
-        carouselGroup.current.rotation.y = 0;
-        characterGroup.current.position.set(...characterPositions[section]);
-        characterGroup.current.scale.set(2, 2, 2);
-        break;
-    }
+    // switch (section) {
+    //   case 0:
+    //     characterGroup.current.position.set(...characterPositions[section]);
+    //     break;
+    //   case 2:
+    //     carouselGroup.current.rotation.y = 0;
+    //     characterGroup.current.position.set(...characterPositions[section]);
+    //     characterGroup.current.scale.set(2, 2, 2);
+    //     break;
+    // }
   }, [section]);
   // useFrame(({ clock }) => {
   //   if (!characterGroup.current) return;
@@ -99,7 +100,7 @@ export default function Scene({ section }) {
             // rotateY: Math.PI / 2,
           },
           3: {
-            x: 0,
+            x: 1,
             y: -viewport.height * 3 - 2,
             z: -viewport.height,
             scaleX: 0.5,
@@ -109,22 +110,24 @@ export default function Scene({ section }) {
         }}
       >
         {/* <group ref={characterGroup}> */}
+        <motion.group ref={characterGroup} position-z={1.5} position-y={0.25}>
+          <Avatar animation={animation} />
+        </motion.group>
+        {section === 0 &&
+        sectionTransitAnimations[section] === animationOptions.SITTING ? (
+          <mesh scale={[0.8, 0.4, 0.8]} position-z={1.5}>
+            <icosahedronGeometry />
+            <meshStandardMaterial color='white' />
+          </mesh>
+        ) : null}
+        {/* </group> */}
         <motion.group ref={carouselGroup}>
-          <motion.group ref={characterGroup}>
-            <Avatar animation={animation} />
-          </motion.group>
-          {section === 0 &&
-          sectionTransitAnimations[section] === animationOptions.SITTING ? (
-            <mesh scale={[0.8, 0.4, 0.8]} position-y={0.25} position-x={-1.5}>
-              <icosahedronGeometry />
-              <meshStandardMaterial color='white' />
-            </mesh>
-          ) : null}
-          {/* </group> */}
           <mesh scale={5} rotation-x={-Math.PI * 0.5} position-y={-0.001}>
             {section === 0 ? <planeGeometry /> : null}
             <meshStandardMaterial color='white' />
           </mesh>
+        </motion.group>
+        <motion.group ref={skillBallsGroup}>
           ({section === 2 ? <SkillBallsScene /> : null})
         </motion.group>
       </motion.group>

@@ -8,11 +8,13 @@ import { useFrame } from '@react-three/fiber';
 import { useControls } from 'leva';
 import * as THREE from 'three';
 import { loadAnimations, preloadAnimations } from '../utils/avatarAnimations';
+import { animationOptions } from '../constants/avatar';
 
 export default function Avatar(props) {
   const { animation } = props;
   const group = useRef();
   const selectedAnimations = useMemo(loadAnimations, []);
+  const cursorFollowRef = useRef(false);
 
   const { headFollow, cursorFollow, wireframe } = useControls({
     headFollow: false,
@@ -28,18 +30,26 @@ export default function Avatar(props) {
     if (headFollow) {
       group.current.getObjectByName('Head').lookAt(state.camera.position);
     }
-    if (cursorFollow) {
+    if (cursorFollow || cursorFollowRef.current) {
       // eslint-disable-next-line @react-three/no-new-in-loop
-      const target = new THREE.Vector3(state.pointer.x, state.pointer.y, 1);
+      const target = new THREE.Vector3(
+        state.pointer.x * 4,
+        state.pointer.y * 4,
+        1 * 4
+      );
       group.current.getObjectByName('Spine2').lookAt(target);
     }
   });
 
   useEffect(() => {
-    // if (animation === animationOptions.RUNNING_AND_JUMPING) {
-    //   actions[animation].setLoop(THREE.LoopOnce);
-    //   actions[animation].clampWhenFinished = true;
-    // }
+    if (animation === animationOptions.WAVING) {
+      cursorFollowRef.current = true;
+    } else {
+      cursorFollowRef.current = false;
+    }
+  }, [animation]);
+
+  useEffect(() => {
     actions[animation].reset().fadeIn(0.5).play();
 
     return () => {
