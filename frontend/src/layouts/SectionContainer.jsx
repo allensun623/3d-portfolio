@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 export default function SectionContainer({ children }) {
   return (
     <motion.section
-      className='h-screen w-screen p-8 max-w-screen-2xl mx-auto flex flex-row items-start  justify-center'
+      className='h-screen w-screen p-8 max-w-screen-2xl mx-auto'
       // animate={{
       //   scale: [1, 2, 2, 1, 1],
       //   rotate: [0, 0, 270, 270, 0],

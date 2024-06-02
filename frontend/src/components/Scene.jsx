@@ -6,6 +6,7 @@ import { useEffect, useRef, useState, useMemo } from 'react';
 import { sectionTransitAnimations } from '../constants/avatar';
 import SkillBallsScene from './scenes/SkillBallsScene';
 import AboutScene from './scenes/AboutScene';
+import ContactScene from './scenes/ContactScene';
 
 export default function Scene({ section }) {
   // section 0
@@ -21,6 +22,8 @@ export default function Scene({ section }) {
         return <AboutScene />;
       case 2:
         return <SkillBallsScene />;
+      case 3:
+        return <ContactScene />;
       default:
         return null;
     }
@@ -101,8 +104,8 @@ export default function Scene({ section }) {
             // rotateY: Math.PI / 2,
           },
           3: {
-            x: 1,
-            y: -viewport.height * 3 - 2,
+            x: 1.5,
+            y: -viewport.height * 3 - 1,
             z: -viewport.height,
             scaleX: 0.5,
             scaleY: 0.5,

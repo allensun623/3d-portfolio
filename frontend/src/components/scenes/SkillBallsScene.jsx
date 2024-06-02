@@ -22,6 +22,10 @@ export default function About() {
             />
           ))
         : null}
+      <mesh scale={[0.8, 0.4, 0.8]} position-z={1.5}>
+        <icosahedronGeometry />
+        <meshStandardMaterial color='white' />
+      </mesh>
     </motion.group>
   );
 }
