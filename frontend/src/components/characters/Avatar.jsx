@@ -18,6 +18,7 @@ export default function Avatar(props) {
   const group = useRef();
   const selectedAnimations = useMemo(loadAnimations, []);
   const cursorFollowRef = useRef(false);
+  const cursorFollowPartRef = useRef(null);
 
   const { headFollow, cursorFollow, wireframe } = useControls({
     headFollow: false,
@@ -40,16 +41,35 @@ export default function Avatar(props) {
         state.pointer.y * 4,
         1 * 4
       );
-      group.current.getObjectByName('Spine2').lookAt(target);
+      group.current.getObjectByName(cursorFollowPartRef.current).lookAt(target);
     }
   });
 
   useEffect(() => {
-    if (animation === animationOptions.WAVING) {
-      cursorFollowRef.current = true;
-    } else {
+    if (
+      animation !== animationOptions.WAVING &&
+      animation !== animationOptions.SITTING_CROSS_LEGGED
+    ) {
       cursorFollowRef.current = false;
+    } else {
+      cursorFollowRef.current = true;
+      switch (animation) {
+        case animationOptions.WAVING:
+          cursorFollowPartRef.current = 'Spine';
+          break;
+        case animationOptions.SITTING_CROSS_LEGGED:
+          cursorFollowPartRef.current = 'Head';
+          break;
+        default:
+          cursorFollowPartRef.current = null;
+      }
     }
+
+    actions[animation].reset().fadeIn(0.5).play();
+
+    return () => {
+      actions[animation].fadeOut(0.5);
+    };
   }, [animation]);
 
   useEffect(() => {

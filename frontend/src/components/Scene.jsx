@@ -9,12 +9,8 @@ import AboutScene from './scenes/AboutScene';
 import ContactScene from './scenes/ContactScene';
 
 export default function Scene({ section }) {
-  // section 0
-  // const ROTATION_SPEED = 0.3;
-
   const { viewport } = useThree();
   const characterGroup = useRef();
-  const carouselGroup = useRef();
   const [animation, setAnimation] = useState(sectionTransitAnimations[0]);
   const sectionScene = useMemo(() => {
     switch (section) {
@@ -29,37 +25,9 @@ export default function Scene({ section }) {
     }
   }, [section]);
 
-  // const characterPositions = [[-1.5, 0.5, 0], [], [0, -1, 0], []];
-
   useEffect(() => {
     setAnimation(sectionTransitAnimations[section]);
-    if (!carouselGroup.current || !characterGroup.current) return;
-    // switch (section) {
-    //   case 0:
-    //     characterGroup.current.position.set(...characterPositions[section]);
-    //     break;
-    //   case 2:
-    //     carouselGroup.current.rotation.y = 0;
-    //     characterGroup.current.position.set(...characterPositions[section]);
-    //     characterGroup.current.scale.set(2, 2, 2);
-    //     break;
-    // }
   }, [section]);
-  // useFrame(({ clock }) => {
-  //   if (!characterGroup.current) return;
-  //   // section 0 animation
-  //   if (section === 0) {
-  //     // TODO rotate character self axis
-  //     // Calculate the new position based on the rotation
-  //     const angle = clock.getElapsedTime() * ROTATION_SPEED;
-
-  //     const position = getPosition(characterGroup);
-  //     const newX = position.x + Math.cos(angle);
-  //     const newY = position.y; // Keeping y constant for simplicity
-  //     const newZ = position.z + Math.sin(angle);
-  //     characterGroup.current.position.set(newX, newY, newZ);
-  //   }
-  // });
 
   return (
     <>
@@ -113,7 +81,6 @@ export default function Scene({ section }) {
           },
         }}
       >
-        {/* <group ref={characterGroup}> */}
         <motion.group ref={characterGroup} position-z={1.5} position-y={0.25}>
           <Avatar animation={animation} />
         </motion.group>
