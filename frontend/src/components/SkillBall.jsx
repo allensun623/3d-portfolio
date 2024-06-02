@@ -2,7 +2,7 @@ import { Decal, Float, useTexture } from '@react-three/drei';
 import { motion } from 'framer-motion-3d';
 import { useControls } from 'leva';
 
-export default function SkillBall({ skill, position }) {
+export default function SkillBall({ skill, position, isFullStar }) {
   const [decal] = useTexture([skill.iconURL]);
   // TODO remove leva
   const {
@@ -27,23 +27,26 @@ export default function SkillBall({ skill, position }) {
   const variants = {
     hidden: { scale: 0, x: 0, y: 0, z: -10 },
     visible: {
-      scale: 0.2,
+      scale: 0.25,
       x: position[0],
       y: position[1],
       z: position[2],
     },
-    hover: { scale: 0.3 },
+    hover: { scale: 0.4 },
   };
   // TODO hover cursor: pointer
-  //  TODO click: send to tech deck
+  // TODO click: send to tech deck
+  // TODO movement boundary
   return (
-    <Float speed={2} rotationIntensity={1} floatIntensity={2}>
+    <Float
+      speed={0.5}
+      rotationIntensity={isFullStar ? 1 : 0}
+      floatIntensity={isFullStar ? 2 : 0}
+    >
       {/* <ambientLight intensity={0.25} /> */}
       <motion.mesh
         castShadow
         receiveShadow
-        scale={0.2}
-        position={[0, 0, -10]}
         initial='hidden'
         animate='visible'
         whileHover='hover'
