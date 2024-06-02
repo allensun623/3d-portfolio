@@ -29,67 +29,67 @@ export default function Contact() {
     e.preventDefault();
     setLoading(true);
 
-    emailjs
-      .send(
-        import.meta.env.VITE_APP_EMAILJS_SERVICE_ID,
-        import.meta.env.VITE_APP_EMAILJS_TEMPLATE_ID,
-        {
-          from_name: form.name,
-          to_name: 'JavaScript Mastery',
-          from_email: form.email,
-          to_email: '****',
-          message: form.message,
-        },
-        import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY
-      )
-      .then(
-        () => {
-          setLoading(false);
-          alert('Thank you. I will get back to you as soon as possible.');
+    emailjs.send(
+      import.meta.env.VITE_APP_EMAILJS_SERVICE_ID,
+      import.meta.env.VITE_APP_EMAILJS_TEMPLATE_ID,
+      {
+        from_name: form.name,
+        to_name: 'JavaScript Mastery',
+        from_email: form.email,
+        to_email: '****',
+        message: form.message,
+      },
+      import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY
+    );
+    // .then(
+    //   () => {
+    //     setLoading(false);
+    //     // TODO rewrite the action
+    //     // alert('Thank you. I will get back to you as soon as possible.');
 
-          setForm({
-            name: '',
-            email: '',
-            message: '',
-          });
-        },
-        (error) => {
-          setLoading(false);
-          console.error(error);
-
-          alert('Ahh, something went wrong. Please try again.');
-        }
-      );
+    //     setForm({
+    //       name: '',
+    //       email: '',
+    //       message: '',
+    //     });
+    //   },
+    //   (error) => {
+    //     setLoading(false);
+    //     console.error(error);
+    //     // TODO rewrite the action
+    //     // alert('Ahh, something went wrong. Please try again.');
+    //   },
+    // );
   };
 
   const fields = [
     {
       component: 'input',
-      label: 'Your name',
+      label: '👤',
       props: {
         type: 'text',
         name: 'name',
         value: form.name,
-        placeholder: "What's your name?",
+        placeholder: '🄽🄰🄼🄴',
       },
     },
     {
       component: 'input',
-      label: 'Your email',
+      label: '📧',
       props: {
         type: 'email',
         name: 'email',
         value: form.email,
-        placeholder: "What's your email?",
+        placeholder: '🄴🄼🄰🄸🄻',
       },
     },
     {
       component: 'textarea',
-      label: 'Your message',
+      label: '💬',
       props: {
         name: 'message',
         value: form.message,
-        placeholder: 'What do you want to say?',
+        placeholder: '🄼🄴🅂🅂🄰🄶🄴',
         rows: 7,
       },
     },
