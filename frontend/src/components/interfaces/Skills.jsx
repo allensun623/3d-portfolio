@@ -1,4 +1,4 @@
-import SectionContainer from '../layouts/SectionContainer';
+import SectionContainer from '../../layouts/SectionContainer';
 import { motion } from 'framer-motion';
 
 export default function Skills() {

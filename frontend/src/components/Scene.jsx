@@ -1,13 +1,11 @@
 import { motion } from 'framer-motion-3d';
-import { useFrame, useThree } from '@react-three/fiber';
+import { useThree } from '@react-three/fiber';
 import { Environment, Sky, ContactShadows } from '@react-three/drei';
-import Avatar from './Avatar';
-import { useEffect, useRef, useState } from 'react';
-import {
-  animationOptions,
-  sectionTransitAnimations,
-} from '../constants/avatar';
-import SkillBallsScene from './SkillBallsScene';
+import Avatar from './characters/Avatar';
+import { useEffect, useRef, useState, useMemo } from 'react';
+import { sectionTransitAnimations } from '../constants/avatar';
+import SkillBallsScene from './scenes/SkillBallsScene';
+import AboutScene from './scenes/AboutScene';
 
 export default function Scene({ section }) {
   // section 0
@@ -16,8 +14,17 @@ export default function Scene({ section }) {
   const { viewport } = useThree();
   const characterGroup = useRef();
   const carouselGroup = useRef();
-  const skillBallsGroup = useRef();
   const [animation, setAnimation] = useState(sectionTransitAnimations[0]);
+  const sectionScene = useMemo(() => {
+    switch (section) {
+      case 0:
+        return <AboutScene />;
+      case 2:
+        return <SkillBallsScene />;
+      default:
+        return null;
+    }
+  }, [section]);
 
   // const characterPositions = [[-1.5, 0.5, 0], [], [0, -1, 0], []];
 
@@ -50,12 +57,6 @@ export default function Scene({ section }) {
   //     characterGroup.current.position.set(newX, newY, newZ);
   //   }
   // });
-
-  useFrame(() => {
-    if (carouselGroup && section === 0) {
-      carouselGroup.current.rotation.y += 0.005;
-    }
-  });
 
   return (
     <>
@@ -113,23 +114,7 @@ export default function Scene({ section }) {
         <motion.group ref={characterGroup} position-z={1.5} position-y={0.25}>
           <Avatar animation={animation} />
         </motion.group>
-        {section === 0 &&
-        sectionTransitAnimations[section] === animationOptions.SITTING ? (
-          <mesh scale={[0.8, 0.4, 0.8]} position-z={1.5}>
-            <icosahedronGeometry />
-            <meshStandardMaterial color='white' />
-          </mesh>
-        ) : null}
-        {/* </group> */}
-        <motion.group ref={carouselGroup}>
-          <mesh scale={5} rotation-x={-Math.PI * 0.5} position-y={-0.001}>
-            {section === 0 ? <planeGeometry /> : null}
-            <meshStandardMaterial color='white' />
-          </mesh>
-        </motion.group>
-        <motion.group ref={skillBallsGroup}>
-          ({section === 2 ? <SkillBallsScene /> : null})
-        </motion.group>
+        {sectionScene}
       </motion.group>
     </>
   );

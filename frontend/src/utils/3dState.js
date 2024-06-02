@@ -26,6 +26,7 @@ function getRandomArbitrary(min, max) {
   return Math.random() * (max - min) + min;
 }
 
+// TODO generate skill balls based on viewpoint
 /**
  * generate a list of random positions, z is based on skill score
  * @returns positions - a list of positions [[x, y, z]]

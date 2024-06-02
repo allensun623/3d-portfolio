@@ -7,8 +7,11 @@ import { useGLTF, useAnimations } from '@react-three/drei';
 import { useFrame } from '@react-three/fiber';
 import { useControls } from 'leva';
 import * as THREE from 'three';
-import { loadAnimations, preloadAnimations } from '../utils/avatarAnimations';
-import { animationOptions } from '../constants/avatar';
+import {
+  loadAnimations,
+  preloadAnimations,
+} from '../../utils/avatarAnimations';
+import { animationOptions } from '../../constants/avatar';
 
 export default function Avatar(props) {
   const { animation } = props;

@@ -1,6 +1,7 @@
+import { motion } from 'framer-motion-3d';
 import SkillBall from './SkillBall';
-import { skills } from '../constants/skills';
-import { generateSkillBallPositions } from '../utils/3dState';
+import { skills } from '../../constants/skills';
+import { generateSkillBallPositions } from '../../utils/3dState';
 import { useState, useEffect } from 'react';
 
 export default function About() {
@@ -10,7 +11,7 @@ export default function About() {
   }, []);
 
   return (
-    <>
+    <motion.group>
       {positions
         ? skills.map((s, idx) => (
             <SkillBall
@@ -21,6 +22,6 @@ export default function About() {
             />
           ))
         : null}
-    </>
+    </motion.group>
   );
 }

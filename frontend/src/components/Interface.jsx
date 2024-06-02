@@ -1,7 +1,7 @@
-import About from './About';
-import Contact from './Contact';
-import Skills from './Skills';
-import Project from './Project';
+import About from './interfaces/About';
+import Contact from './interfaces/Contact';
+import Skills from './interfaces/Skills';
+import Project from './interfaces/Project';
 
 export default function Interface() {
   return (
