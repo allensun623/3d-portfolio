@@ -64,7 +64,6 @@ export default function Avatar(props) {
           cursorFollowPartRef.current = null;
       }
     }
-
     actions[animation].reset().fadeIn(0.5).play();
 
     return () => {

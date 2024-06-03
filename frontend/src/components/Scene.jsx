@@ -1,21 +1,16 @@
 import { motion } from 'framer-motion-3d';
 import { useThree } from '@react-three/fiber';
 import { Environment, Sky, ContactShadows } from '@react-three/drei';
-import Avatar from './characters/Avatar';
-import { useEffect, useRef, useState, useMemo } from 'react';
-import { sectionTransitAnimations } from '../constants/avatar';
+import { useMemo } from 'react';
 import SkillBallsScene from './scenes/SkillBallsScene';
-import AboutScene from './scenes/AboutScene';
+import MainScene from './scenes/MainScene';
 import ContactScene from './scenes/ContactScene';
+import CharacterScene from './scenes/CharacterScene';
 
 export default function Scene({ section }) {
   const { viewport } = useThree();
-  const characterGroup = useRef();
-  const [animation, setAnimation] = useState(sectionTransitAnimations[0]);
   const sectionScene = useMemo(() => {
     switch (section) {
-      case 0:
-        return <AboutScene />;
       case 2:
         return <SkillBallsScene />;
       case 3:
@@ -23,10 +18,6 @@ export default function Scene({ section }) {
       default:
         return null;
     }
-  }, [section]);
-
-  useEffect(() => {
-    setAnimation(sectionTransitAnimations[section]);
   }, [section]);
 
   return (
@@ -81,9 +72,8 @@ export default function Scene({ section }) {
           },
         }}
       >
-        <motion.group ref={characterGroup} position-z={1.5} position-y={0.25}>
-          <Avatar animation={animation} />
-        </motion.group>
+        <CharacterScene section={section} />
+        <MainScene section={section} />
         {sectionScene}
       </motion.group>
     </>
