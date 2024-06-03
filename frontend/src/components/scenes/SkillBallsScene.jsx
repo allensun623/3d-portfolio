@@ -6,9 +6,17 @@ import { useState, useEffect } from 'react';
 
 export default function About() {
   const [positions, setPositions] = useState();
+  const [fourStarScale, setFourStarScale] = useState(0.2);
+
   useEffect(() => {
     setPositions(generateSkillBallPositions());
   }, []);
+
+  const handleTapBall = (score) => {
+    setTimeout(() => {
+      setFourStarScale((prev) => prev + score / 5000);
+    }, 1500);
+  };
 
   return (
     <motion.group>
@@ -18,7 +26,10 @@ export default function About() {
               key={s.name}
               skill={s}
               position={positions[idx]}
-              isFullStar={idx > 0}
+              isFullStar={idx === 0}
+              fullStarPosition={positions[0]}
+              onTapBall={(score) => handleTapBall(score)}
+              fourStarScale={fourStarScale}
             />
           ))
         : null}
