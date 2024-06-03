@@ -48,6 +48,7 @@ const sectionTransitAnimations = [
   animationOptions.WALKING,
   animationOptions.SITTING_CROSS_LEGGED,
   animationOptions.WAVING,
+  animationOptions.SITTING,
 ];
 
 export {

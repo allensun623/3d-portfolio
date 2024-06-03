@@ -12,9 +12,9 @@ export default function Scene({ section }) {
   const sectionScene = useMemo(() => {
     switch (section) {
       case 2:
-        return <SkillBallsScene />;
+        return <SkillBallsScene viewport={viewport} />;
       case 3:
-        return <ContactScene />;
+        return <ContactScene viewport={viewport} />;
       default:
         return null;
     }
@@ -33,47 +33,9 @@ export default function Scene({ section }) {
         resolution={256}
         color='#000000'
       />
-      <motion.group
-        position={[0, 0, 0]}
-        animate={`${section}`}
-        transition={{
-          duration: 1,
-          delay: 0.6,
-        }}
-        // avatar state on each section
-        variants={{
-          0: {
-            scaleX: 0.5,
-            scaleY: 0.5,
-            scaleZ: 0.5,
-            y: 0,
-          },
-          1: {
-            x: 0,
-            y: -viewport.height - 1,
-            z: -viewport.height,
-            scaleX: 0.5,
-            scaleY: 0.5,
-            scaleZ: 0.5,
-          },
-          2: {
-            x: 0,
-            y: (-viewport.height - 1) * 2,
-            z: -viewport.height,
-            // rotateY: Math.PI / 2,
-          },
-          3: {
-            x: 1.5,
-            y: -viewport.height * 3 - 1,
-            z: -viewport.height,
-            scaleX: 0.5,
-            scaleY: 0.5,
-            scaleZ: 0.5,
-          },
-        }}
-      >
-        <CharacterScene section={section} />
-        <MainScene section={section} />
+      <motion.group>
+        <CharacterScene section={section} viewport={viewport} />
+        <MainScene section={section} viewport={viewport} />
         {sectionScene}
       </motion.group>
     </>

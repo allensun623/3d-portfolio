@@ -4,7 +4,7 @@ import { skills } from '../../constants/skills';
 import { generateSkillBallPositions } from '../../utils/3dState';
 import { useState, useEffect } from 'react';
 
-export default function About() {
+export default function SkillBallsScene({ viewport }) {
   const [positions, setPositions] = useState();
   const [fourStarScale, setFourStarScale] = useState(0.2);
 
@@ -19,7 +19,9 @@ export default function About() {
   };
 
   return (
-    <motion.group>
+    <motion.group
+      position={[1.5, (-viewport.height - 1) * 2 - 1, -viewport.height]}
+    >
       {positions
         ? skills.map((s, idx) => (
             <SkillBall
