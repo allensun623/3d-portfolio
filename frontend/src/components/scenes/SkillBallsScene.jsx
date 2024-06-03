@@ -19,9 +19,7 @@ export default function SkillBallsScene({ viewport }) {
   };
 
   return (
-    <motion.group
-      position={[1.5, (-viewport.height - 1) * 2 - 1, -viewport.height]}
-    >
+    <motion.group position={[0, (-viewport.height - 1) * 2, -viewport.height]}>
       {positions
         ? skills.map((s, idx) => (
             <SkillBall
@@ -35,10 +33,6 @@ export default function SkillBallsScene({ viewport }) {
             />
           ))
         : null}
-      <mesh scale={[0.8, 0.4, 0.8]} position-z={1.5}>
-        <icosahedronGeometry />
-        <meshStandardMaterial color='white' />
-      </mesh>
     </motion.group>
   );
 }

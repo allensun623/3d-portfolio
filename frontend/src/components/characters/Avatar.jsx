@@ -47,11 +47,11 @@ export default function Avatar(props) {
 
   useEffect(() => {
     if (
-      animation !== animationOptions.WAVING &&
-      animation !== animationOptions.SITTING_CROSS_LEGGED
+      new Set([
+        animationOptions.WAVING,
+        animationOptions.SITTING_CROSS_LEGGED,
+      ]).has(animation)
     ) {
-      cursorFollowRef.current = false;
-    } else {
       cursorFollowRef.current = true;
       switch (animation) {
         case animationOptions.WAVING:
@@ -63,6 +63,8 @@ export default function Avatar(props) {
         default:
           cursorFollowPartRef.current = null;
       }
+    } else {
+      cursorFollowRef.current = false;
     }
     actions[animation].reset().fadeIn(0.5).play();
 

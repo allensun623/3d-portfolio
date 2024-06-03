@@ -105,7 +105,9 @@ export default function SkillBall({
       x: fullStarPosition[0],
       y: fullStarPosition[1],
       z: fullStarPosition[2],
-      rotate: Math.PI / 2,
+      rotateX: Math.PI / 2,
+      rotateY: Math.PI / 2,
+      rotateZ: Math.PI / 2,
     },
   };
 
