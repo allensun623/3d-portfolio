@@ -1,6 +1,7 @@
 import { useRef } from 'react';
 import { motion } from 'framer-motion-3d';
 import ContactScene from './ContactScene';
+import ExperienceScene from './ExperienceScene';
 
 export default function MainScene({ section, viewport }) {
   const carouselGroup = useRef();
@@ -11,6 +12,8 @@ export default function MainScene({ section, viewport }) {
       <meshStandardMaterial color={color} />
     </mesh>
   );
+
+  const inIsViewSection = (v) => section === v;
 
   return (
     <motion.group
@@ -55,17 +58,7 @@ export default function MainScene({ section, viewport }) {
       }}
     >
       <motion.group position={[-2, 0, -4]}>
-        {[
-          [-2, 1.5, 2],
-          [2, 1.5, 2],
-          [-2, 1.5, -2],
-          [2, 1.5, -2],
-        ].map((p, idx) => (
-          <mesh key={idx} scale={1} rotation-x={-Math.PI * 0.5} position={p}>
-            <torusGeometry />
-            <meshStandardMaterial color='white' />
-          </mesh>
-        ))}
+        <ExperienceScene isInView={inIsViewSection(1)} />
         {islandBase('blue')}
       </motion.group>
 
@@ -82,7 +75,7 @@ export default function MainScene({ section, viewport }) {
       </motion.group>
 
       <motion.group position={[-4, -3, 2]}>
-        <ContactScene isInView={section === 3} />
+        <ContactScene isInView={inIsViewSection(3)} />
         {islandBase('white')}
       </motion.group>
 

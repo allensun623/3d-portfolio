@@ -29,10 +29,11 @@ export default function CharacterScene({ section, viewport }) {
           rotateY: Math.PI / 2,
         },
         1: {
-          x: 0,
+          x: 1,
           y: -viewport.height - 1,
           z: -viewport.height,
           scale: 0.5,
+          rotateY: Math.PI / 2,
         },
         2: {
           x: 0,

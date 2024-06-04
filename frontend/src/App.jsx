@@ -23,7 +23,7 @@ export default function App() {
             <Scene section={section} />
           </Scroll>
           <Scroll html>
-            <Interface />
+            <Interface section={section} />
           </Scroll>
         </ScrollControls>
       </Canvas>

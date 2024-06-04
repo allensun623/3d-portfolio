@@ -11,16 +11,28 @@ export default function ContactScene({ isInView }) {
           y: 2,
         },
       }}
-      transition={{ delay: 1.5 }}
+      transition={{ delay: 2.6 }}
     >
-      <mesh scale={0.5} position-y={0.5}>
+      <motion.mesh
+        position-y={1.5}
+        scale={3}
+        animate={isInView ? 'inView' : 'init'}
+        variants={{
+          init: { scale: 3 },
+          inView: {
+            scale: 0.5,
+            y: 0.5,
+          },
+        }}
+        transition={{ delay: 1.5, duration: 1 }}
+      >
         <boxGeometry />
         <meshStandardMaterial color='white' />
-      </mesh>
-      <mesh scale={0.5}>
+      </motion.mesh>
+      <motion.mesh scale={0.5}>
         <cylinderGeometry args={[0.25, 0.25, 2]} />
         <meshStandardMaterial color='white' />
-      </mesh>
+      </motion.mesh>
     </motion.group>
   );
 }

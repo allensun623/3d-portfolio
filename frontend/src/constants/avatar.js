@@ -7,29 +7,8 @@ const animationOptions = Object.freeze({
   WAVING: 'Waving',
   SITTING_CROSS_LEGGED: 'Sitting Cross-legged',
   WALKING: 'Walking',
+  LOOKING: 'Looking',
 });
-
-const animationModelNames = Object.freeze({
-  [animationOptions.TYPING]: 'Typing animation',
-  [animationOptions.STANDING]: 'Standing Idle',
-  [animationOptions.FALLING]: 'Falling Idle',
-  [animationOptions.SITTING]: 'Sitting Idle',
-  [animationOptions.RUNNING_AND_JUMPING]: 'Running Jump',
-  [animationOptions.WAVING]: 'Waving',
-  [animationOptions.SITTING_CROSS_LEGGED]: 'Sitting Cross-legged',
-  [animationOptions.WALKING]: 'Walking',
-});
-
-// { animation: full path }
-const animationModelPaths = Object.freeze(
-  Object.entries(animationModelNames).reduce(
-    (pre, [id, name]) => ({
-      ...pre,
-      [id]: `animations/${name}.fbx`,
-    }),
-    {}
-  )
-);
 
 // animations used in the scene
 const selectedAnimations = Object.freeze([
@@ -40,20 +19,16 @@ const selectedAnimations = Object.freeze([
   animationOptions.WAVING,
   animationOptions.STANDING,
   animationOptions.WALKING,
+  animationOptions.LOOKING,
 ]);
 
 // transition animation in the order of section
 const sectionTransitAnimations = [
   animationOptions.SITTING,
-  animationOptions.WALKING,
+  animationOptions.LOOKING,
   animationOptions.SITTING_CROSS_LEGGED,
   animationOptions.WAVING,
   animationOptions.SITTING,
 ];
 
-export {
-  animationOptions,
-  animationModelPaths,
-  selectedAnimations,
-  sectionTransitAnimations,
-};
+export { animationOptions, selectedAnimations, sectionTransitAnimations };

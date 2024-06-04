@@ -1,14 +1,14 @@
 import About from './interfaces/About';
 import Contact from './interfaces/Contact';
 import Skills from './interfaces/Skills';
-import Project from './interfaces/Experience';
+import Experience from './interfaces/Experience';
 import RIP from './interfaces/RIP';
 
-export default function Interface() {
+export default function Interface({ section }) {
   return (
     <div className='w-screen flex flex-col items-start'>
       <About />
-      <Project />
+      <Experience isInView={section === 1} />
       <Skills />
       <Contact />
       <RIP />
