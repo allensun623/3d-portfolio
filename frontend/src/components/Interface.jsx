@@ -1,7 +1,7 @@
 import About from './interfaces/About';
 import Contact from './interfaces/Contact';
 import Skills from './interfaces/Skills';
-import Project from './interfaces/Project';
+import Project from './interfaces/Experience';
 import RIP from './interfaces/RIP';
 
 export default function Interface() {

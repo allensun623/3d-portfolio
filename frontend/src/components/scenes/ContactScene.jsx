@@ -1,14 +1,26 @@
-export default function ContactScene() {
+import { motion } from 'framer-motion-3d';
+
+export default function ContactScene({ isInView }) {
   return (
-    <>
-      {/* <mesh scale={[0.8, 0.4, 0.8]} position={[-1.2, 2, 1]}>
-        <icosahedronGeometry />
-        <meshStandardMaterial color='white' />
-      </mesh> */}
-      {/* <mesh scale={[1, 2, 1]} position-z={1.5} position-y={-0.75}>
+    <motion.group
+      position-y={0.75}
+      animate={isInView ? 'inView' : 'init'}
+      variants={{
+        init: {},
+        inView: {
+          y: 2,
+        },
+      }}
+      transition={{ delay: 1.5 }}
+    >
+      <mesh scale={0.5} position-y={0.5}>
         <boxGeometry />
         <meshStandardMaterial color='white' />
-      </mesh> */}
-    </>
+      </mesh>
+      <mesh scale={0.5}>
+        <cylinderGeometry args={[0.25, 0.25, 2]} />
+        <meshStandardMaterial color='white' />
+      </mesh>
+    </motion.group>
   );
 }

@@ -2,7 +2,7 @@ import SectionContainer from '@/layouts/SectionContainer';
 import { motion } from 'framer-motion';
 // import './styles.css';
 
-export default function Project() {
+export default function Experience() {
   return (
     <SectionContainer>
       <motion.div
@@ -17,7 +17,7 @@ export default function Project() {
         //   repeatDelay: 1,
         // }}
       ></motion.div>
-      Projects
+      Experiences
     </SectionContainer>
   );
 }

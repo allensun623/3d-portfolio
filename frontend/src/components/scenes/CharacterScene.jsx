@@ -24,18 +24,15 @@ export default function CharacterScene({ section, viewport }) {
       }}
       variants={{
         0: {
-          scaleX: 0.5,
-          scaleY: 0.5,
-          scaleZ: 0.5,
+          scale: 0.25,
           y: 0.5,
+          rotateY: Math.PI / 2,
         },
         1: {
           x: 0,
           y: -viewport.height - 1,
           z: -viewport.height,
-          scaleX: 0.5,
-          scaleY: 0.5,
-          scaleZ: 0.5,
+          scale: 0.5,
         },
         2: {
           x: 0,
@@ -45,19 +42,15 @@ export default function CharacterScene({ section, viewport }) {
         },
         3: {
           x: 1.5,
-          y: -viewport.height * 3 - 1,
+          y: -viewport.height * 3 - 0.75,
           z: -viewport.height,
-          scaleX: 0.5,
-          scaleY: 0.5,
-          scaleZ: 0.5,
+          scale: 0.5,
         },
         4: {
           x: 0,
           y: -viewport.height * 4 - 1,
           z: -viewport.height,
-          scaleX: 0.5,
-          scaleY: 0.5,
-          scaleZ: 0.5,
+          scale: 0.5,
           rotateY: Math.PI / 2,
         },
       }}
@@ -86,7 +79,7 @@ export default function CharacterScene({ section, viewport }) {
           }}
         >
           <icosahedronGeometry />
-          <meshStandardMaterial color='white' />
+          <meshStandardMaterial color='yellow' />
         </motion.mesh>
       ) : null}
     </motion.group>

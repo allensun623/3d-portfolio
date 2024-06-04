@@ -1,7 +1,7 @@
 import SectionContainer from '../../layouts/SectionContainer';
 import { useRef, useState } from 'react';
 import { motion } from 'framer-motion';
-import emailjs from '@emailjs/browser';
+// import emailjs from '@emailjs/browser';
 
 import { slideIn } from '../../utils/motion';
 
@@ -29,18 +29,18 @@ export default function Contact() {
     e.preventDefault();
     setLoading(true);
 
-    emailjs.send(
-      import.meta.env.VITE_APP_EMAILJS_SERVICE_ID,
-      import.meta.env.VITE_APP_EMAILJS_TEMPLATE_ID,
-      {
-        from_name: form.name,
-        to_name: 'JavaScript Mastery',
-        from_email: form.email,
-        to_email: '****',
-        message: form.message,
-      },
-      import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY
-    );
+    // emailjs.send(
+    //   import.meta.env.VITE_APP_EMAILJS_SERVICE_ID,
+    //   import.meta.env.VITE_APP_EMAILJS_TEMPLATE_ID,
+    //   {
+    //     from_name: form.name,
+    //     to_name: 'JavaScript Mastery',
+    //     from_email: form.email,
+    //     to_email: '****',
+    //     message: form.message,
+    //   },
+    //   import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY
+    // );
     // .then(
     //   () => {
     //     setLoading(false);
@@ -98,9 +98,9 @@ export default function Contact() {
   // TODO get in touch from my mouth, 筋斗云变成了get in touch
   return (
     <SectionContainer>
-      <div className='w-[50vw] p-10'>
+      <div className='w-[50%] p-10'>
         <div
-          className={`xl:mt-12 flex xl:flex-row flex-col-reverse gap-10 overflow-hidden bg-slate-200 rounded-xl`}
+          className={`xl:mt-12 flex flex-col-reverse gap-10 overflow-hidden bg-slate-200 rounded-xl`}
         >
           <motion.div
             variants={slideIn('left', 'tween', 0.2, 1)}
