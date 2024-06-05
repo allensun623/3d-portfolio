@@ -2,6 +2,8 @@ import { useRef } from 'react';
 import { motion } from 'framer-motion-3d';
 import ContactScene from './ContactScene';
 import ExperienceScene from './ExperienceScene';
+import { Model as IslandWinterModel } from '../models/IslandWinterModel';
+import { Model as IslandSummerModel } from '../models/IslandSummerModel';
 
 export default function MainScene({ section, viewport }) {
   const carouselGroup = useRef();
@@ -13,7 +15,7 @@ export default function MainScene({ section, viewport }) {
     </mesh>
   );
 
-  const inIsViewSection = (v) => section === v;
+  const isSectionInView = (v) => section === v;
 
   return (
     <motion.group
@@ -34,9 +36,18 @@ export default function MainScene({ section, viewport }) {
           },
         },
         1: {
-          x: 2,
-          y: -viewport.height - 2.5,
+          x: 3.5,
+          y: -viewport.height - 3.75,
           z: 2 - viewport.height,
+          rotateX: Math.PI / 14,
+          scale: 2,
+          // x: [15, -5, 1],
+          // y: [-10, -10, -7.5],
+          // z: [0, 0, 0],
+          // scaleX: [10, 10, 1],
+          // scaleY: [10, 10, 1],
+          // scaleZ: [10, 10, 1],
+          // transition: { times: [0, 0.8, 1], duration: 5, delay: 2 },
         },
         2: {
           x: -3,
@@ -44,10 +55,11 @@ export default function MainScene({ section, viewport }) {
           z: -viewport.height - 3,
         },
         3: {
-          x: -0.5,
-          y: -viewport.height * 3 - 0.25,
-          z: -viewport.height - 4,
+          x: -2.5,
+          y: -viewport.height * 3 + 2.9,
+          z: -viewport.height * 3 - 2.5,
           rotateY: Math.PI / 2,
+          scale: 2,
         },
         4: {
           x: -3,
@@ -57,9 +69,27 @@ export default function MainScene({ section, viewport }) {
         },
       }}
     >
-      <motion.group position={[-2, 0, -4]}>
-        <ExperienceScene isInView={inIsViewSection(1)} />
-        {islandBase('blue')}
+      {/* Experience Scene Summer */}
+      <motion.group
+        position={[-2, 0, -4]}
+        // animate={isSectionInView(1) ? 'inView' : 'init'}
+        // variants={{
+        //   init: { x: -3.5, y: 0, z: -viewport.height - 2, scale: 1 },
+        //   inView: {
+        //     x: [5, -5, 0],
+        //     y: [0, 0, 0],
+        //     z: [0, 0, 0],
+        //     scaleX: [5, 5, 0.75],
+        //     scaleY: [5, 5, 0.75],
+        //     scaleZ: [5, 5, 0.75],
+        //     transition: { times: [0, 0.8, 1], duration: 5, delay: 1.5 },
+        //   },
+        // }}
+      >
+        <motion.group position-y={-1.35}>
+          <ExperienceScene isInView={isSectionInView(1)} />
+        </motion.group>
+        <IslandSummerModel scale={2} />
       </motion.group>
 
       <motion.group position={[4, -1.5, 2]}>
@@ -74,9 +104,10 @@ export default function MainScene({ section, viewport }) {
         {islandBase('orange')}
       </motion.group>
 
-      <motion.group position={[-4, -3, 2]}>
-        <ContactScene isInView={inIsViewSection(3)} />
-        {islandBase('white')}
+      {/* Contact Scene Winter */}
+      <motion.group position={[-4, -3, 2]} rotation-y={Math.PI}>
+        <ContactScene isInView={isSectionInView(3)} />
+        <IslandWinterModel scale={2} />
       </motion.group>
 
       <motion.group position={[2, -4, -4]}>

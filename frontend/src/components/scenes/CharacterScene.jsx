@@ -2,21 +2,19 @@ import { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion-3d';
 import { sectionTransitAnimations } from '../../constants/character';
 import Character from '../models/CharacterModel';
+import CloudScene from './CloudScene';
 
 export default function CharacterScene({ section, viewport }) {
   const [animation, setAnimation] = useState(sectionTransitAnimations[0]);
   const characterGroup = useRef();
-  const [showCloud, setShowCloud] = useState(true);
 
   useEffect(() => {
     setAnimation(sectionTransitAnimations[section]);
-    setShowCloud(new Set([0, 2, 3, 4]).has(section));
   }, [section]);
-
+  // TODO flying animations
   return (
     <motion.group
       ref={characterGroup}
-      position={[0, 0.25, 2.5]}
       animate={`${section}`}
       transition={{
         duration: 1,
@@ -24,16 +22,28 @@ export default function CharacterScene({ section, viewport }) {
       }}
       variants={{
         0: {
-          scale: 0.25,
-          y: 0.5,
+          scale: 0.5,
+          x: 0,
+          y: 0,
+          z: 0,
           rotateY: Math.PI / 2,
         },
         1: {
-          x: 1,
-          y: -viewport.height - 1,
-          z: -viewport.height,
-          scale: 0.5,
-          rotateY: Math.PI / 2,
+          // x: 1,
+          // y: -viewport.height * 2,
+          // z: -viewport.height + 1,
+          // scale: 0.5,
+          scale: [0.25, 0.25],
+          rotateY: [Math.PI / 2, Math.PI / 2],
+          x: [-3, 1],
+          y: [-viewport.height - 1.5, -viewport.height - 1.5],
+          z: [-viewport.height - 3, -viewport.height - 3],
+          transition: {
+            times: [0, 1],
+            duration: 5,
+            type: 'linear',
+            delay: 1.5,
+          },
         },
         2: {
           x: 0,
@@ -57,32 +67,9 @@ export default function CharacterScene({ section, viewport }) {
       }}
     >
       <Character animation={animation} position-y={0.5} />
-      {showCloud ? (
-        <motion.mesh
-          scale={[0.8, 0.4, 0.8]}
-          animate={`${section}`}
-          transition={{
-            duration: 1,
-            delay: 0.6,
-          }}
-          variants={{
-            0: {},
-            1: {},
-            2: {
-              rotateY: Math.PI / 2,
-            },
-            3: {
-              x: -1.5,
-              y: 2.5,
-              rotationX: Math.PI,
-            },
-            4: {},
-          }}
-        >
-          <icosahedronGeometry />
-          <meshStandardMaterial color='yellow' />
-        </motion.mesh>
-      ) : null}
+      {/* Cloud */}
+      <CloudScene section={section} />
     </motion.group>
   );
 }
+
