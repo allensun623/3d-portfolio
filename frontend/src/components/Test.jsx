@@ -2,10 +2,10 @@ import { useRef, useState } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
 import * as THREE from 'three';
-import Avatar from './Avatar';
-import { animationOptions } from '../constants/avatar';
+import Character from './Character';
+import { animationOptions } from '../constants/character';
 
-const Character = ({ points }) => {
+const CharacterAnimation = ({ points }) => {
   const characterRef = useRef();
   const [progress, setProgress] = useState(0);
 
@@ -17,7 +17,9 @@ const Character = ({ points }) => {
       setProgress(0);
     }
 
+    // eslint-disable-next-line @react-three/no-new-in-loop
     const point = new THREE.Vector3();
+    // eslint-disable-next-line @react-three/no-new-in-loop
     const curve = new THREE.CatmullRomCurve3(points);
     curve.getPointAt(progress, point);
     characterRef.current.position.copy(point);
@@ -25,7 +27,7 @@ const Character = ({ points }) => {
 
   return (
     <mesh ref={characterRef}>
-      <Avatar animation={animationOptions.WALKING} />
+      <CharacterAnimation animation={animationOptions.WALKING} />
     </mesh>
   );
 };

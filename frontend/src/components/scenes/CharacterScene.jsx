@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion-3d';
-import { sectionTransitAnimations } from '../../constants/avatar';
-import Avatar from '../characters/Avatar';
+import { sectionTransitAnimations } from '../../constants/character';
+import Character from '../models/CharacterModel';
 
 export default function CharacterScene({ section, viewport }) {
   const [animation, setAnimation] = useState(sectionTransitAnimations[0]);
@@ -56,7 +56,7 @@ export default function CharacterScene({ section, viewport }) {
         },
       }}
     >
-      <Avatar animation={animation} position-y={0.5} />
+      <Character animation={animation} position-y={0.5} />
       {showCloud ? (
         <motion.mesh
           scale={[0.8, 0.4, 0.8]}

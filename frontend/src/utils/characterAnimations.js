@@ -1,5 +1,5 @@
 import { useFBX } from '@react-three/drei';
-import { selectedAnimations } from '../constants/avatar';
+import { selectedAnimations } from '../constants/character';
 
 /**
  * all animations must be in the folder 'public/animations'

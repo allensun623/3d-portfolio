@@ -10,10 +10,12 @@ import * as THREE from 'three';
 import {
   loadAnimations,
   preloadAnimations,
-} from '../../utils/avatarAnimations';
-import { animationOptions } from '../../constants/avatar';
+} from '../../utils/characterAnimations';
+import { animationOptions } from '../../constants/character';
 
-export default function Avatar(props) {
+// TODO remove leva related: camera, wireframe, etc.
+
+export default function CharacterModel(props) {
   const { animation } = props;
   const group = useRef();
   const selectedAnimations = useMemo(loadAnimations, []);
@@ -26,7 +28,7 @@ export default function Avatar(props) {
     wireframe: false,
   });
 
-  const { nodes, materials } = useGLTF('models/Avatar.glb');
+  const { nodes, materials } = useGLTF('models/Character.glb');
 
   const { actions } = useAnimations(selectedAnimations, group);
 
