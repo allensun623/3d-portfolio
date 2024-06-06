@@ -1,5 +1,4 @@
 import { Decal, Float, useTexture } from '@react-three/drei';
-import { useFrame } from '@react-three/fiber';
 import { motion } from 'framer-motion-3d';
 import { useControls } from 'leva';
 import { useState, useEffect } from 'react';

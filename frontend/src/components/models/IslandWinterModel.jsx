@@ -13,7 +13,7 @@ export function Model(props) {
         receiveShadow
         geometry={nodes.Cylinder.geometry}
         material={materials['brown.trunk']}
-        position={[-0.933, 0.215, -1.093]}
+        position={[-1.58, 0.138, 0.697]}
         scale={[0.638, 0.581, 0.638]}
       >
         <mesh

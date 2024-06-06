@@ -27,7 +27,7 @@ export default function App() {
           </Scroll>
         </ScrollControls>
       </Canvas>
-      {/* <Leva hidden /> */}
+      <Leva hidden />
     </>
   );
 }
