@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion-3d';
-import { Model as IslandFall } from '../models/IslandFalModel';
+import { Model as IslandFall } from '../models/IslandFallModel';
 import SkillBallsScene from './SkillBallsScene';
 import { useControls } from 'leva';
 

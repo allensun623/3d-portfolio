@@ -29,10 +29,12 @@ export default function ContactScene({ isInView }) {
           }}
           transition={{ delay: 1.5, duration: 1 }}
         >
-          <HouseModel />
+          <motion.group rotation-y={-Math.PI / 2}>
+            <HouseModel />
+          </motion.group>
         </motion.mesh>
         <motion.mesh scale={0.5}>
-          <cylinderGeometry args={[0.2, 0.2, 2]} />
+          <cylinderGeometry args={[0.1, 0.1, 2]} />
           <meshStandardMaterial color='white' />
         </motion.mesh>
       </motion.group>

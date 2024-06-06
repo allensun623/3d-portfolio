@@ -94,7 +94,7 @@ export function Model(props) {
         geometry={nodes.Icosphere007.geometry}
         material={materials['tree.red']}
         position={[0.064, 1.661, 0.587]}
-        rotation={[-2.52, 0.673, -2.615]}
+        rotation={[1.128, 0.127, -2.713]}
         scale={[0.248, 0.168, 0.248]}
       />
       <mesh
@@ -147,7 +147,7 @@ export function Model(props) {
         receiveShadow
         geometry={nodes.Icosphere013.geometry}
         material={materials['tree.red']}
-        position={[0.517, 0.958, 0.184]}
+        position={[0.565, 0.997, 0.21]}
         rotation={[-0.606, 1.111, 1.843]}
         scale={[0.232, 0.157, 0.232]}
       />
@@ -165,7 +165,7 @@ export function Model(props) {
         receiveShadow
         geometry={nodes.Icosphere015.geometry}
         material={materials['tree.orange']}
-        position={[0.346, 1.181, -0.41]}
+        position={[0.669, 1.362, 0.646]}
         rotation={[Math.PI, 0, Math.PI]}
         scale={[0.139, 0.094, 0.139]}
       />
@@ -217,7 +217,7 @@ export function Model(props) {
       <mesh
         castShadow
         receiveShadow
-        geometry={nodes.Vert002.geometry}
+        geometry={nodes.roots.geometry}
         material={materials['three.brown']}
         position={[0.004, 0.52, 0.096]}
         rotation={[Math.PI, 0, Math.PI]}
@@ -291,7 +291,7 @@ export function Model(props) {
         receiveShadow
         geometry={nodes.Icosphere028.geometry}
         material={materials['tree.red']}
-        position={[1.174, -0.01, 1.347]}
+        position={[1.239, -0.056, 1.351]}
         rotation={[Math.PI, 0, Math.PI]}
         scale={[0.139, 0.094, 0.139]}
       />
@@ -307,11 +307,81 @@ export function Model(props) {
       <mesh
         castShadow
         receiveShadow
-        geometry={nodes.Vert001.geometry}
+        geometry={nodes.root.geometry}
         material={materials['three.brown']}
         position={[-1.372, -0.145, 0.081]}
         rotation={[2.938, 0.565, -0.876]}
       />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.Icosphere030.geometry}
+        material={materials['rock.grey']}
+        position={[-0.142, -0.086, 1.309]}
+        rotation={[2.743, 1.025, 1.372]}
+        scale={0.191}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.Icosphere031.geometry}
+        material={materials['rock.grey']}
+        position={[-0.093, 0.052, 1.315]}
+        rotation={[2.757, 1.031, 1.376]}
+        scale={0.116}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.Icosphere032.geometry}
+        material={materials['tree.orange']}
+        position={[-0.247, 0.012, 0.486]}
+        rotation={[Math.PI, 0, Math.PI]}
+        scale={[0.139, 0.094, 0.139]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.Icosphere033.geometry}
+        material={materials['tree.orange']}
+        position={[-0.049, 0.136, 1.318]}
+        rotation={[Math.PI, 0, Math.PI]}
+        scale={[0.139, 0.094, 0.139]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.Icosphere034.geometry}
+        material={materials['tree.red']}
+        position={[0.745, 1.257, 0.064]}
+        rotation={[-2.49, Math.PI / 9, 2.081]}
+        scale={[0.139, 0.094, 0.139]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.pond.geometry}
+        material={materials.water}
+        position={[0.175, -0.047, 0.982]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.pondfence.geometry}
+        material={materials['three.brown']}
+        position={[-0.015, 0.312, 0.698]}
+        rotation={[Math.PI / 2, 0, -0.756]}
+        scale={[0.929, 1, 0.046]}
+      >
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.pondfencebars.geometry}
+          material={materials['three.brown']}
+          position={[0, -0.02, 1.694]}
+          scale={[0.996, 1, 5.296]}
+        />
+      </mesh>
     </group>
   );
 }
