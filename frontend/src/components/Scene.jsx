@@ -2,8 +2,7 @@ import { motion } from 'framer-motion-3d';
 import { useThree } from '@react-three/fiber';
 import { Environment, Sky, ContactShadows } from '@react-three/drei';
 import { useMemo } from 'react';
-import SkillBallsScene from './scenes/SkillBallsScene';
-import MainScene from './scenes/MainScene';
+import BgScene from './scenes/BgScene';
 import ContactScene from './scenes/ContactScene';
 import CharacterScene from './scenes/CharacterScene';
 
@@ -11,8 +10,6 @@ export default function Scene({ section }) {
   const { viewport } = useThree();
   const sectionScene = useMemo(() => {
     switch (section) {
-      case 2:
-        return <SkillBallsScene viewport={viewport} />;
       case 3:
         return <ContactScene viewport={viewport} />;
       default:
@@ -35,7 +32,7 @@ export default function Scene({ section }) {
       />
       <motion.group>
         <CharacterScene section={section} viewport={viewport} />
-        <MainScene section={section} viewport={viewport} />
+        <BgScene section={section} viewport={viewport} />
         {sectionScene}
       </motion.group>
     </>

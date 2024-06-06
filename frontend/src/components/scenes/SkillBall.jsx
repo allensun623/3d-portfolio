@@ -14,7 +14,7 @@ export default function SkillBall({
 }) {
   const [decal] = useTexture([skill.iconURL]);
   const [hovered, setHovered] = useState(false);
-  const [torusArc, setTorusArc] = useState(0);
+  const [ballThetaLength, setBallThetaLength] = useState(0);
 
   //www.reddit.com/r/threejs/comments/l63kgm/change_mouse_to_pointer_on_hover_with_react_three/
   useEffect(() => {
@@ -23,12 +23,13 @@ export default function SkillBall({
     return () => (document.body.style.cursor = 'auto');
   }, [hovered]);
 
+  // !TODO tab full start -> trigger big bang
   const handleTap = () => {
     document.body.style.cursor = 'auto';
     onTapBall(skill.score);
   };
 
-  // TODO remove leva
+  // TODO update after removing leva
   const {
     color,
     roughness,
@@ -38,37 +39,23 @@ export default function SkillBall({
     thickness,
     clearcoat,
     specularIntensity,
-    radius,
-    tube,
-    radialSegments,
-    tubularSegments,
+    size,
   } = useControls({
-    color: '#f57d0b',
+    color: '#ffd7a2',
+    size: { value: 0.15, min: 0, max: 1 },
     roughness: { value: 0, min: 0, max: 1 },
     metalness: { value: 0, min: 0, max: 1 },
-    transmission: { value: 1, min: 0, max: 1 },
+    transmission: { value: 0.98, min: 0, max: 1 },
     ior: { value: 1.33, min: 0, max: 2.33 },
     thickness: { value: 0, min: 0, max: 100 },
-    clearcoat: { value: 1, min: 0, max: 1 },
-    specularIntensity: { value: 1, min: 0, max: 1 },
-    radius: { value: 1.36, min: 0, max: 3 },
-    tube: { value: 0.2, min: 0, max: 1 },
-    radialSegments: { value: 8.5, min: 0, max: 10 },
-    tubularSegments: { value: 10, min: 0, max: 100 },
-    arc: { value: Math.PI * 2, min: 0, max: Math.PI * 2 },
+    clearcoat: { value: 0.1, min: 0, max: 1 },
+    specularIntensity: { value: 0.5, min: 0, max: 1 },
+    thetaLength: {
+      value: (skill.score / 100) * Math.PI,
+      min: 0,
+      max: 4 * Math.PI,
+    },
   });
-  // TODO update after removing leva
-  const torusArgs = [radius, tube, radialSegments, tubularSegments];
-  const torusGeometries = [
-    {
-      color,
-      args: [...torusArgs, torusArc],
-    },
-    {
-      color: '#ffffff',
-      args: [...torusArgs, torusArc - 2 * Math.PI],
-    },
-  ];
 
   const meshProps = {
     roughness,
@@ -94,12 +81,12 @@ export default function SkillBall({
   const variants = {
     hidden: { scale: 0, x: 0, y: 0, z: -10 },
     visible: {
-      scale: isFullStar ? fourStarScale : 0.25,
+      scale: isFullStar ? fourStarScale : size,
       x: position[0],
       y: position[1],
       z: position[2],
     },
-    hover: { scale: 0.4 },
+    hover: { scale: 0.3 },
     merge: {
       scale: 0,
       x: fullStarPosition[0],
@@ -111,20 +98,12 @@ export default function SkillBall({
     },
   };
 
-  useFrame(() => {
-    if (torusArc < (2 * Math.PI * skill.score) / 100) {
-      setTorusArc((prev) => prev + 0.01);
-    }
-  });
-
-  // TODO movement boundary
   return (
     <Float
       speed={isFullStar ? 0 : 0.5}
-      rotationIntensity={isFullStar ? 0 : 1}
+      rotationIntensity={isFullStar ? 0 : 2}
       floatIntensity={isFullStar ? 0 : 2}
     >
-      {/* <ambientLight intensity={0.25} /> */}
       <motion.group
         castShadow
         receiveShadow
@@ -137,29 +116,44 @@ export default function SkillBall({
         onPointerOver={() => setHovered(true)}
         onPointerOut={() => setHovered(false)}
         onTapStart={handleTap}
-        rotation={[isFullStar ? -Math.PI / 9 : 0, 0, 0]}
+        rotation={[isFullStar ? -Math.PI / 9 : 0, 0, Math.PI]}
       >
+        {/* inner fill */}
+        <motion.mesh
+          animate={{ opacity: 1 }}
+          transition={{
+            duration: (skill.score / 100) * 3,
+            delay: 1.5,
+            type: 'ease',
+          }}
+          onUpdate={() => {
+            setBallThetaLength((prev) => (prev += Math.PI / 180));
+          }}
+        >
+          <sphereGeometry
+            args={[
+              0.9,
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              ballThetaLength,
+            ]}
+          />
+          <motion.meshPhysicalMaterial color={color} />
+        </motion.mesh>
+        {/* outer glass */}
         <motion.mesh>
-          <icosahedronGeometry args={[1, 1]} />
-          <motion.meshPhysicalMaterial color={color} {...meshProps} />
+          <sphereGeometry />
           <Decal
             position={[0, 0, 1]}
-            rotation={[2 * Math.PI, 0, 2 * Math.PI]}
+            rotation={[2 * Math.PI, 0, Math.PI]}
             map={decal}
             scale={1.5}
           />
+          <motion.meshPhysicalMaterial color={color} {...meshProps} />
         </motion.mesh>
-        {/* torus  */}
-        {isFullStar ? null : (
-          <motion.group>
-            {torusGeometries.map((tg, idx) => (
-              <motion.mesh key={idx}>
-                <torusGeometry args={tg.args} />
-                <motion.meshPhysicalMaterial color={tg.color} {...meshProps} />
-              </motion.mesh>
-            ))}
-          </motion.group>
-        )}
       </motion.group>
     </Float>
   );

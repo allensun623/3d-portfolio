@@ -26,20 +26,17 @@ function getRandomArbitrary(min, max) {
   return Math.random() * (max - min) + min;
 }
 
-// TODO generate skill balls based on viewpoint
 /**
- * generate a list of random positions, z is based on skill score
+ * generate a list of random positions
  * @returns positions - a list of positions [[x, y, z]]
  */
 const generateSkillBallPositions = () => {
-  const positions = [[0, 0.65, 2]];
-  for (let i = 0; i < 4; i += 0.3) {
-    for (let j = 0; j < 5; j++) {
-      const x = getRandomArbitrary(-4, 4);
-      const z = (skills[positions.length].score / 20 - 5) * 5;
-      positions.push([x, i - 2, z]);
-      if (positions.length === skills.length) return positions;
-    }
+  const positions = [[0, 0, 0]];
+  for (let i = 0; i < skills.length - 1; i++) {
+    const x = getRandomArbitrary(-2.5, 1.5);
+    const y = getRandomArbitrary(0, 2.5);
+    const z = getRandomArbitrary(-1, 1);
+    positions.push([x, y, z]);
   }
   return positions;
 };

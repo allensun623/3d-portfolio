@@ -1,10 +1,9 @@
-import { motion } from 'framer-motion-3d';
 import SkillBall from './SkillBall';
 import { skills } from '../../constants/skills';
 import { generateSkillBallPositions } from '../../utils/3dState';
 import { useState, useEffect } from 'react';
 
-export default function SkillBallsScene({ viewport }) {
+export default function SkillBallsScene() {
   const [positions, setPositions] = useState();
   const [fourStarScale, setFourStarScale] = useState(0.2);
 
@@ -19,7 +18,7 @@ export default function SkillBallsScene({ viewport }) {
   };
 
   return (
-    <motion.group position={[0, (-viewport.height - 1) * 2, -viewport.height]}>
+    <>
       {positions
         ? skills.map((s, idx) => (
             <SkillBall
@@ -33,6 +32,6 @@ export default function SkillBallsScene({ viewport }) {
             />
           ))
         : null}
-    </motion.group>
+    </>
   );
 }

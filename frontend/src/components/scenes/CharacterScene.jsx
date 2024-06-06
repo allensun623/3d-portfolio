@@ -34,7 +34,7 @@ export default function CharacterScene({ section, viewport }) {
           // z: -viewport.height + 1,
           // scale: 0.5,
           scale: [0.25, 0.25],
-          rotateY: [Math.PI / 2, Math.PI / 2],
+          rotateY: [Math.PI / 2, 0],
           x: [-3, 1],
           y: [-viewport.height - 1.5, -viewport.height - 1.5],
           z: [-viewport.height - 3, -viewport.height - 3],
@@ -46,10 +46,10 @@ export default function CharacterScene({ section, viewport }) {
           },
         },
         2: {
-          x: 0,
-          y: (-viewport.height - 1) * 2 - 1,
-          z: -viewport.height,
-          // rotateY: Math.PI / 2,
+          x: 2,
+          y: (-viewport.height - 1) * 2 - 9.5,
+          z: -viewport.height - 12.5,
+          scale: 2,
         },
         3: {
           x: 1.5,
