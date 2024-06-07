@@ -6,10 +6,11 @@ import { useState, useEffect } from 'react';
 export default function SkillBall({
   skill,
   position,
-  isFullStar,
+  isFullStar = false,
   fullStarPosition,
   onTapBall,
   fourStarScale,
+  animation = true,
 }) {
   const [decal] = useTexture([skill.iconURL]);
   const [hovered, setHovered] = useState(false);
@@ -78,7 +79,12 @@ export default function SkillBall({
   };
 
   const variants = {
-    hidden: { scale: 0, x: 0, y: 0, z: -10 },
+    hidden: {
+      scale: 0,
+      x: animation ? 0 : position[0],
+      y: animation ? 0 : position[1],
+      z: animation ? -10 : position[2],
+    },
     visible: {
       scale: isFullStar ? fourStarScale : size,
       x: position[0],

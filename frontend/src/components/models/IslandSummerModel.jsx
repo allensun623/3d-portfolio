@@ -19,7 +19,7 @@ export function Model(props) {
         castShadow
         receiveShadow
         geometry={nodes.palmtrunk.geometry}
-        material={materials['Material.001']}
+        material={materials['yellow.palm']}
       >
         <mesh
           castShadow
@@ -32,7 +32,7 @@ export function Model(props) {
         castShadow
         receiveShadow
         geometry={nodes.palmtrunk001.geometry}
-        material={materials['Material.001']}
+        material={materials['yellow.palm']}
       >
         <mesh
           castShadow
@@ -45,7 +45,7 @@ export function Model(props) {
         castShadow
         receiveShadow
         geometry={nodes.palmtrunk002.geometry}
-        material={materials['Material.001']}
+        material={materials['yellow.palm']}
       >
         <mesh
           castShadow
@@ -58,7 +58,7 @@ export function Model(props) {
         castShadow
         receiveShadow
         geometry={nodes.palmtrunk003.geometry}
-        material={materials['Material.001']}
+        material={materials['yellow.palm']}
       >
         <mesh
           castShadow
@@ -71,20 +71,24 @@ export function Model(props) {
         castShadow
         receiveShadow
         geometry={nodes.palmtrunk004.geometry}
-        material={materials['Material.001']}
+        material={materials['yellow.palm']}
+        position={[0.001, 0.069, -0.008]}
+        rotation={[-0.118, -0.043, -0.021]}
       >
         <mesh
           castShadow
           receiveShadow
           geometry={nodes.Plane006.geometry}
           material={materials['green.palm']}
+          position={[0.573, 0.294, -0.529]}
+          rotation={[0, -1.246, 0]}
         />
       </mesh>
       <mesh
         castShadow
         receiveShadow
         geometry={nodes.palmtrunk005.geometry}
-        material={materials['Material.001']}
+        material={materials['yellow.palm']}
       >
         <mesh
           castShadow
@@ -97,7 +101,7 @@ export function Model(props) {
         castShadow
         receiveShadow
         geometry={nodes.palmtrunk006.geometry}
-        material={materials['Material.001']}
+        material={materials['yellow.palm']}
       >
         <mesh
           castShadow
@@ -110,7 +114,7 @@ export function Model(props) {
         castShadow
         receiveShadow
         geometry={nodes.palmtrunk007.geometry}
-        material={materials['Material.001']}
+        material={materials['yellow.palm']}
       >
         <mesh
           castShadow
@@ -123,7 +127,7 @@ export function Model(props) {
         castShadow
         receiveShadow
         geometry={nodes.palmtrunk008.geometry}
-        material={materials['Material.001']}
+        material={materials['yellow.palm']}
       >
         <mesh
           castShadow
@@ -136,7 +140,7 @@ export function Model(props) {
         castShadow
         receiveShadow
         geometry={nodes.palmtrunk009.geometry}
-        material={materials['Material.001']}
+        material={materials['yellow.palm']}
       >
         <mesh
           castShadow
@@ -149,7 +153,7 @@ export function Model(props) {
         castShadow
         receiveShadow
         geometry={nodes.palmtrunk010.geometry}
-        material={materials['Material.001']}
+        material={materials['yellow.palm']}
       >
         <mesh
           castShadow
@@ -162,7 +166,7 @@ export function Model(props) {
         castShadow
         receiveShadow
         geometry={nodes.palmtrunk011.geometry}
-        material={materials['Material.001']}
+        material={materials['yellow.palm']}
       >
         <mesh
           castShadow
@@ -177,6 +181,40 @@ export function Model(props) {
         geometry={nodes.Island.geometry}
         material={materials['water.001']}
         position={[0, 0.014, -0.07]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.palmtrunk012.geometry}
+        material={materials['yellow.palm']}
+        position={[0.566, 0.14, -0.319]}
+        rotation={[-3.009, 0.481, 3.064]}
+      >
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Plane014.geometry}
+          material={materials['green.palm']}
+          position={[0.014, 0.149, 0.062]}
+        />
+      </mesh>
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.Text.geometry}
+        material={materials['Material.001']}
+        position={[0.57, 0.151, -0.364]}
+        rotation={[Math.PI / 2, 0, -Math.PI / 2]}
+        scale={0.069}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.Plane017.geometry}
+        material={materials['yellow.mountain']}
+        position={[0.566, 0.164, -0.454]}
+        rotation={[0, 0, -Math.PI / 2]}
+        scale={[0.029, 0.134, 0.134]}
       />
       <mesh
         castShadow
