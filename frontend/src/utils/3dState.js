@@ -41,4 +41,22 @@ const generateSkillBallPositions = () => {
   return positions;
 };
 
-export { getPosition, generateSkillBallPositions };
+/**
+ * Generate positions (number of points including start and destination) between start position and destination position.
+ * @param {Object} params - The parameters object.
+ * @param {number[]} params.start - The starting position as an array of two numbers [x, y].
+ * @param {number[]} params.destination - The destination position as an array of two numbers [x, y].
+ * @param {number} params.points - The number of points to generate including start and destination.
+ * @returns {number[][]} - Array of positions between the start and destination.
+ */
+const getPathPositions = ({ start, destination, points }) => {
+  const distanceX = (destination[0] - start[0]) / (points - 1);
+  const distanceY = (destination[1] - start[1]) / (points - 1);
+  const positions = Array.from({ length: points }, (_, idx) => [
+    start[0] + distanceX * idx,
+    start[1] + distanceY * idx,
+  ]);
+  return positions;
+};
+
+export { getPosition, generateSkillBallPositions, getPathPositions };

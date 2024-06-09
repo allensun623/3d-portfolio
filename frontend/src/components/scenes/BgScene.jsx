@@ -3,6 +3,7 @@ import { motion } from 'framer-motion-3d';
 import ContactScene from './ContactScene';
 import ExperienceScene from './ExperienceScene';
 import SkillScene from './SkillScene';
+import RIPScene from './RIPScene';
 
 export default function MainScene({ section, viewport }) {
   const carouselGroup = useRef();
@@ -21,10 +22,10 @@ export default function MainScene({ section, viewport }) {
       }}
       variants={{
         0: {
-          rotateY: -Math.PI * 2,
+          rotateY: -Math.PI * 4,
           transition: {
             repeat: Infinity,
-            duration: 100,
+            duration: 200,
           },
         },
         1: {
@@ -51,10 +52,12 @@ export default function MainScene({ section, viewport }) {
           rotateY: Math.PI,
         },
         4: {
-          x: -3,
-          y: -viewport.height * 4 + 2.5,
-          z: -viewport.height - 2,
-          rotateY: Math.PI * 1.5,
+          x: -1,
+          y: -viewport.height * 4 + 2.55,
+          z: -viewport.height + 5.5,
+          rotateX: -Math.PI * 0.09,
+          rotateY: -Math.PI / 4,
+          scale: 0.3,
         },
       }}
     >
@@ -74,15 +77,8 @@ export default function MainScene({ section, viewport }) {
       </motion.group>
 
       {/* RIP Scene Winter */}
-      <motion.group position={[0, -7, -6]}>
-        <mesh scale={1.5} position-y={1.5}>
-          <boxGeometry args={[1, 1, 0.25]} />
-          <meshStandardMaterial color='white' />
-        </mesh>
-        <mesh scale={1} rotation-x={Math.PI}>
-          <coneGeometry args={[4, 2]} />
-          <meshStandardMaterial color={'green'} />
-        </mesh>
+      <motion.group position={[0, -6, -6]} rotation-y={-Math.PI / 2}>
+        <RIPScene />
       </motion.group>
     </motion.group>
   );

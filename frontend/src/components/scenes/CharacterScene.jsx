@@ -20,20 +20,34 @@ export default function CharacterScene({ section, viewport }) {
     );
     const transition = {
       // [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1],
-      times: Array.from({ length: 11 }, (_, i) => i * 0.1),
+      times: Array.from({ length: x.length }, (_, i) => i * 0.1),
       duration: 20,
       type: 'ease',
       delay: 3,
     };
-    const onUpdate = (latest) => {
-      console.log({ latest });
+    return { x, y, z, scale, rotateY, transition };
+  };
+
+  const RIPAnimation = () => {
+    const x = [-0.5, -0.5];
+    const y = Array(x.length).fill(-viewport.height * 4 - 0.3);
+    const z = [-viewport.height + 4, -viewport.height + 4];
+    const transition = {
+      times: [0.5, 1],
+      duration: 3,
+      type: 'ease',
+      delay: 3,
     };
-    return { x, y, z, scale, rotateY, transition, onUpdate };
+    const rotateY = Array(x.length).fill((Math.PI * 3) / 4);
+    const scale = Array(x.length).fill(0.3);
+
+    return [x, y, z, transition, scale, rotateY];
   };
 
   useEffect(() => {
     setAnimation(sectionTransitAnimations[section]);
   }, [section]);
+
   // TODO flying animations
   return (
     <motion.group
@@ -43,9 +57,9 @@ export default function CharacterScene({ section, viewport }) {
         duration: 1,
         delay: 0.6,
       }}
-      onUpdate={(latest) => {
-        console.log({ latest });
-      }}
+      // onUpdate={(latest) => {
+      //   console.log({ latest });
+      // }}
       variants={{
         0: {
           scale: 0.5,
@@ -67,12 +81,19 @@ export default function CharacterScene({ section, viewport }) {
           z: -viewport.height,
           scale: 0.5,
         },
+        // 4: RIPAnimation(),
         4: {
-          x: 1,
-          y: -viewport.height * 4 - 2,
-          z: -viewport.height,
-          scale: 0.5,
-          rotateY: Math.PI / 2,
+          x: [-0.3, 0.15],
+          y: [-viewport.height * 4 + 0.7, -viewport.height * 4 + 0.55],
+          z: [-viewport.height + 5.5, -viewport.height + 5],
+          scale: [0.2, 0.18],
+          rotateY: [(Math.PI * 3) / 4, (Math.PI * 3) / 4],
+          transition: {
+            times: [0.5, 1],
+            duration: 3,
+            type: 'ease',
+            delay: 2,
+          },
         },
       }}
     >

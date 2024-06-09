@@ -1,4 +1,4 @@
-import { Scroll, ScrollControls } from '@react-three/drei';
+import { Scroll, ScrollControls, OrbitControls } from '@react-three/drei';
 import { Canvas } from '@react-three/fiber';
 import Scene from './components/Scene';
 import Interface from './components/Interface';
@@ -26,10 +26,9 @@ export default function App() {
             <Interface section={section} />
           </Scroll>
         </ScrollControls>
+        {/* <OrbitControls /> */}
       </Canvas>
       <Leva hidden />
     </>
   );
 }
-
-

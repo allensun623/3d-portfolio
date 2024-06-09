@@ -28,7 +28,7 @@ export default function CharacterModel(props) {
     wireframe: false,
   });
 
-  const { nodes, materials } = useGLTF('models/Character.glb');
+  const { nodes, materials } = useGLTF('models/character.glb');
 
   const { actions } = useAnimations(selectedAnimations, group);
 
@@ -91,7 +91,6 @@ export default function CharacterModel(props) {
 
   return (
     <group {...props} ref={group} dispose={null}>
-      {/* <group rotation-x={-Math.PI / 2}> */}
       <skinnedMesh
         name='EyeLeft'
         geometry={nodes.EyeLeft.geometry}
@@ -164,5 +163,7 @@ export default function CharacterModel(props) {
     </group>
   );
 }
+
+useGLTF.preload('/models/character.glb');
 
 preloadAnimations();
