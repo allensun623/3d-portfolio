@@ -3,7 +3,7 @@ import { useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 // import emailjs from '@emailjs/browser';
 
-import { slideIn } from '../../utils/motion';
+import { slideIn } from '../../utils/motions/motion';
 
 export default function Contact() {
   const formRef = useRef();

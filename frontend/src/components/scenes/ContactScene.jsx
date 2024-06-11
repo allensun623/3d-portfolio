@@ -4,6 +4,7 @@ import { Model as IslandWinterModel } from '../models/IslandWinterModel';
 import { Model as PillarModel } from '../models/IslandWinterHousePillarModel';
 
 export default function ContactScene({ isInView }) {
+
   const crystalBallMeshProps = {
     color: '#ffffff',
     roughness: 0,
@@ -32,9 +33,9 @@ export default function ContactScene({ isInView }) {
         transition={{ delay: 2.6 }}
       >
         <motion.mesh
-          position-y={0}
           scale={2.2}
           position-x={-0.35}
+          position-y={0}
           position-z={0.3}
           animate={isInView ? 'inView' : 'init'}
           variants={{
@@ -63,6 +64,19 @@ export default function ContactScene({ isInView }) {
         <motion.meshPhysicalMaterial {...crystalBallMeshProps} />
       </motion.mesh>
       <IslandWinterModel scale={2} />
+      {/* TODO four star ball */}
+      {/* {isInView ? (
+        <motion.group position={[-0.48, 1.2, 0.6]} rotationY={Math.PI / 6}>
+          <SkillBall
+            skill={skills[0]}
+            isFullStar={true}
+            onTapBall={() => {}}
+            fourStarScale={0.13}
+            animation={false}
+            clickable={false}
+          />
+        </motion.group>
+      ) : null} */}
     </>
   );
 }

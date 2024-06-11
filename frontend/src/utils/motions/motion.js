@@ -10,7 +10,7 @@ export const textVariant = (delay) => {
       transition: {
         type: 'spring',
         duration: 1.25,
-        delay: delay,
+        delay,
       },
     },
   };
@@ -28,9 +28,9 @@ export const fadeIn = (direction, type, delay, duration) => {
       y: 0,
       opacity: 1,
       transition: {
-        type: type,
-        delay: delay,
-        duration: duration,
+        type,
+        delay,
+        duration,
         ease: 'easeOut',
       },
     },
@@ -48,8 +48,8 @@ export const zoomIn = (delay, duration) => {
       opacity: 1,
       transition: {
         type: 'tween',
-        delay: delay,
-        duration: duration,
+        delay,
+        duration,
         ease: 'easeOut',
       },
     },
@@ -66,9 +66,9 @@ export const slideIn = (direction, type, delay, duration) => {
       x: 0,
       y: 0,
       transition: {
-        type: type,
-        delay: delay,
-        duration: duration,
+        type,
+        delay,
+        duration,
         ease: 'easeOut',
       },
     },
@@ -80,7 +80,7 @@ export const staggerContainer = (staggerChildren, delayChildren) => {
     hidden: {},
     show: {
       transition: {
-        staggerChildren: staggerChildren,
+        staggerChildren,
         delayChildren: delayChildren || 0,
       },
     },

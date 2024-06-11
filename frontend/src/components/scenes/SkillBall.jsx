@@ -5,13 +5,14 @@ import { useState, useEffect } from 'react';
 
 export default function SkillBall({
   skill,
-  position,
+  position = [0, 0, 0],
   isFullStar = false,
-  fullStarPosition,
+  fullStarPosition = [0, 0, 0],
   onTapBall,
   fourStarScale,
   animation = true,
   clickable = true,
+  rotationY = 0,
 }) {
   const [decal] = useTexture([skill.iconURL]);
   const [hovered, setHovered] = useState(false);
