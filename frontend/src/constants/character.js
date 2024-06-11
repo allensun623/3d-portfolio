@@ -13,12 +13,12 @@ const animationOptions = Object.freeze({
 // animations used in the scene
 const selectedAnimations = Object.freeze([
   animationOptions.SITTING,
-  animationOptions.FALLING,
-  animationOptions.RUNNING_AND_JUMPING,
+  // animationOptions.FALLING,
+  // animationOptions.RUNNING_AND_JUMPING,
   animationOptions.SITTING_CROSS_LEGGED,
   animationOptions.WAVING,
-  animationOptions.STANDING,
-  animationOptions.WALKING,
+  // animationOptions.STANDING,
+  // animationOptions.WALKING,
   animationOptions.LOOKING,
 ]);
 

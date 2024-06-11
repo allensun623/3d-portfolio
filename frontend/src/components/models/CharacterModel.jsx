@@ -132,13 +132,18 @@ export default function CharacterModel(props) {
       />
       <skinnedMesh
         geometry={nodes.Wolf3D_Outfit_Bottom.geometry}
-        material={materials.Wolf3D_Outfit_Bottom}
+        material={materials['blue.goku']}
         skeleton={nodes.Wolf3D_Outfit_Bottom.skeleton}
       />
       <skinnedMesh
         geometry={nodes.Wolf3D_Outfit_Footwear.geometry}
         material={materials.Wolf3D_Outfit_Footwear}
         skeleton={nodes.Wolf3D_Outfit_Footwear.skeleton}
+      />
+      <skinnedMesh
+        geometry={nodes.Wolf3D_Outfit_Top.geometry}
+        material={materials['orange.goku']}
+        skeleton={nodes.Wolf3D_Outfit_Top.skeleton}
       />
       <skinnedMesh
         name='Wolf3D_Teeth'
@@ -148,18 +153,7 @@ export default function CharacterModel(props) {
         morphTargetDictionary={nodes.Wolf3D_Teeth.morphTargetDictionary}
         morphTargetInfluences={nodes.Wolf3D_Teeth.morphTargetInfluences}
       />
-      <primitive object={nodes.Hips} />
-      <primitive object={nodes.neutral_bone} />
-      <skinnedMesh
-        geometry={nodes.Wolf3D_Outfit_Top_1.geometry}
-        material={materials.Wolf3D_Outfit_Top}
-        skeleton={nodes.Wolf3D_Outfit_Top_1.skeleton}
-      />
-      <skinnedMesh
-        geometry={nodes.Wolf3D_Outfit_Top_2.geometry}
-        material={materials['goku logo orange Background Removed']}
-        skeleton={nodes.Wolf3D_Outfit_Top_2.skeleton}
-      />
+      <primitive object={nodes.Hips} />{' '}
     </group>
   );
 }

@@ -17,6 +17,7 @@ export default function ExperienceScene() {
           onTapBall={() => {}}
           fourStarScale={0.1}
           animation={false}
+          clickable={false}
         />
       </motion.group>
     </>

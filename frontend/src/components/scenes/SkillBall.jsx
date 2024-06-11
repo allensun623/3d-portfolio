@@ -11,6 +11,7 @@ export default function SkillBall({
   onTapBall,
   fourStarScale,
   animation = true,
+  clickable = true,
 }) {
   const [decal] = useTexture([skill.iconURL]);
   const [hovered, setHovered] = useState(false);
@@ -25,6 +26,7 @@ export default function SkillBall({
 
   // !TODO tab full start -> trigger big bang
   const handleTap = () => {
+    if (!clickable) return;
     document.body.style.cursor = 'auto';
     onTapBall(skill.score);
   };
