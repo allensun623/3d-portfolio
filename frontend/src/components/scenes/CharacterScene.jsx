@@ -1,8 +1,11 @@
 import { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion-3d';
 import { sectionTransitAnimations } from '../../constants/character';
+import { Model as CherryFlowerModel } from '../models/CherryFlowerModel';
 import Character from '../models/CharacterModel';
 import CloudScene from './CloudScene';
+import SkillBall from './SkillBall';
+import { skills } from '../../constants/skills';
 
 export default function CharacterScene({ section, viewport }) {
   const [animation, setAnimation] = useState(sectionTransitAnimations[0]);
@@ -43,6 +46,8 @@ export default function CharacterScene({ section, viewport }) {
 
     return [x, y, z, transition, scale, rotateY];
   };
+
+  const fullStarPosition = [0, 1, -0.6];
 
   useEffect(() => {
     setAnimation(sectionTransitAnimations[section]);
@@ -100,6 +105,27 @@ export default function CharacterScene({ section, viewport }) {
       <Character animation={animation} position-y={0.5} />
       {/* Cloud */}
       <CloudScene section={section} />
+      <motion.group
+        rotation-y={Math.PI}
+        // animate={{ scale: 1, positionX: 2 }}
+        // transition={{ duration: 2 }}
+      >
+        {section === 4 ? (
+          <SkillBall
+            skill={skills[0]}
+            position={fullStarPosition}
+            isFullStar={true}
+            fullStarPosition={fullStarPosition}
+            onTapBall={() => {}}
+            fourStarScale={0.13}
+            animation={false}
+            clickable={false}
+          />
+        ) : null}
+      </motion.group>
+      <motion.group scale={10}>
+        <CherryFlowerModel />
+      </motion.group>
     </motion.group>
   );
 }

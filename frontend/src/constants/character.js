@@ -8,6 +8,8 @@ const animationOptions = Object.freeze({
   SITTING_CROSS_LEGGED: 'Sitting Cross-legged',
   WALKING: 'Walking',
   LOOKING: 'Looking',
+  SITTING_HOLD: 'Sitting Hold',
+  WAVING_BYE: 'Waving Bye',
 });
 
 // animations used in the scene
@@ -20,6 +22,8 @@ const selectedAnimations = Object.freeze([
   // animationOptions.STANDING,
   // animationOptions.WALKING,
   animationOptions.LOOKING,
+  animationOptions.SITTING_HOLD,
+  animationOptions.WAVING_BYE,
 ]);
 
 // transition animation in the order of section
@@ -28,7 +32,7 @@ const sectionTransitAnimations = [
   animationOptions.LOOKING,
   animationOptions.SITTING_CROSS_LEGGED,
   animationOptions.WAVING,
-  animationOptions.SITTING,
+  animationOptions.SITTING_HOLD,
 ];
 
 export { animationOptions, selectedAnimations, sectionTransitAnimations };
