@@ -95,7 +95,6 @@ export default function Contact() {
     },
   ];
 
-  // TODO get in touch from my mouth, 筋斗云变成了get in touch
   return (
     <SectionContainer>
       <div className='w-[50%] p-10'>

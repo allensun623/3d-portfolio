@@ -1,16 +1,24 @@
+import { useEffect } from 'react';
 import { Scroll, ScrollControls, OrbitControls } from '@react-three/drei';
 import { Canvas } from '@react-three/fiber';
 import Scene from './components/Scene';
 import Interface from './components/Interface';
 import ScrollManager from './components/ScrollManager';
 import { useState } from 'react';
+import Menu from './components/Menu';
 import { Leva } from 'leva';
+
 // import About from './components/About';
 
 // TODO remove leva
 
 export default function App() {
   const [section, setSection] = useState(0);
+  const [menuOpened, setMenuOpened] = useState(false);
+
+  useEffect(() => {
+    setMenuOpened(false);
+  }, [section]);
 
   return (
     <>
@@ -28,6 +36,11 @@ export default function App() {
         </ScrollControls>
         {/* <OrbitControls /> */}
       </Canvas>
+      <Menu
+        onSectionChange={setSection}
+        menuOpened={menuOpened}
+        setMenuOpened={setMenuOpened}
+      />
       <Leva hidden />
     </>
   );
