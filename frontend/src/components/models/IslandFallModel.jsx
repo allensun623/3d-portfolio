@@ -317,18 +317,18 @@ export function Model(props) {
         receiveShadow
         geometry={nodes.Icosphere030.geometry}
         material={materials['rock.grey']}
-        position={[-0.142, -0.086, 1.309]}
+        position={[-0.142, -0.049, 1.309]}
         rotation={[2.743, 1.025, 1.372]}
-        scale={0.191}
+        scale={0.222}
       />
       <mesh
         castShadow
         receiveShadow
         geometry={nodes.Icosphere031.geometry}
         material={materials['rock.grey']}
-        position={[-0.093, 0.052, 1.315]}
+        position={[-0.093, 0.127, 1.315]}
         rotation={[2.757, 1.031, 1.376]}
-        scale={0.116}
+        scale={0.135}
       />
       <mesh
         castShadow
@@ -344,9 +344,9 @@ export function Model(props) {
         receiveShadow
         geometry={nodes.Icosphere033.geometry}
         material={materials['tree.orange']}
-        position={[-0.049, 0.136, 1.318]}
+        position={[-0.049, 0.225, 1.318]}
         rotation={[Math.PI, 0, Math.PI]}
-        scale={[0.139, 0.094, 0.139]}
+        scale={[0.162, 0.11, 0.162]}
       />
       <mesh
         castShadow
@@ -360,18 +360,37 @@ export function Model(props) {
       <mesh
         castShadow
         receiveShadow
+        geometry={nodes.Icosphere035.geometry}
+        material={materials['tree.yellow']}
+        position={[-0.168, 0.164, -0.27]}
+        rotation={[-0.885, 1.13, 0.754]}
+        scale={[0.08, 0.055, 0.08]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.Icosphere036.geometry}
+        material={materials['tree.red']}
+        position={[-0.313, 0.057, 0.042]}
+        rotation={[0.308, 0.409, 1.25]}
+        scale={[0.089, 0.06, 0.089]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
         geometry={nodes.pond.geometry}
         material={materials.water}
         position={[0.175, -0.047, 0.982]}
+        scale={1.025}
       />
       <mesh
         castShadow
         receiveShadow
         geometry={nodes.pondfence.geometry}
         material={materials['three.brown']}
-        position={[-0.015, 0.312, 0.698]}
-        rotation={[Math.PI / 2, 0, -0.756]}
-        scale={[0.929, 1, 0.046]}
+        position={[0.112, 0.081, 0.651]}
+        rotation={[Math.PI / 2, 0, -0.542]}
+        scale={[0.628, 1.071, 0.016]}
       >
         <mesh
           castShadow

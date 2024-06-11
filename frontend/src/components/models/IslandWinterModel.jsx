@@ -11,146 +11,242 @@ export function Model(props) {
       <mesh
         castShadow
         receiveShadow
-        geometry={nodes.Cylinder.geometry}
-        material={materials['brown.trunk']}
-        position={[-1.58, 0.138, 0.697]}
-        scale={[0.638, 0.581, 0.638]}
-      >
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.Cone001.geometry}
-          material={materials['green.tree']}
-          position={[0, 1.718, 0]}
-          scale={[0.589, 0.505, 0.589]}
-        />
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.Cone002.geometry}
-          material={materials['white.ice']}
-          position={[0, 1.718, 0]}
-          scale={[0.589, 0.505, 0.589]}
-        />
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.Cone003.geometry}
-          material={materials['green.tree']}
-          position={[0, 1.34, 0]}
-          scale={[0.668, 0.572, 0.668]}
-        />
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.Cone004.geometry}
-          material={materials['white.ice']}
-          position={[0, 1.34, 0]}
-          scale={[0.668, 0.572, 0.668]}
-        />
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.Cone005.geometry}
-          material={materials['green.tree']}
-          position={[0.014, 0.907, -0.045]}
-          scale={[0.766, 0.656, 0.766]}
-        />
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.Cone006.geometry}
-          material={materials['white.ice']}
-          position={[0.014, 0.907, -0.045]}
-          scale={[0.766, 0.656, 0.766]}
-        />
-      </mesh>
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={nodes.rock.geometry}
-        material={materials['grey.rock']}
-        position={[0.767, 0.284, 1.112]}
-        scale={0.595}
-      >
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.rockicing.geometry}
-          material={materials['white.ice']}
-        />
-      </mesh>
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={nodes.rock001.geometry}
-        material={materials['grey.rock']}
-        position={[1.4, 0.251, 0.374]}
-        scale={0.595}
-      >
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.rockicing001.geometry}
-          material={materials['white.ice']}
-        />
-      </mesh>
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={nodes.rock002.geometry}
-        material={materials['grey.rock']}
-        position={[0.692, 0.114, -0.857]}
-        scale={0.595}
-      >
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.rockicing002.geometry}
-          material={materials['white.ice']}
-        />
-      </mesh>
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={nodes.rock003.geometry}
-        material={materials['grey.rock']}
-        position={[-0.247, 0.222, -1.508]}
-        scale={0.595}
-      >
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.rockicing003.geometry}
-          material={materials['white.ice']}
-        />
-      </mesh>
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={nodes.rock004.geometry}
-        material={materials['grey.rock']}
-        position={[-0.943, 0.089, 1.02]}
-        scale={0.595}
-      >
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.rockicing004.geometry}
-          material={nodes.rockicing004.material}
-        />
-      </mesh>
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={nodes.Plane.geometry}
-        material={materials['white.ice']}
+        geometry={nodes.crystalbase.geometry}
+        material={materials['brown.gingerbread.house']}
+        position={[0, -0.079, 0]}
+        scale={[1, 2.021, 1]}
       />
       <mesh
         castShadow
         receiveShadow
-        geometry={nodes.Plane_1.geometry}
-        material={materials['grey.rock']}
+        geometry={nodes.basesnow.geometry}
+        material={materials['white.snow']}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.Sphere007.geometry}
+        material={materials['red.candy']}
+        position={[-0.858, 0.152, -0.127]}
+        rotation={[3.039, 0.44, 0.023]}
+        scale={0.091}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.Sphere011.geometry}
+        material={materials['green.candy']}
+        position={[0.467, 0.151, -0.146]}
+        rotation={[-0.069, -0.473, -3.133]}
+        scale={0.097}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.Sphere004.geometry}
+        material={materials['white.snow']}
+        position={[-0.238, 0.204, 0.449]}
+        scale={0.153}
+      >
+        <group
+          position={[0, 2.133, -0.674]}
+          rotation={[-Math.PI / 4, 0, 0]}
+          scale={0.566}
+        >
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.Cylinder_1.geometry}
+            material={materials['red.candy']}
+          />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.Cylinder_2.geometry}
+            material={materials['white.snow']}
+          />
+        </group>
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Cylinder001.geometry}
+          material={materials['red.nose']}
+          position={[0, 1.679, 0.944]}
+          rotation={[Math.PI / 3, 0, 0]}
+          scale={[0.131, 0.494, 0.131]}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Plane.geometry}
+          material={materials['black.button']}
+          position={[0.006, 0.496, 0.862]}
+          rotation={[1.098, 0.103, -0.175]}
+          scale={0.171}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Plane001.geometry}
+          material={materials['black.button']}
+          position={[0.015, 0.108, 0.986]}
+          rotation={[1.492, 0.098, -0.196]}
+          scale={0.168}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Plane002.geometry}
+          material={materials['black.button']}
+          position={[-0.378, 1.734, 0.619]}
+          rotation={[1.155, 0.114, 0.566]}
+          scale={0.171}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Plane003.geometry}
+          material={materials['black.button']}
+          position={[-0.326, 1.279, 0.688]}
+          rotation={[1.814, 0.159, 0.57]}
+          scale={0.077}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Plane004.geometry}
+          material={materials['black.button']}
+          position={[-0.201, 1.177, 0.697]}
+          rotation={[1.833, 0.166, 0.191]}
+          scale={0.077}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Plane005.geometry}
+          material={materials['black.button']}
+          position={[-0.074, 1.126, 0.7]}
+          rotation={[2.026, 0.202, 0.177]}
+          scale={0.077}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Sphere005.geometry}
+          material={materials['white.snow']}
+          position={[0, 1.459, 0]}
+          scale={0.791}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Vert.geometry}
+          material={materials['black.button']}
+          scale={6.557}
+        />
+      </mesh>
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.treetrunk.geometry}
+        material={materials['black.button']}
+        position={[0.635, 0.204, -0.598]}
+        scale={0.119}
+      >
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.treebody.geometry}
+          material={materials['green.tree']}
+          position={[0, 5.355, 0]}
+          scale={[5.171, 7.877, 5.171]}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.treebodyicing.geometry}
+          material={materials['white.snow']}
+          position={[0, 5.98, 0]}
+          scale={[3.963, 7.809, 3.963]}
+        />
+      </mesh>
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.Sphere008.geometry}
+        material={materials['green.candy']}
+        position={[-0.685, 0.11, 0.236]}
+        scale={0.097}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.Sphere009.geometry}
+        material={materials['blue.candy']}
+        position={[0.093, 0.128, 0.815]}
+        scale={0.061}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.Sphere010.geometry}
+        material={materials['yellow.candy']}
+        position={[0.613, 0.153, 0.363]}
+        rotation={[-3.073, -0.6, 0.021]}
+        scale={0.056}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.Sphere012.geometry}
+        material={materials['blue.candy']}
+        position={[0.962, 0.164, 0.109]}
+        scale={0.068}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.Sphere014.geometry}
+        material={materials['yellow.candy']}
+        position={[-0.697, 0.137, -0.486]}
+        rotation={[Math.PI, -Math.PI / 2, 0]}
+        scale={0.072}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.Sphere015.geometry}
+        material={materials['green.candy']}
+        position={[0.507, 0.111, 0.728]}
+        rotation={[Math.PI, -1.571, 0]}
+        scale={0.097}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.Sphere016.geometry}
+        material={materials['red.candy']}
+        position={[-0.139, 0.143, -0.908]}
+        rotation={[2.933, -0.54, -0.157]}
+        scale={-0.125}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.Sphere017.geometry}
+        material={materials['red.candy']}
+        position={[0.804, 0.147, 0.371]}
+        rotation={[-3.056, -0.556, 0.069]}
+        scale={0.057}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.Sphere001.geometry}
+        material={materials['red.candy']}
+        position={[-0.44, 0.111, 0.523]}
+        rotation={[0, 0.857, 0]}
+        scale={-0.085}
       />
     </group>
   );

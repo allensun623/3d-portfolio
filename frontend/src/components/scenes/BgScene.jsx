@@ -26,6 +26,7 @@ export default function MainScene({ section, viewport }) {
           transition: {
             repeat: Infinity,
             duration: 200,
+            transition: { type: 'linear' },
           },
         },
         1: {
