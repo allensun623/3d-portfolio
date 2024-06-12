@@ -1,27 +1,58 @@
-import React from 'react';
-
 export default function Menu({ onSectionChange, menuOpened, setMenuOpened }) {
+  const menuBars = [
+    {
+      className: 'transition-all',
+      opened: 'rotate-45 translate-y-1.5',
+    },
+    {
+      className: 'my-1',
+      opened: 'hidden',
+    },
+    {
+      className: 'transition-all',
+      opened: '-rotate-45',
+    },
+  ];
+
+  // https://v2.tailwindcss.com/docs/just-in-time-mode
+  // Tailwind doesn’t include any sort of client-side runtime, so class names need to be statically extractable at build-time, and can’t depend on any sort of arbitrary dynamic values that change on the client.
+  const menuButtons = [
+    {
+      label: 'Home',
+      hoverColor: 'hover:text-primary',
+    },
+    {
+      label: 'Experiences',
+      hoverColor: 'hover:text-summer',
+    },
+    {
+      label: 'Skills',
+      hoverColor: 'hover:text-fall',
+    },
+    {
+      label: 'Contact',
+      hoverColor: 'hover:text-winter',
+    },
+    {
+      label: 'Portal',
+      hoverColor: 'hover:text-spring',
+    },
+  ];
+
   return (
     <>
       <button
         onClick={() => setMenuOpened(!menuOpened)}
-        className='z-20 fixed top-4 right-4 md:top-12 md:right-12 p-3 bg-primary w-11 h-11 rounded-md'
+        className='z-20 fixed top-4 right-4 md:top-12 md:right-12 p-1 w-11 h-11 rounded-md'
       >
-        <div
-          className={`bg-white h-0.5 rounded-md w-full transition-all ${
-            menuOpened ? 'rotate-45  translate-y-0.5' : ''
-          }`}
-        />
-        <div
-          className={`bg-white h-0.5 rounded-md w-full my-1 ${
-            menuOpened ? 'hidden' : ''
-          }`}
-        />
-        <div
-          className={`bg-white h-0.5 rounded-md w-full transition-all ${
-            menuOpened ? '-rotate-45' : ''
-          }`}
-        />
+        {menuBars.map((mb, i) => (
+          <div
+            key={i}
+            className={`bg-primary h-1.5 rounded-md w-full ${mb.className} ${
+              menuOpened ? `${mb.opened}` : ''
+            }`}
+          />
+        ))}
       </button>
       <div
         className={`z-9 fixed top-0 left-0 bottom-0 bg-black transition-all overflow-hidden flex flex-col opacity-0
@@ -32,41 +63,17 @@ export default function Menu({ onSectionChange, menuOpened, setMenuOpened }) {
         className={`z-10 fixed top-0 right-0 bottom-0 bg-white transition-all overflow-hidden flex flex-col
       ${menuOpened ? 'w-full md:w-80' : 'w-0'}`}
       >
-        <div className='flex-1 flex items-start justify-center flex-col gap-6 p-8'>
-          <MenuButton
-            label='Home'
-            onClick={() => onSectionChange(0)}
-            color='primary'
-          />
-          <MenuButton
-            label='Experience'
-            onClick={() => onSectionChange(1)}
-            color={'summer'}
-          />
-          <MenuButton
-            label='Skills'
-            onClick={() => onSectionChange(2)}
-            color={'fall'}
-          />
-          <MenuButton
-            label='Contact'
-            onClick={() => onSectionChange(3)}
-            color={'winter'}
-          />
-          <MenuButton
-            label='Portal'
-            onClick={() => onSectionChange(4)}
-            color={'spring'}
-          />
+        <div className='flex-1 flex justify-center flex-col gap-6 p-8'>
+          {menuButtons.map((mb, i) => (
+            <MenuButton key={i} {...mb} onClick={() => onSectionChange(i)} />
+          ))}
         </div>
       </div>
     </>
   );
 }
 
-const MenuButton = ({ label, onClick, color }) => {
-  const hoverColor = `hover:text-${color}`;
-
+const MenuButton = ({ label, onClick, hoverColor }) => {
   return (
     <button
       onClick={onClick}
