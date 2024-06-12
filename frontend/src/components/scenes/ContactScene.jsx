@@ -2,9 +2,9 @@ import { motion } from 'framer-motion-3d';
 import { Model as HouseModel } from '../models/IslandWinterHouseModel';
 import { Model as IslandWinterModel } from '../models/IslandWinterModel';
 import { Model as PillarModel } from '../models/IslandWinterHousePillarModel';
+import { Model as GetInTouchModel } from '../models/GetInTouch';
 
 export default function ContactScene({ isInView }) {
-
   const crystalBallMeshProps = {
     color: '#ffffff',
     roughness: 0,
@@ -59,6 +59,18 @@ export default function ContactScene({ isInView }) {
           </motion.group>
         ) : null}
       </motion.group>
+
+      {/* Get in touch */}
+      {isInView ? (
+        <motion.group
+          position={[-0.72, 2.06, 0.25]}
+          rotation-z={-Math.PI / 8}
+          scale={0.4}
+        >
+          <GetInTouchModel />
+        </motion.group>
+      ) : null}
+      {/* Crystal Ball */}
       <motion.mesh scale={2.9} position-y={1.8}>
         <sphereGeometry />
         <motion.meshPhysicalMaterial {...crystalBallMeshProps} />
