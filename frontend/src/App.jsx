@@ -36,12 +36,12 @@ export default function App() {
         </ScrollControls>
         {/* <OrbitControls /> */}
       </Canvas>
+      <Leva hidden />
       <Menu
         onSectionChange={setSection}
         menuOpened={menuOpened}
         setMenuOpened={setMenuOpened}
       />
-      <Leva hidden />
     </>
   );
 }

@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 export default function Experience({ isInView }) {
   return (
     <SectionContainer>
-      <motion.div
+      {/* <motion.div
         animate={isInView ? 'show' : 'hidden'}
         variants={{
           hidden: {},
@@ -14,7 +14,7 @@ export default function Experience({ isInView }) {
         {[0, 1, 2, 3].map((p, idx) => (
           <motion.div key={idx}>experience {idx}</motion.div>
         ))}
-      </motion.div>
+      </motion.div> */}
     </SectionContainer>
   );
 }
