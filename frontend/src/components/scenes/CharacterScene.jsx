@@ -41,7 +41,6 @@ export default function CharacterScene({ section, viewport }) {
             position={fullStarPosition}
             isFullStar={true}
             fullStarPosition={fullStarPosition}
-            onTapBall={() => {}}
             fourStarScale={0.13}
             animation={false}
             clickable={false}

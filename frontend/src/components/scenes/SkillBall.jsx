@@ -1,38 +1,48 @@
+import { debounce } from 'lodash';
 import { Decal, Float, useTexture } from '@react-three/drei';
 import { motion } from 'framer-motion-3d';
 import { useControls } from 'leva';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 
 export default function SkillBall({
   skill,
   position = [0, 0, 0],
   isFullStar = false,
   fullStarPosition = [0, 0, 0],
-  onTapBall,
+  onTapBall = () => {},
   fourStarScale,
   animation = true,
   clickable = true,
-  rotationY = 0,
+  countBigBang,
 }) {
   const [decal] = useTexture([skill.iconURL]);
   const [hovered, setHovered] = useState(false);
   const [ballThetaLength, setBallThetaLength] = useState(0);
+  const [merged, setMerged] = useState(false);
 
-  //www.reddit.com/r/threejs/comments/l63kgm/change_mouse_to_pointer_on_hover_with_react_three/
   useEffect(() => {
     document.body.style.cursor = hovered ? 'pointer' : 'auto';
-    //  adding the cleanup function there inside the useEffect, in case it's unmounted while hovering it
-    return () => (document.body.style.cursor = 'auto');
+    return () => {
+      document.body.style.cursor = 'auto';
+    };
   }, [hovered]);
 
-  // !TODO tab full start -> trigger big bang
-  const handleTap = () => {
-    if (!clickable) return;
-    document.body.style.cursor = 'auto';
-    onTapBall(skill.score);
-  };
+  useEffect(() => {
+    if (merged) setMerged(false);
+  }, [countBigBang]);
 
-  // TODO update after removing leva
+  // add debounce with useCallback to avoid triggering rerendering within a short period of time
+  const handleTap = useCallback(
+    debounce(() => {
+      if (!clickable) return;
+      document.body.style.cursor = 'auto';
+
+      setMerged(true);
+      onTapBall(skill.score, isFullStar);
+    }, 300),
+    []
+  );
+
   const {
     color,
     roughness,
@@ -111,20 +121,19 @@ export default function SkillBall({
       speed={isFullStar ? 0 : 0.5}
       rotationIntensity={isFullStar ? 0 : 2}
       floatIntensity={isFullStar ? 0 : 2}
+      onClick={handleTap}
     >
       <motion.group
         castShadow
         receiveShadow
+        rotation={[isFullStar ? -Math.PI / 9 : 0, 0, Math.PI]}
         initial='hidden'
-        animate='visible'
+        animate={`${isFullStar ? 'visible' : merged ? 'merge' : 'visible'}`}
         whileHover='hover'
-        whileTap='merge'
         variants={variants}
         transition={{ duration: 2 }}
         onPointerOver={() => setHovered(true)}
         onPointerOut={() => setHovered(false)}
-        onTapStart={handleTap}
-        rotation={[isFullStar ? -Math.PI / 9 : 0, 0, Math.PI]}
       >
         {/* inner fill */}
         <motion.mesh

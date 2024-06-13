@@ -5,16 +5,28 @@ import { useState, useEffect } from 'react';
 
 export default function SkillBallsScene() {
   const [positions, setPositions] = useState();
-  const [fourStarScale, setFourStarScale] = useState(0.2);
+  const FULL_STAR_INIT_SCALE = 0.2;
+  const [fourStarScale, setFourStarScale] = useState(FULL_STAR_INIT_SCALE);
+  const [countBigBang, setCountBigBang] = useState(0);
 
   useEffect(() => {
     setPositions(generateSkillBallPositions());
   }, []);
 
-  const handleTapBall = (score) => {
-    setTimeout(() => {
-      setFourStarScale((prev) => prev + score / 5000);
-    }, 1500);
+  // handle four start clicked, triggering big bang
+  const handleBigBang = () => {
+    setCountBigBang((prev) => prev + 1);
+    setFourStarScale(FULL_STAR_INIT_SCALE);
+  };
+
+  const handleTapBall = (score, isFullStar) => {
+    if (isFullStar) {
+      handleBigBang();
+    } else {
+      setTimeout(() => {
+        setFourStarScale((prev) => prev + score / 5000);
+      }, 1500);
+    }
   };
 
   return (
@@ -27,8 +39,11 @@ export default function SkillBallsScene() {
               position={positions[idx]}
               isFullStar={idx === 0}
               fullStarPosition={positions[0]}
-              onTapBall={(score) => handleTapBall(score)}
+              onTapBall={(score, isFullStar) =>
+                handleTapBall(score, isFullStar)
+              }
               fourStarScale={fourStarScale}
+              countBigBang={countBigBang}
             />
           ))
         : null}
