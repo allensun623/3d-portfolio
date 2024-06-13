@@ -19,11 +19,11 @@ const experienceAnimation = (viewport) => {
 };
 
 const RIPAnimation = (viewport) => {
-  const x = [-0.3, 0.15];
+  const x = [-0.3, 0.05];
   const y = [-viewport.height * 4 + 0.7, -viewport.height * 4 + 0.55];
   const z = [-viewport.height + 5.5, -viewport.height + 5];
   const rotateY = [(Math.PI * 3) / 4, (Math.PI * 3) / 4];
-  const scale = [0.2, 0.18];
+  const scale = [0.2, 0.16];
   const transition = {
     times: [0.5, 1],
     duration: 3,

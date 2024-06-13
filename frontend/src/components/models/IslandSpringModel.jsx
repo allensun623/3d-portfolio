@@ -12,7 +12,7 @@ export function Model(props) {
         castShadow
         receiveShadow
         geometry={nodes.portalring.geometry}
-        material={materials['grey.portal.rock.002']}
+        material={materials['grey.portal.rock.003']}
         position={[-0.141, 0.288, 0]}
         scale={[3.592, 1.205, 1.205]}
       />
@@ -20,22 +20,14 @@ export function Model(props) {
         castShadow
         receiveShadow
         geometry={nodes.portalfourtones.geometry}
-        material={materials['grey.portal.rock.001']}
-        position={[-0.087, 0.291, 0.006]}
-        rotation={[0, 0, -Math.PI / 2]}
-        scale={[0.382, 1.14, 0.382]}
-      />
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={nodes.portalring001.geometry}
-        material={materials['portal.wirl']}
+        material={materials['grey.portal.rock.004']}
+        position={[-0.083, 0.281, 0.006]}
       />
       <mesh
         castShadow
         receiveShadow
         geometry={nodes.tree.geometry}
-        material={materials['brown.tree.cherry']}
+        material={materials['brown.tree.cherry.001']}
         position={[-0.115, -0.676, 0]}
         scale={[1.721, 1.189, 1.721]}
       >
@@ -47,14 +39,14 @@ export function Model(props) {
           <mesh
             castShadow
             receiveShadow
-            geometry={nodes.Icosphere020.geometry}
-            material={materials['cherry.flower.pink01']}
+            geometry={nodes.Icosphere001_1.geometry}
+            material={materials['cherry.flower.pink01.001']}
           />
           <mesh
             castShadow
             receiveShadow
-            geometry={nodes.Icosphere020_1.geometry}
-            material={materials['cherry.flower.pink02']}
+            geometry={nodes.Icosphere001_2.geometry}
+            material={materials['cherry.flower.pink02.001']}
           />
         </group>
         <group
@@ -65,14 +57,14 @@ export function Model(props) {
           <mesh
             castShadow
             receiveShadow
-            geometry={nodes.Icosphere021.geometry}
-            material={materials['cherry.flower.pink01']}
+            geometry={nodes.Icosphere002_1.geometry}
+            material={materials['cherry.flower.pink01.001']}
           />
           <mesh
             castShadow
             receiveShadow
-            geometry={nodes.Icosphere021_1.geometry}
-            material={materials['cherry.flower.pink02']}
+            geometry={nodes.Icosphere002_2.geometry}
+            material={materials['cherry.flower.pink02.001']}
           />
         </group>
         <group
@@ -83,14 +75,14 @@ export function Model(props) {
           <mesh
             castShadow
             receiveShadow
-            geometry={nodes.Icosphere022.geometry}
-            material={materials['cherry.flower.pink01']}
+            geometry={nodes.Icosphere003_1.geometry}
+            material={materials['cherry.flower.pink01.001']}
           />
           <mesh
             castShadow
             receiveShadow
-            geometry={nodes.Icosphere022_1.geometry}
-            material={materials['cherry.flower.pink02']}
+            geometry={nodes.Icosphere003_2.geometry}
+            material={materials['cherry.flower.pink02.001']}
           />
         </group>
         <group
@@ -101,14 +93,14 @@ export function Model(props) {
           <mesh
             castShadow
             receiveShadow
-            geometry={nodes.Icosphere023.geometry}
-            material={materials['cherry.flower.pink01']}
+            geometry={nodes.Icosphere004_1.geometry}
+            material={materials['cherry.flower.pink01.001']}
           />
           <mesh
             castShadow
             receiveShadow
-            geometry={nodes.Icosphere023_1.geometry}
-            material={materials['cherry.flower.pink02']}
+            geometry={nodes.Icosphere004_2.geometry}
+            material={materials['cherry.flower.pink02.001']}
           />
         </group>
         <group
@@ -119,14 +111,14 @@ export function Model(props) {
           <mesh
             castShadow
             receiveShadow
-            geometry={nodes.Icosphere024.geometry}
-            material={materials['cherry.flower.pink01']}
+            geometry={nodes.Icosphere005_1.geometry}
+            material={materials['cherry.flower.pink01.001']}
           />
           <mesh
             castShadow
             receiveShadow
-            geometry={nodes.Icosphere024_1.geometry}
-            material={materials['cherry.flower.pink02']}
+            geometry={nodes.Icosphere005_2.geometry}
+            material={materials['cherry.flower.pink02.001']}
           />
         </group>
         <group
@@ -137,14 +129,14 @@ export function Model(props) {
           <mesh
             castShadow
             receiveShadow
-            geometry={nodes.Icosphere026.geometry}
-            material={materials['cherry.flower.pink01']}
+            geometry={nodes.Icosphere006.geometry}
+            material={materials['cherry.flower.pink01.001']}
           />
           <mesh
             castShadow
             receiveShadow
-            geometry={nodes.Icosphere026_1.geometry}
-            material={materials['cherry.flower.pink02']}
+            geometry={nodes.Icosphere006_1.geometry}
+            material={materials['cherry.flower.pink02.001']}
           />
         </group>
         <group
@@ -155,14 +147,14 @@ export function Model(props) {
           <mesh
             castShadow
             receiveShadow
-            geometry={nodes.Icosphere027.geometry}
-            material={materials['cherry.flower.pink01']}
+            geometry={nodes.Icosphere007_1.geometry}
+            material={materials['cherry.flower.pink01.001']}
           />
           <mesh
             castShadow
             receiveShadow
-            geometry={nodes.Icosphere027_1.geometry}
-            material={materials['cherry.flower.pink02']}
+            geometry={nodes.Icosphere007_2.geometry}
+            material={materials['cherry.flower.pink02.001']}
           />
         </group>
         <group
@@ -173,14 +165,14 @@ export function Model(props) {
           <mesh
             castShadow
             receiveShadow
-            geometry={nodes.Icosphere009_1.geometry}
-            material={materials['cherry.flower.pink01']}
+            geometry={nodes.Icosphere008_1.geometry}
+            material={materials['cherry.flower.pink01.001']}
           />
           <mesh
             castShadow
             receiveShadow
-            geometry={nodes.Icosphere009_2.geometry}
-            material={materials['cherry.flower.pink02']}
+            geometry={nodes.Icosphere008_2.geometry}
+            material={materials['cherry.flower.pink02.001']}
           />
         </group>
         <group
@@ -191,14 +183,14 @@ export function Model(props) {
           <mesh
             castShadow
             receiveShadow
-            geometry={nodes.Icosphere028.geometry}
-            material={materials['cherry.flower.pink01']}
+            geometry={nodes.Icosphere010_1.geometry}
+            material={materials['cherry.flower.pink01.001']}
           />
           <mesh
             castShadow
             receiveShadow
-            geometry={nodes.Icosphere028_1.geometry}
-            material={materials['cherry.flower.pink02']}
+            geometry={nodes.Icosphere010_2.geometry}
+            material={materials['cherry.flower.pink02.001']}
           />
         </group>
         <group
@@ -209,14 +201,14 @@ export function Model(props) {
           <mesh
             castShadow
             receiveShadow
-            geometry={nodes.Icosphere029.geometry}
-            material={materials['cherry.flower.pink01']}
+            geometry={nodes.Icosphere011_1.geometry}
+            material={materials['cherry.flower.pink01.001']}
           />
           <mesh
             castShadow
             receiveShadow
-            geometry={nodes.Icosphere029_1.geometry}
-            material={materials['cherry.flower.pink02']}
+            geometry={nodes.Icosphere011_2.geometry}
+            material={materials['cherry.flower.pink02.001']}
           />
         </group>
         <group
@@ -227,14 +219,14 @@ export function Model(props) {
           <mesh
             castShadow
             receiveShadow
-            geometry={nodes.Icosphere030.geometry}
-            material={materials['cherry.flower.pink01']}
+            geometry={nodes.Icosphere012_1.geometry}
+            material={materials['cherry.flower.pink01.001']}
           />
           <mesh
             castShadow
             receiveShadow
-            geometry={nodes.Icosphere030_1.geometry}
-            material={materials['cherry.flower.pink02']}
+            geometry={nodes.Icosphere012_2.geometry}
+            material={materials['cherry.flower.pink02.001']}
           />
         </group>
         <group
@@ -245,42 +237,42 @@ export function Model(props) {
           <mesh
             castShadow
             receiveShadow
-            geometry={nodes.Icosphere031.geometry}
-            material={materials['cherry.flower.pink01']}
+            geometry={nodes.Icosphere013_1.geometry}
+            material={materials['cherry.flower.pink01.001']}
           />
           <mesh
             castShadow
             receiveShadow
-            geometry={nodes.Icosphere031_1.geometry}
-            material={materials['cherry.flower.pink02']}
+            geometry={nodes.Icosphere013_2.geometry}
+            material={materials['cherry.flower.pink02.001']}
           />
         </group>
         <group position={[0.044, 0.928, 0.625]} scale={[0.338, 0.489, 0.338]}>
           <mesh
             castShadow
             receiveShadow
-            geometry={nodes.Icosphere017_1.geometry}
-            material={materials['cherry.flower.pink01']}
+            geometry={nodes.Icosphere014.geometry}
+            material={materials['cherry.flower.pink01.001']}
           />
           <mesh
             castShadow
             receiveShadow
-            geometry={nodes.Icosphere017_2.geometry}
-            material={materials['cherry.flower.pink02']}
+            geometry={nodes.Icosphere014_1.geometry}
+            material={materials['cherry.flower.pink02.001']}
           />
         </group>
         <group position={[0.051, 1.182, 0.302]} scale={[0.338, 0.489, 0.338]}>
           <mesh
             castShadow
             receiveShadow
-            geometry={nodes.Icosphere018_1.geometry}
-            material={materials['cherry.flower.pink01']}
+            geometry={nodes.Icosphere015.geometry}
+            material={materials['cherry.flower.pink01.001']}
           />
           <mesh
             castShadow
             receiveShadow
-            geometry={nodes.Icosphere018_2.geometry}
-            material={materials['cherry.flower.pink02']}
+            geometry={nodes.Icosphere015_1.geometry}
+            material={materials['cherry.flower.pink02.001']}
           />
         </group>
       </mesh>
@@ -288,7 +280,7 @@ export function Model(props) {
         castShadow
         receiveShadow
         geometry={nodes.base.geometry}
-        material={materials.ground}
+        material={materials['ground.001']}
         position={[0.602, -0.045, 0.074]}
         scale={[1.615, 0.323, 1.615]}
       >
@@ -296,7 +288,7 @@ export function Model(props) {
           castShadow
           receiveShadow
           geometry={nodes.Plane003.geometry}
-          material={materials['green.grass']}
+          material={materials['green.grass.001']}
           position={[0.37, 0.449, -0.716]}
           scale={[0.2, 1, 0.2]}
         />
@@ -304,7 +296,7 @@ export function Model(props) {
           castShadow
           receiveShadow
           geometry={nodes.Plane004.geometry}
-          material={materials['green.grass']}
+          material={materials['green.grass.001']}
           position={[-0.204, 0.44, -0.766]}
           rotation={[0, -0.955, 0]}
           scale={[0.04, 0.2, 0.04]}
@@ -313,7 +305,7 @@ export function Model(props) {
           castShadow
           receiveShadow
           geometry={nodes.Plane006.geometry}
-          material={materials['green.grass']}
+          material={materials['green.grass.001']}
           position={[0.047, 0.422, 0.686]}
           scale={[0.04, 0.2, 0.04]}
         />
@@ -321,7 +313,7 @@ export function Model(props) {
           castShadow
           receiveShadow
           geometry={nodes.Plane009.geometry}
-          material={materials['green.grass']}
+          material={materials['green.grass.001']}
           position={[2.013, 2.391, -0.01]}
           scale={[0.2, 1, 0.2]}
         />
@@ -329,7 +321,7 @@ export function Model(props) {
           castShadow
           receiveShadow
           geometry={nodes.stone.geometry}
-          material={materials['grey.rock.001']}
+          material={materials['grey.rock.002']}
           position={[2.013, 2.391, -0.01]}
           scale={[0.2, 1, 0.2]}
         />
@@ -337,7 +329,7 @@ export function Model(props) {
           castShadow
           receiveShadow
           geometry={nodes.stone001.geometry}
-          material={materials['grey.rock.001']}
+          material={materials['grey.rock.002']}
           position={[0.1, 0.489, -0.647]}
           rotation={[0, 0.727, 0]}
           scale={[0.153, 0.766, 0.153]}
@@ -346,7 +338,7 @@ export function Model(props) {
           castShadow
           receiveShadow
           geometry={nodes.stone002.geometry}
-          material={materials['grey.rock.001']}
+          material={materials['grey.rock.002']}
           position={[2.013, 2.391, -0.01]}
           scale={[0.2, 1, 0.2]}
         />
@@ -354,7 +346,7 @@ export function Model(props) {
           castShadow
           receiveShadow
           geometry={nodes.stone003.geometry}
-          material={materials['grey.rock.001']}
+          material={materials['grey.rock.002']}
           position={[-0.346, 0.243, 0.714]}
           scale={[0.064, 0.322, 0.064]}
         />
@@ -362,7 +354,7 @@ export function Model(props) {
           castShadow
           receiveShadow
           geometry={nodes.stone004.geometry}
-          material={materials['grey.rock.001']}
+          material={materials['grey.rock.002']}
           position={[2.013, 2.391, -0.01]}
           scale={[0.2, 1, 0.2]}
         />
@@ -370,7 +362,7 @@ export function Model(props) {
           castShadow
           receiveShadow
           geometry={nodes.stone005.geometry}
-          material={materials['grey.rock.001']}
+          material={materials['grey.rock.002']}
           position={[2.013, 2.391, -0.01]}
           scale={[0.2, 1, 0.2]}
         />
@@ -378,7 +370,7 @@ export function Model(props) {
           castShadow
           receiveShadow
           geometry={nodes.stone006.geometry}
-          material={materials['grey.rock.001']}
+          material={materials['grey.rock.002']}
           position={[2.013, 2.391, -0.01]}
           scale={[0.2, 1, 0.2]}
         />
@@ -386,7 +378,7 @@ export function Model(props) {
           castShadow
           receiveShadow
           geometry={nodes.stone007.geometry}
-          material={materials['grey.rock.001']}
+          material={materials['grey.rock.002']}
           position={[2.013, 2.391, -0.01]}
           scale={[0.2, 1, 0.2]}
         />
@@ -394,7 +386,7 @@ export function Model(props) {
           castShadow
           receiveShadow
           geometry={nodes.stone008.geometry}
-          material={materials['grey.rock.001']}
+          material={materials['grey.rock.002']}
           position={[2.013, 2.391, -0.01]}
           scale={[0.2, 1, 0.2]}
         />
@@ -402,7 +394,7 @@ export function Model(props) {
           castShadow
           receiveShadow
           geometry={nodes.stone010.geometry}
-          material={materials['grey.rock.001']}
+          material={materials['grey.rock.002']}
           position={[2.013, 2.391, -0.01]}
           scale={[0.2, 1, 0.2]}
         />
@@ -410,7 +402,7 @@ export function Model(props) {
           castShadow
           receiveShadow
           geometry={nodes.stone011.geometry}
-          material={materials['grey.rock.001']}
+          material={materials['grey.rock.002']}
           position={[2.013, 2.391, -0.01]}
           scale={[0.2, 1, 0.2]}
         />
@@ -418,7 +410,7 @@ export function Model(props) {
           castShadow
           receiveShadow
           geometry={nodes.stone012.geometry}
-          material={materials['grey.rock.001']}
+          material={materials['grey.rock.002']}
           position={[2.013, 2.391, -0.01]}
           scale={[0.2, 1, 0.2]}
         />
@@ -426,7 +418,7 @@ export function Model(props) {
           castShadow
           receiveShadow
           geometry={nodes.stone013.geometry}
-          material={materials['grey.rock.001']}
+          material={materials['grey.rock.002']}
           position={[2.013, 2.391, -0.01]}
           scale={[0.2, 1, 0.2]}
         />
@@ -434,7 +426,7 @@ export function Model(props) {
           castShadow
           receiveShadow
           geometry={nodes.stone014.geometry}
-          material={materials['grey.rock.001']}
+          material={materials['grey.rock.002']}
           position={[2.013, 2.391, -0.01]}
           scale={[0.2, 1, 0.2]}
         />
@@ -442,7 +434,7 @@ export function Model(props) {
           castShadow
           receiveShadow
           geometry={nodes.stone015.geometry}
-          material={materials['grey.rock.001']}
+          material={materials['grey.rock.002']}
           position={[2.013, 2.391, -0.01]}
           scale={[0.2, 1, 0.2]}
         />
@@ -450,7 +442,7 @@ export function Model(props) {
           castShadow
           receiveShadow
           geometry={nodes.stone016.geometry}
-          material={materials['grey.rock.001']}
+          material={materials['grey.rock.002']}
           position={[2.013, 2.391, -0.01]}
           scale={[0.2, 1, 0.2]}
         />
@@ -458,7 +450,7 @@ export function Model(props) {
           castShadow
           receiveShadow
           geometry={nodes.stone017.geometry}
-          material={materials['grey.rock.001']}
+          material={materials['grey.rock.002']}
           position={[2.013, 2.391, -0.01]}
           scale={[0.2, 1, 0.2]}
         />
@@ -466,7 +458,7 @@ export function Model(props) {
           castShadow
           receiveShadow
           geometry={nodes.stone018.geometry}
-          material={materials['grey.rock.001']}
+          material={materials['grey.rock.002']}
           position={[2.013, 2.391, -0.01]}
           scale={[0.2, 1, 0.2]}
         />
@@ -474,7 +466,7 @@ export function Model(props) {
           castShadow
           receiveShadow
           geometry={nodes.stonelittle.geometry}
-          material={materials['grey.rock.001']}
+          material={materials['grey.rock.002']}
           position={[-0.017, 0.198, 0.548]}
           scale={[0.051, 0.256, 0.051]}
         />
@@ -482,7 +474,7 @@ export function Model(props) {
           castShadow
           receiveShadow
           geometry={nodes.stonelittle001.geometry}
-          material={materials['grey.rock.001']}
+          material={materials['grey.rock.002']}
           position={[-0.049, 0.294, 0.659]}
           rotation={[0, 0.874, 0]}
           scale={[0.042, 0.19, 0.038]}
@@ -491,7 +483,7 @@ export function Model(props) {
           castShadow
           receiveShadow
           geometry={nodes.stonelittle002.geometry}
-          material={materials['grey.rock.001']}
+          material={materials['grey.rock.002']}
           position={[2.013, 2.391, -0.01]}
           scale={[0.2, 1, 0.2]}
         />
@@ -499,7 +491,7 @@ export function Model(props) {
           castShadow
           receiveShadow
           geometry={nodes.stonelittle003.geometry}
-          material={materials['grey.rock.001']}
+          material={materials['grey.rock.002']}
           position={[0.3, 0.192, -0.68]}
           scale={[0.047, 0.237, 0.047]}
         />
@@ -507,7 +499,7 @@ export function Model(props) {
           castShadow
           receiveShadow
           geometry={nodes.stonelittle004.geometry}
-          material={materials['grey.rock.001']}
+          material={materials['grey.rock.002']}
           position={[2.013, 2.391, -0.01]}
           scale={[0.2, 1, 0.2]}
         />
@@ -515,7 +507,7 @@ export function Model(props) {
           castShadow
           receiveShadow
           geometry={nodes.stonelittle005.geometry}
-          material={materials['grey.rock.001']}
+          material={materials['grey.rock.002']}
           position={[2.013, 2.391, -0.01]}
           scale={[0.2, 1, 0.2]}
         />
@@ -523,7 +515,7 @@ export function Model(props) {
           castShadow
           receiveShadow
           geometry={nodes.underground003.geometry}
-          material={materials['brown.nase']}
+          material={materials['brown.nase.001']}
           position={[0.929, -0.154, -0.478]}
           scale={0.697}
         />
@@ -531,7 +523,7 @@ export function Model(props) {
           castShadow
           receiveShadow
           geometry={nodes.underground004.geometry}
-          material={materials['brown.nase']}
+          material={materials['brown.nase.001']}
           rotation={[-Math.PI, 1.184, -Math.PI]}
           scale={0.697}
         />
@@ -539,7 +531,7 @@ export function Model(props) {
           castShadow
           receiveShadow
           geometry={nodes.underground005.geometry}
-          material={materials['grey.rock.001']}
+          material={materials['grey.rock.002']}
           position={[2.013, 2.391, -0.01]}
           scale={[0.2, 1, 0.2]}
         />
@@ -547,7 +539,7 @@ export function Model(props) {
           castShadow
           receiveShadow
           geometry={nodes.underground006.geometry}
-          material={materials.ground}
+          material={materials['ground.001']}
           position={[0.929, -0.154, -0.478]}
           scale={0.697}
         />
@@ -555,7 +547,7 @@ export function Model(props) {
           castShadow
           receiveShadow
           geometry={nodes.underground007.geometry}
-          material={materials.ground}
+          material={materials['ground.001']}
           rotation={[-Math.PI, 1.184, -Math.PI]}
           scale={0.697}
         />
@@ -563,13 +555,13 @@ export function Model(props) {
           castShadow
           receiveShadow
           geometry={nodes.underground01.geometry}
-          material={materials['brown.nase']}
+          material={materials['brown.nase.001']}
         />
         <mesh
           castShadow
           receiveShadow
           geometry={nodes.underground02.geometry}
-          material={materials['brown.nase']}
+          material={materials['brown.nase.001']}
           position={[0.076, -2.952, -0.124]}
           scale={0.697}
         />
@@ -578,7 +570,7 @@ export function Model(props) {
         castShadow
         receiveShadow
         geometry={nodes.portalpath.geometry}
-        material={materials['grey.rock']}
+        material={materials['grey.rock.003']}
         position={[0.412, -0.016, -0.094]}
         scale={[0.417, 0.849, 0.849]}
       />
@@ -586,56 +578,56 @@ export function Model(props) {
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.Plane004_1.geometry}
-          material={materials['cherry.flower.pink01']}
+          geometry={nodes.Plane035.geometry}
+          material={materials['cherry.flower.pink01.001']}
         />
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.Plane004_2.geometry}
-          material={materials['cherry.flower.pink02']}
+          geometry={nodes.Plane035_1.geometry}
+          material={materials['cherry.flower.pink02.001']}
         />
       </group>
       <group position={[1.11, -0.007, 0.851]}>
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.Plane005.geometry}
-          material={materials['cherry.flower.pink01']}
+          geometry={nodes.Plane036.geometry}
+          material={materials['cherry.flower.pink01.001']}
         />
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.Plane005_1.geometry}
-          material={materials['cherry.flower.pink02']}
+          geometry={nodes.Plane036_1.geometry}
+          material={materials['cherry.flower.pink02.001']}
         />
       </group>
       <group position={[0.804, 0.022, 0.954]}>
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.Plane006_1.geometry}
-          material={materials['cherry.flower.pink01']}
+          geometry={nodes.Plane037.geometry}
+          material={materials['cherry.flower.pink01.001']}
         />
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.Plane006_2.geometry}
-          material={materials['cherry.flower.pink02']}
+          geometry={nodes.Plane037_1.geometry}
+          material={materials['cherry.flower.pink02.001']}
         />
       </group>
       <group position={[1.887, 0.051, -0.102]}>
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.Plane007.geometry}
-          material={materials['cherry.flower.pink01']}
+          geometry={nodes.Plane038.geometry}
+          material={materials['cherry.flower.pink01.001']}
         />
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.Plane007_1.geometry}
-          material={materials['cherry.flower.pink02']}
+          geometry={nodes.Plane038_1.geometry}
+          material={materials['cherry.flower.pink02.001']}
         />
       </group>
       <group
@@ -645,28 +637,28 @@ export function Model(props) {
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.Plane008.geometry}
-          material={materials['cherry.flower.pink01']}
+          geometry={nodes.Plane039.geometry}
+          material={materials['cherry.flower.pink01.001']}
         />
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.Plane008_1.geometry}
-          material={materials['cherry.flower.pink02']}
+          geometry={nodes.Plane039_1.geometry}
+          material={materials['cherry.flower.pink02.001']}
         />
       </group>
       <group position={[1.62, -0.015, 1.26]} rotation={[-2.159, -0.986, 0.654]}>
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.Plane009_1.geometry}
-          material={materials['cherry.flower.pink01']}
+          geometry={nodes.Plane040.geometry}
+          material={materials['cherry.flower.pink01.001']}
         />
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.Plane009_2.geometry}
-          material={materials['cherry.flower.pink02']}
+          geometry={nodes.Plane040_1.geometry}
+          material={materials['cherry.flower.pink02.001']}
         />
       </group>
       <group
@@ -676,28 +668,28 @@ export function Model(props) {
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.Plane010.geometry}
-          material={materials['cherry.flower.pink01']}
+          geometry={nodes.Plane041.geometry}
+          material={materials['cherry.flower.pink01.001']}
         />
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.Plane010_1.geometry}
-          material={materials['cherry.flower.pink02']}
+          geometry={nodes.Plane041_1.geometry}
+          material={materials['cherry.flower.pink02.001']}
         />
       </group>
       <group position={[2.066, -0.224, -0.912]}>
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.Plane011.geometry}
-          material={materials['cherry.flower.pink01']}
+          geometry={nodes.Plane042.geometry}
+          material={materials['cherry.flower.pink01.001']}
         />
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.Plane011_1.geometry}
-          material={materials['cherry.flower.pink02']}
+          geometry={nodes.Plane042_1.geometry}
+          material={materials['cherry.flower.pink02.001']}
         />
       </group>
       <group
@@ -707,14 +699,14 @@ export function Model(props) {
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.Plane012.geometry}
-          material={materials['cherry.flower.pink01']}
+          geometry={nodes.Plane043.geometry}
+          material={materials['cherry.flower.pink01.001']}
         />
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.Plane012_1.geometry}
-          material={materials['cherry.flower.pink02']}
+          geometry={nodes.Plane043_1.geometry}
+          material={materials['cherry.flower.pink02.001']}
         />
       </group>
       <group
@@ -724,28 +716,28 @@ export function Model(props) {
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.Plane013.geometry}
-          material={materials['cherry.flower.pink01']}
+          geometry={nodes.Plane044.geometry}
+          material={materials['cherry.flower.pink01.001']}
         />
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.Plane013_1.geometry}
-          material={materials['cherry.flower.pink02']}
+          geometry={nodes.Plane044_1.geometry}
+          material={materials['cherry.flower.pink02.001']}
         />
       </group>
       <group position={[-1.034, 0.216, 0.038]} rotation={[2.609, 0.419, 0.734]}>
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.Plane014.geometry}
-          material={materials['cherry.flower.pink01']}
+          geometry={nodes.Plane045.geometry}
+          material={materials['cherry.flower.pink01.001']}
         />
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.Plane014_1.geometry}
-          material={materials['cherry.flower.pink02']}
+          geometry={nodes.Plane045_1.geometry}
+          material={materials['cherry.flower.pink02.001']}
         />
       </group>
       <group
@@ -755,14 +747,14 @@ export function Model(props) {
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.Plane018.geometry}
-          material={materials['cherry.flower.pink01']}
+          geometry={nodes.Plane046.geometry}
+          material={materials['cherry.flower.pink01.001']}
         />
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.Plane018_1.geometry}
-          material={materials['cherry.flower.pink02']}
+          geometry={nodes.Plane046_1.geometry}
+          material={materials['cherry.flower.pink02.001']}
         />
       </group>
       <group
@@ -772,14 +764,14 @@ export function Model(props) {
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.Plane021.geometry}
-          material={materials['cherry.flower.pink01']}
+          geometry={nodes.Plane047.geometry}
+          material={materials['cherry.flower.pink01.001']}
         />
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.Plane021_1.geometry}
-          material={materials['cherry.flower.pink02']}
+          geometry={nodes.Plane047_1.geometry}
+          material={materials['cherry.flower.pink02.001']}
         />
       </group>
       <group
@@ -789,14 +781,14 @@ export function Model(props) {
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.Plane024.geometry}
-          material={materials['cherry.flower.pink01']}
+          geometry={nodes.Plane048.geometry}
+          material={materials['cherry.flower.pink01.001']}
         />
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.Plane024_1.geometry}
-          material={materials['cherry.flower.pink02']}
+          geometry={nodes.Plane048_1.geometry}
+          material={materials['cherry.flower.pink02.001']}
         />
       </group>
       <group
@@ -806,14 +798,14 @@ export function Model(props) {
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.Plane027.geometry}
-          material={materials['cherry.flower.pink01']}
+          geometry={nodes.Plane049.geometry}
+          material={materials['cherry.flower.pink01.001']}
         />
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.Plane027_1.geometry}
-          material={materials['cherry.flower.pink02']}
+          geometry={nodes.Plane049_1.geometry}
+          material={materials['cherry.flower.pink02.001']}
         />
       </group>
       <group
@@ -823,14 +815,14 @@ export function Model(props) {
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.Plane028.geometry}
-          material={materials['cherry.flower.pink01']}
+          geometry={nodes.Plane050.geometry}
+          material={materials['cherry.flower.pink01.001']}
         />
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.Plane028_1.geometry}
-          material={materials['cherry.flower.pink02']}
+          geometry={nodes.Plane050_1.geometry}
+          material={materials['cherry.flower.pink02.001']}
         />
       </group>
       <group
@@ -840,14 +832,14 @@ export function Model(props) {
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.Plane029.geometry}
-          material={materials['cherry.flower.pink01']}
+          geometry={nodes.Plane051.geometry}
+          material={materials['cherry.flower.pink01.001']}
         />
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.Plane029_1.geometry}
-          material={materials['cherry.flower.pink02']}
+          geometry={nodes.Plane051_1.geometry}
+          material={materials['cherry.flower.pink02.001']}
         />
       </group>
       <group
@@ -857,14 +849,14 @@ export function Model(props) {
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.Plane030.geometry}
-          material={materials['cherry.flower.pink01']}
+          geometry={nodes.Plane052.geometry}
+          material={materials['cherry.flower.pink01.001']}
         />
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.Plane030_1.geometry}
-          material={materials['cherry.flower.pink02']}
+          geometry={nodes.Plane052_1.geometry}
+          material={materials['cherry.flower.pink02.001']}
         />
       </group>
       <group
@@ -874,28 +866,28 @@ export function Model(props) {
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.Plane031.geometry}
-          material={materials['cherry.flower.pink01']}
+          geometry={nodes.Plane053.geometry}
+          material={materials['cherry.flower.pink01.001']}
         />
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.Plane031_1.geometry}
-          material={materials['cherry.flower.pink02']}
+          geometry={nodes.Plane053_1.geometry}
+          material={materials['cherry.flower.pink02.001']}
         />
       </group>
       <group position={[-0.767, 0.846, -0.1]} rotation={[-0.988, 0.5, 0.189]}>
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.Plane032.geometry}
-          material={materials['cherry.flower.pink01']}
+          geometry={nodes.Plane054.geometry}
+          material={materials['cherry.flower.pink01.001']}
         />
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.Plane032_1.geometry}
-          material={materials['cherry.flower.pink02']}
+          geometry={nodes.Plane054_1.geometry}
+          material={materials['cherry.flower.pink02.001']}
         />
       </group>
       <group
@@ -905,44 +897,60 @@ export function Model(props) {
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.Plane033.geometry}
-          material={materials['cherry.flower.pink01']}
+          geometry={nodes.Plane055.geometry}
+          material={materials['cherry.flower.pink01.001']}
         />
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.Plane033_1.geometry}
-          material={materials['cherry.flower.pink02']}
+          geometry={nodes.Plane055_1.geometry}
+          material={materials['cherry.flower.pink02.001']}
         />
       </group>
       <group position={[0.373, 0.045, 0.214]} rotation={[0.019, 0, -0.001]}>
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.Plane015.geometry}
-          material={materials['cherry.flower.pink01']}
+          geometry={nodes.Plane056.geometry}
+          material={materials['cherry.flower.pink01.001']}
         />
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.Plane015_1.geometry}
-          material={materials['cherry.flower.pink02']}
+          geometry={nodes.Plane056_1.geometry}
+          material={materials['cherry.flower.pink02.001']}
         />
       </group>
       <group position={[0.537, 0.041, -0.113]} rotation={[3.132, 0, -0.001]}>
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.Plane016.geometry}
-          material={materials['cherry.flower.pink01']}
+          geometry={nodes.Plane057.geometry}
+          material={materials['cherry.flower.pink01.001']}
         />
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.Plane016_1.geometry}
-          material={materials['cherry.flower.pink02']}
+          geometry={nodes.Plane057_1.geometry}
+          material={materials['cherry.flower.pink02.001']}
         />
       </group>
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.portalringstone.geometry}
+        material={materials['grey.portal.rock.004']}
+        position={[-0.147, 0.283, 0]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.portalringstoneText.geometry}
+        material={materials['grey.stone']}
+        position={[-0.142, 0.283, 0]}
+        rotation={[Math.PI / 2, 0, -Math.PI / 2]}
+        scale={[0.052, 0.062, 0.052]}
+      />
     </group>
   );
 }

@@ -26,16 +26,19 @@ export default function CharacterScene({ section, viewport }) {
         duration: 1,
         delay: 0.6,
       }}
-      // onUpdate={(latest) => {
-      //   if (section === 4) console.log({ section, latest });
-      // }}
       variants={variants(viewport)}
     >
       <Character animation={animation} position-y={0.5} />
       {/* Cloud */}
       <CloudScene section={section} />
+      {/* skill ball to portal */}
       {section === 4 ? (
-        <motion.group rotation-y={Math.PI}>
+        <motion.group
+          rotation-y={Math.PI}
+          initial={{}}
+          animate={{ z: 3, y: -1.2, x: 1 }}
+          transition={{ delay: 5.5, duration: 5 }}
+        >
           <SkillBall
             skill={skills[0]}
             position={fullStarPosition}

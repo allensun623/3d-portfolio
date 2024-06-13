@@ -24,4 +24,4 @@ export function Model(props) {
   );
 }
 
-useGLTF.preload('/models/cherry-flower.glb');
+

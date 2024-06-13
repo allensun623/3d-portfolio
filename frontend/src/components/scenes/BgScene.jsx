@@ -78,7 +78,7 @@ export default function MainScene({ section, viewport }) {
       </motion.group>
 
       {/* RIP Scene Winter */}
-      <motion.group position={[0, -6, -6]} rotation-y={-Math.PI / 2}>
+      <motion.group position={[0, -6, -6]} rotation-y={(-Math.PI * 5) / 12}>
         <RIPScene isInView={isSectionInView(4)} viewport={viewport} />
       </motion.group>
     </motion.group>
