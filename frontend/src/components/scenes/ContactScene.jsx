@@ -5,20 +5,6 @@ import { Model as PillarModel } from '../models/IslandWinterHousePillarModel';
 import { Model as GetInTouchModel } from '../models/GetInTouch';
 
 export default function ContactScene({ isInView }) {
-  const crystalBallMeshProps = {
-    color: '#ffffff',
-    roughness: 0,
-    metalness: 0,
-    transmission: 0.98,
-    thickness: 0,
-    clearcoat: 0.2,
-    specularIntensity: 0.5,
-    ior: 1.33,
-    polygonOffset: true,
-    polygonOffsetFactor: -5,
-    flatShading: true,
-  };
-
   return (
     <>
       <motion.group
@@ -70,25 +56,8 @@ export default function ContactScene({ isInView }) {
           <GetInTouchModel />
         </motion.group>
       ) : null}
-      {/* Crystal Ball */}
-      <motion.mesh scale={2.9} position-y={1.8}>
-        <sphereGeometry />
-        <motion.meshPhysicalMaterial {...crystalBallMeshProps} />
-      </motion.mesh>
+
       <IslandWinterModel scale={2} />
-      {/* TODO four star ball */}
-      {/* {isInView ? (
-        <motion.group position={[-0.48, 1.2, 0.6]} rotationY={Math.PI / 6}>
-          <SkillBall
-            skill={skills[0]}
-            isFullStar={true}
-            onTapBall={() => {}}
-            fourStarScale={0.13}
-            animation={false}
-            clickable={false}
-          />
-        </motion.group>
-      ) : null} */}
     </>
   );
 }

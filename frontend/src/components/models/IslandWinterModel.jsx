@@ -11,6 +11,14 @@ export function Model(props) {
       <mesh
         castShadow
         receiveShadow
+        geometry={nodes.Sphere.geometry}
+        material={materials.glass}
+        position={[0, 0.799, 0]}
+        scale={1.384}
+      />
+      <mesh
+        castShadow
+        receiveShadow
         geometry={nodes.crystalbase.geometry}
         material={materials['brown.gingerbread.house']}
         position={[0, -0.079, 0]}

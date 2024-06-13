@@ -46,6 +46,7 @@ export function Model(props) {
         receiveShadow
         geometry={nodes.palmtrunk002.geometry}
         material={materials['yellow.palm']}
+        position={[0.074, 0.03, 0.087]}
       >
         <mesh
           castShadow
@@ -115,6 +116,7 @@ export function Model(props) {
         receiveShadow
         geometry={nodes.palmtrunk007.geometry}
         material={materials['yellow.palm']}
+        position={[0, -0.147, 0]}
       >
         <mesh
           castShadow
@@ -221,6 +223,7 @@ export function Model(props) {
         receiveShadow
         geometry={nodes.Cylinder001.geometry}
         material={materials['brown.tree']}
+        position={[0.004, 0.031, -0.001]}
       >
         <mesh
           castShadow
@@ -299,6 +302,7 @@ export function Model(props) {
         receiveShadow
         geometry={nodes.Cylinder007.geometry}
         material={materials['brown.tree']}
+        position={[0.141, -0.177, 0.043]}
       >
         <mesh
           castShadow
@@ -312,6 +316,7 @@ export function Model(props) {
         receiveShadow
         geometry={nodes.Cylinder008.geometry}
         material={materials['brown.tree']}
+        position={[0.022, 0.075, 0.039]}
       >
         <mesh
           castShadow
@@ -325,6 +330,7 @@ export function Model(props) {
         receiveShadow
         geometry={nodes.Cylinder009.geometry}
         material={materials['brown.tree']}
+        position={[0.064, 0.181, 0.045]}
       >
         <mesh
           castShadow
@@ -338,6 +344,7 @@ export function Model(props) {
         receiveShadow
         geometry={nodes.Cylinder010.geometry}
         material={materials['brown.tree']}
+        position={[-0.103, -0.119, 0.079]}
       >
         <mesh
           castShadow
@@ -351,6 +358,7 @@ export function Model(props) {
         receiveShadow
         geometry={nodes.Cylinder011.geometry}
         material={materials['brown.tree']}
+        position={[0.008, -0.163, 0.026]}
       >
         <mesh
           castShadow
@@ -364,6 +372,7 @@ export function Model(props) {
         receiveShadow
         geometry={nodes.Cylinder012.geometry}
         material={materials['brown.tree']}
+        position={[0, -0.199, 0]}
       >
         <mesh
           castShadow
@@ -609,6 +618,208 @@ export function Model(props) {
       <mesh
         castShadow
         receiveShadow
+        geometry={nodes.KorinTowerpillarbase.geometry}
+        material={materials.white}
+        position={[0.383, 0.219, 0.442]}
+        rotation={[Math.PI, -0.445, Math.PI]}
+        scale={[0.057, 0.036, 0.057]}
+      >
+        <group
+          position={[0.007, 6.695, 0.001]}
+          rotation={[0, Math.PI / 8, 0]}
+          scale={[0.968, 1, 0.968]}
+        >
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes['Karin_Tower-Bottom'].geometry}
+            material={materials.white}
+          />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes['Karin_Tower-Bottom_1'].geometry}
+            material={materials['yellow.korintower.top.001']}
+          />
+        </group>
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.KorinTowerpillar.geometry}
+          material={materials.white}
+          position={[0, 3.6, 0]}
+          scale={[0.195, 3.384, 0.195]}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.KorinTowertoppillar.geometry}
+          material={nodes.KorinTowertoppillar.material}
+          position={[0.007, 6.695, 0.001]}
+          scale={[0.968, 1, 0.968]}
+        />
+        <group position={[-0.002, 7.396, 0]} scale={[1.128, 1.165, 1.128]}>
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes['Karin_Tower-Top'].geometry}
+            material={materials['yellow.korintower.top.001']}
+          />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes['Karin_Tower-Top_1'].geometry}
+            material={materials.white}
+          />
+        </group>
+      </mesh>
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.volcano.geometry}
+        material={materials.yer}
+        position={[-0.083, 0.002, 0.135]}
+        rotation={[Math.PI, -0.161, Math.PI]}
+        scale={[0.789, 1.041, 0.789]}
+      >
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Mball021.geometry}
+          material={materials['Cloud.001']}
+          position={[0.362, 0.589, -0.306]}
+          rotation={[1.479, -0.828, 0.15]}
+          scale={0.054}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Plane015.geometry}
+          material={materials['Lava.002']}
+          position={[0.285, 0.421, -0.233]}
+          scale={0.12}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Sphere.geometry}
+          material={materials['Lava.002']}
+          position={[0.235, 0.64, -0.426]}
+          rotation={[0.29, -0.095, -0.209]}
+          scale={0.011}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Sphere001.geometry}
+          material={materials['Lava.002']}
+          position={[0.37, 0.59, -0.037]}
+          rotation={[3.037, 0.414, -3.045]}
+          scale={0.009}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Stone001.geometry}
+          material={materials['yer.002']}
+          position={[0.065, 0.157, -0.021]}
+          rotation={[-0.818, 0.427, 0.177]}
+          scale={0.048}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Stone002.geometry}
+          material={materials['yer.002']}
+          position={[-0.036, 0.129, -0.142]}
+          rotation={[0.021, 0.504, -0.279]}
+          scale={0.025}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Stone005.geometry}
+          material={materials['yer.002']}
+          position={[0.287, 0.196, 0.037]}
+          rotation={[-0.143, 0.259, 0.041]}
+          scale={0.054}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Stone006.geometry}
+          material={materials['yer.002']}
+          position={[0.044, 0.197, -0.317]}
+          rotation={[0.926, -1.334, 0.646]}
+          scale={0.043}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Stone007.geometry}
+          material={materials['yer.002']}
+          position={[0.22, 0.316, -0.102]}
+          rotation={[0.431, 0.153, -0.279]}
+          scale={0.034}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Stone008.geometry}
+          material={materials['yer.002']}
+          position={[0.206, 0.389, -0.353]}
+          rotation={[-0.12, -0.773, -0.265]}
+          scale={0.038}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Stone009.geometry}
+          material={materials['yer.002']}
+          position={[0.243, 0.426, -0.172]}
+          rotation={[-2.813, -0.216, 1.445]}
+          scale={0.018}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Stone010.geometry}
+          material={materials['yer.002']}
+          position={[0.273, 0.454, -0.421]}
+          rotation={[-3.123, 0.639, 1.032]}
+          scale={0.021}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Stone013.geometry}
+          material={materials['yer.002']}
+          position={[-0.173, -0.015, 0.163]}
+          rotation={[-0.646, 0.453, 0.077]}
+          scale={[0.076, 0.064, 0.069]}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Stone014.geometry}
+          material={materials['yer.002']}
+          position={[-0.429, -0.014, -0.642]}
+          rotation={[-0.955, 0.493, 0.234]}
+          scale={[0.085, 0.072, 0.077]}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Stone015.geometry}
+          material={materials['yer.002']}
+          position={[0.208, -0.036, 0.463]}
+          rotation={[-0.143, 0.259, 0.041]}
+          scale={[0.067, 0.046, 0.067]}
+        />
+      </mesh>
+      <mesh
+        castShadow
+        receiveShadow
         geometry={nodes.Plane_1.geometry}
         material={materials['green.mountain']}
       />
@@ -645,14 +856,14 @@ export function Model(props) {
       <mesh
         castShadow
         receiveShadow
-        geometry={nodes.Cylinder_1.geometry}
-        material={materials['yellow.tent']}
+        geometry={nodes.Korin_stack.geometry}
+        material={materials.white}
       />
       <mesh
         castShadow
         receiveShadow
-        geometry={nodes.Cylinder_2.geometry}
-        material={materials['leva.black']}
+        geometry={nodes.Korin_stack_1.geometry}
+        material={materials['brown.stack']}
       />
     </group>
   );
