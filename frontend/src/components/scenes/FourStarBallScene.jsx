@@ -3,7 +3,7 @@ import SkillBall from './SkillBall';
 import { skills } from '../../constants/skills';
 
 export default function FourStarBallScene({ section, viewport }) {
-  const fullStarPosition = [0, 1, -0.6];
+  const FourStarPosition = [0, 1, -0.6];
 
   return (
     <motion.group
@@ -19,9 +19,9 @@ export default function FourStarBallScene({ section, viewport }) {
     >
       <SkillBall
         skill={skills[0]}
-        position={fullStarPosition}
-        isFullStar={true}
-        fullStarPosition={fullStarPosition}
+        position={FourStarPosition}
+        isFourStar={true}
+        FourStarPosition={FourStarPosition}
         onTapBall={() => {}}
         fourStarScale={0.13}
         animation={false}

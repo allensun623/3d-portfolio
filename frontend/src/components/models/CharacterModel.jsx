@@ -153,7 +153,7 @@ export default function CharacterModel(props) {
         morphTargetDictionary={nodes.Wolf3D_Teeth.morphTargetDictionary}
         morphTargetInfluences={nodes.Wolf3D_Teeth.morphTargetInfluences}
       />
-      <primitive object={nodes.Hips} />{' '}
+      <primitive object={nodes.Hips} />
     </group>
   );
 }

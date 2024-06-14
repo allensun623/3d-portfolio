@@ -5,7 +5,7 @@ import { useControls } from 'leva';
 import { skills } from '../../constants/skills';
 
 export default function GlassBall({
-  isFullStar = false,
+  isFourStar = false,
   skill = skills[0],
   innerRadius = 0.9,
   innerThetaLength = Math.PI,
@@ -68,7 +68,7 @@ export default function GlassBall({
     variants: {
       hidden: { opacity: 0 },
       visible: {
-        opacity: isFullStar ? 1 : 0.75,
+        opacity: isFourStar ? 1 : 0.75,
       },
     },
   };
@@ -79,7 +79,7 @@ export default function GlassBall({
       receiveShadow
       position={position}
       scale={scale}
-      rotation={[isFullStar ? -Math.PI / 9 : 0, 0, Math.PI]}
+      rotation={[isFourStar ? -Math.PI / 9 : 0, 0, Math.PI]}
       transition={{ duration: 2 }}
       onPointerOver={() => setHovered(true)}
       onPointerOut={() => setHovered(false)}

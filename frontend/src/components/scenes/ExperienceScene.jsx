@@ -9,7 +9,7 @@ export default function ExperienceScene({ isInView }) {
       {isInView ? <ExperiencesText /> : null}
       <GlassBall
         position={[1.1, 0.15, -0.9]}
-        isFullStar={true}
+        isFourStar={true}
         rotation-x={-(Math.PI * 7) / 16}
         rotation-y={(Math.PI * 6) / 16}
         rotation-z={(Math.PI * 7) / 16}

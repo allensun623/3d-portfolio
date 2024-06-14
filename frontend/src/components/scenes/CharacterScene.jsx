@@ -5,15 +5,13 @@ import Character from '../models/CharacterModel';
 import CloudScene from './CloudScene';
 import GlassBall from '../elements/GlassBall';
 import { variants } from '../../utils/motions/characterMotion';
+import { useBallState, useBallUpdate } from '../context/FourStarBallContext';
 
-export default function CharacterScene({
-  section,
-  viewport,
-  sendToPortal,
-  handleClick,
-}) {
+export default function CharacterScene({ section, viewport }) {
   const [animation, setAnimation] = useState(sectionTransitAnimations[0]);
   const characterGroup = useRef();
+  const handleClick = useBallUpdate();
+  const sendToPortal = useBallState();
 
   useEffect(() => {
     setAnimation(sectionTransitAnimations[section]);
@@ -38,12 +36,12 @@ export default function CharacterScene({
         <motion.group
           rotation-y={Math.PI}
           initial={{}}
-          animate={sendToPortal ? { z: 3, y: -1.2, x: 1 } : {}}
+          animate={sendToPortal ? { z: 3, y: -1.05, x: 0.7 } : {}}
           transition={{ duration: 5 }}
         >
           <GlassBall
             position={[0, 1, -0.6]}
-            isFullStar={true}
+            isFourStar={true}
             scale={0.13}
             handleClick={handleClick}
           />

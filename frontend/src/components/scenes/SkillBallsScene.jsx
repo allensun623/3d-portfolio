@@ -19,8 +19,8 @@ export default function SkillBallsScene() {
     setFourStarScale(FULL_STAR_INIT_SCALE);
   };
 
-  const handleTapBall = (score, isFullStar) => {
-    if (isFullStar) {
+  const handleTapBall = (score, isFourStar) => {
+    if (isFourStar) {
       handleBigBang();
     } else {
       setTimeout(() => {
@@ -37,10 +37,10 @@ export default function SkillBallsScene() {
               key={s.name}
               skill={s}
               position={positions[idx]}
-              isFullStar={idx === 0}
-              fullStarPosition={positions[0]}
-              onTapBall={(score, isFullStar) =>
-                handleTapBall(score, isFullStar)
+              isFourStar={idx === 0}
+              FourStarPosition={positions[0]}
+              onTapBall={(score, isFourStar) =>
+                handleTapBall(score, isFourStar)
               }
               fourStarScale={fourStarScale}
               countBigBang={countBigBang}

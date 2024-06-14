@@ -14,6 +14,7 @@ import { useState } from 'react';
 import Menu from './components/Menu';
 import { Leva } from 'leva';
 import Welcome from './components/Welcome';
+import { FourStarBallContext } from './components/context/FourStarBallContext';
 
 // import About from './components/About';
 
@@ -28,7 +29,7 @@ export default function App() {
   }, [section]);
 
   return (
-    <>
+    <FourStarBallContext>
       {/* <About /> */}
       <Canvas shadows camera={{ position: [0, 2, 5], fov: 30 }}>
         <color attach='background' args={['#ececec']} />
@@ -52,6 +53,6 @@ export default function App() {
         setMenuOpened={setMenuOpened}
       />
       <Leva hidden />
-    </>
+    </FourStarBallContext>
   );
 }

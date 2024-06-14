@@ -1,7 +1,28 @@
 import { Model as CherryFlowerModel } from '../models/CherryFlowerModel';
 import { motion } from 'framer-motion-3d';
 import { useEffect, useState } from 'react';
-// import { useControls } from 'leva';
+
+// generate positions of each flower on the path
+const flowerRowsPositions = () => {
+  const rows = 11;
+  const cols = 4;
+  const gapX = 1.5 / rows;
+  const gapY = 0.01 / rows;
+  const gapZ = 1 / rows;
+  const path = [];
+  for (let i = 0; i < rows; i++) {
+    const positions = [];
+    for (let j = 0; j < cols; j++) {
+      positions.push([
+        0.5 + gapZ * i + j / 10 / cols + Math.random() / 10,
+        0.03 + gapY * j,
+        -0.4 + gapX * j + Math.random() / 10,
+      ]);
+    }
+    path.push(positions);
+  }
+  return path;
+};
 
 export default function CherryFlowerPathScene() {
   const [positions, setPositions] = useState([]);
@@ -9,29 +30,7 @@ export default function CherryFlowerPathScene() {
     setPositions(flowerRowsPositions());
   }, []);
 
-  // generate positions of each flower on the path
-  const flowerRowsPositions = () => {
-    const rows = 11;
-    const cols = 4;
-    const gapX = 1.5 / rows;
-    const gapY = 0.01 / rows;
-    const gapZ = 1 / rows;
-    const path = [];
-    for (let i = 0; i < rows; i++) {
-      const positions = [];
-      for (let j = 0; j < cols; j++) {
-        positions.push([
-          0.5 + gapZ * i + j / 10 / cols + Math.random() / 10,
-          0.03 + gapY * j,
-          -0.4 + gapX * j + Math.random() / 10,
-        ]);
-      }
-      path.push(positions);
-    }
-    return path;
-  };
-
-  // get a row of flowers
+  // generate a row of flowers
   const flowerRow = (row, i) => {
     return row.map((p, j) => (
       <motion.group
@@ -45,7 +44,7 @@ export default function CherryFlowerPathScene() {
     ));
   };
 
-  // get a path of flowers by rows
+  // generate a path of flowers by rows
   const flowersPath = () => {
     return positions.map((row, i) => (
       <motion.group

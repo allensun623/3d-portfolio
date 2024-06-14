@@ -6,7 +6,7 @@ export default function Welcome() {
     <motion.group>
       <GlassBall
         scale={0.2}
-        isFullStar={true}
+        isFourStar={true}
         innerProps={{
           onTapBall: () => {},
           fourStarScale: 0.1,
