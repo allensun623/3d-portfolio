@@ -1,8 +1,14 @@
 import { Model as CherryFlowerModel } from '../models/CherryFlowerModel';
 import { motion } from 'framer-motion-3d';
+import { useEffect, useState } from 'react';
 // import { useControls } from 'leva';
 
 export default function CherryFlowerPathScene() {
+  const [positions, setPositions] = useState([]);
+  useEffect(() => {
+    setPositions(flowerRowsPositions());
+  }, []);
+
   // generate positions of each flower on the path
   const flowerRowsPositions = () => {
     const rows = 11;
@@ -41,7 +47,6 @@ export default function CherryFlowerPathScene() {
 
   // get a path of flowers by rows
   const flowersPath = () => {
-    const positions = flowerRowsPositions();
     return positions.map((row, i) => (
       <motion.group
         key={i}

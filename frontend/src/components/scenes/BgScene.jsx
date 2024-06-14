@@ -5,7 +5,7 @@ import ExperienceScene from './ExperienceScene';
 import SkillScene from './SkillScene';
 import RIPScene from './RIPScene';
 
-export default function MainScene({ section, viewport }) {
+export default function MainScene({ section, viewport, sendToPortal }) {
   const carouselGroup = useRef();
   const isSectionInView = (v) => section === v;
 
@@ -79,7 +79,11 @@ export default function MainScene({ section, viewport }) {
 
       {/* RIP Scene Winter */}
       <motion.group position={[0, -6, -6]} rotation-y={(-Math.PI * 5) / 12}>
-        <RIPScene isInView={isSectionInView(4)} viewport={viewport} />
+        <RIPScene
+          isInView={isSectionInView(4)}
+          viewport={viewport}
+          sendToPortal={sendToPortal}
+        />
       </motion.group>
     </motion.group>
   );
