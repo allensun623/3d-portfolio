@@ -1,4 +1,4 @@
-import SkillBall from './SkillBall';
+import SkillBall from '../elements/SkillBall';
 import { skills } from '../../constants/skills';
 import { generateSkillBallPositions } from '../../utils/3dState';
 import { useState, useEffect } from 'react';
