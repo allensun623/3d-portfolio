@@ -1,3 +1,4 @@
+import { useFrame } from '@react-three/fiber';
 import { useRef } from 'react';
 import { motion } from 'framer-motion-3d';
 import ContactScene from './ContactScene';
@@ -8,6 +9,16 @@ import RIPScene from './RIPScene';
 export default function MainScene({ section, viewport }) {
   const carouselGroup = useRef();
   const isSectionInView = (v) => section === v;
+
+  // Rotate the Scene
+  useFrame((_, delta) => {
+    if (carouselGroup.current && section === 0) {
+      // delta is the time elapsed since the last frame, dividing by 10 slows down the rotation
+      carouselGroup.current.rotation.y -= delta / 10;
+      // Keep the rotation value within the range of 0 to 2 * Math.PI (one full rotation)
+      carouselGroup.current.rotation.y %= Math.PI * 2;
+    }
+  });
 
   return (
     <motion.group
@@ -21,14 +32,7 @@ export default function MainScene({ section, viewport }) {
         type: 'tween',
       }}
       variants={{
-        0: {
-          rotateY: -Math.PI * 4,
-          transition: {
-            repeat: Infinity,
-            duration: 200,
-            transition: { type: 'linear' },
-          },
-        },
+        0: {},
         1: {
           scale: 1.1,
           x: -4.4,
