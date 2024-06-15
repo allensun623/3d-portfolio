@@ -5,8 +5,8 @@ import CherryFlowerPathScene from './CherryFlowerPathScene';
 import { useBallState } from '../context/FourStarBallContext';
 import { useMemo } from 'react';
 
-export default function RIPScene({ viewport, isInView }) {
-  const sendToPortal = useBallState();
+export default function PortalScene({ viewport, isInView }) {
+  const { sendToPortal } = useBallState();
   const cherryFlowersPath = useMemo(() => {
     return isInView ? <CherryFlowerPathScene viewport={viewport} /> : null;
   }, [isInView]);

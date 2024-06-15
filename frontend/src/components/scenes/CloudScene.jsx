@@ -16,9 +16,14 @@ export default function CloudScene({ section }) {
         1: { x: 0, y: 0.25 },
         2: {
           x: 0,
-          y: 0.25,
+          y: 0.2,
+          z: 0.2,
           rotateY: Math.PI / 2,
-          rotateX: -Math.PI / 8,
+          scaleX: 0.5,
+          scaleY: 0.5,
+          scaleZ: 0.5,
+          rotateX: -Math.PI / 12,
+          // rotateZ: -Math.PI / 8,
         },
         3: {
           x: -2.7,

@@ -35,7 +35,7 @@ export default function App() {
         <color attach='background' args={['#ececec']} />
         <Sky />
         <Environment preset='sunset' />
-        <Welcome />
+        {/* <Welcome /> */}
         <ScrollControls pages={5} damping={0.1}>
           <ScrollManager section={section} onSectionChange={setSection} />
           <Scroll>

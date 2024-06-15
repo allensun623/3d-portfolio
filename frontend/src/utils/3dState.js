@@ -32,11 +32,12 @@ function getRandomArbitrary(min, max) {
  */
 const generateSkillBallPositions = () => {
   const positions = [[0, 0, 0]];
-  for (let i = 0; i < skills.length - 1; i++) {
-    const x = getRandomArbitrary(-2.5, 1.5);
-    const y = getRandomArbitrary(0, 2.5);
+  while (positions.length < skills.length) {
+    const x = getRandomArbitrary(-2.5, 1.2);
+    const y = getRandomArbitrary(0, 2);
     const z = getRandomArbitrary(-1, 1);
-    positions.push([x, y, z]);
+    // avoid point overlaps character
+    if (Math.abs(x) ** 2 + Math.abs(y) ** 2 > 0.5) positions.push([x, y, z]);
   }
   return positions;
 };
@@ -49,14 +50,6 @@ const generateSkillBallPositions = () => {
  * @param {number} params.points - The number of points to generate including start and destination.
  * @returns {number[][]} - Array of positions between the start and destination.
  */
-const getPathPositions = ({ start, destination, points }) => {
-  const distanceX = (destination[0] - start[0]) / (points - 1);
-  const distanceY = (destination[1] - start[1]) / (points - 1);
-  const positions = Array.from({ length: points }, (_, idx) => [
-    start[0] + distanceX * idx,
-    start[1] + distanceY * idx,
-  ]);
-  return positions;
-};
+const getPathPositions = ({ start, destination, points }) => {};
 
 export { getPosition, generateSkillBallPositions, getPathPositions };

@@ -1,32 +1,44 @@
 import { motion } from 'framer-motion-3d';
-import SkillBall from './SkillBall';
-import { skills } from '../../constants/skills';
+import { useBallState, useBallAction } from '../context/FourStarBallContext';
+import GlassBall from '../elements/GlassBall';
 
 export default function FourStarBallScene({ section, viewport }) {
-  const FourStarPosition = [0, 1, -0.6];
+  const { sendToPortal, chaseDreamJob } = useBallState();
+  const { handleSendToPortal } = useBallAction();
+  const glassBallProps = [
+    {},
+    {},
+    {},
+    {},
+    {
+      'rotation-y': Math.PI,
+      'rotation-x': Math.PI / 8,
+      position: [0, 1, 0.6],
+      scale: 0.13,
+      handleClick: handleSendToPortal,
+    },
+  ];
 
   return (
     <motion.group
-      rotation-y={Math.PI}
       animate={`${section}`}
       variants={{
-        0: {},
-        1: {},
-        2: {},
-        3: {},
-        4: {},
+        0: { scale: 0 },
+        1: {
+          transition: { duration: 0.2, delay: 1 },
+          y: 0.8,
+          z: 0.45,
+          scale: chaseDreamJob ? 1.25 : 0,
+        },
+        2: { scale: 0 },
+        3: { scale: 0 },
+        4: {
+          transition: { duration: 5 },
+          ...(sendToPortal ? { z: 3, y: -1.05, x: 0.7 } : {}),
+        },
       }}
     >
-      <SkillBall
-        skill={skills[0]}
-        position={FourStarPosition}
-        isFourStar={true}
-        FourStarPosition={FourStarPosition}
-        onTapBall={() => {}}
-        fourStarScale={0.13}
-        animation={false}
-        clickable={false}
-      />
+      <GlassBall isFourStar={true} {...glassBallProps[section]} />
     </motion.group>
   );
 }

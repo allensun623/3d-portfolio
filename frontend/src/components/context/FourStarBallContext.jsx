@@ -1,15 +1,15 @@
 import { createContext, useContext, useState } from 'react';
 
-const PortalContext = createContext();
-const SendToPortalContext = createContext();
+const BallStateContext = createContext();
+const BallActionContext = createContext();
 const ResetBallStateContext = createContext();
 
 export function useBallState() {
-  return useContext(PortalContext);
+  return useContext(BallStateContext);
 }
 
-export function useBallUpdate() {
-  return useContext(SendToPortalContext);
+export function useBallAction() {
+  return useContext(BallActionContext);
 }
 
 export function useBallStateReset() {
@@ -18,16 +18,26 @@ export function useBallStateReset() {
 
 export function FourStarBallContext({ children }) {
   const [sendToPortal, setSendToPortal] = useState(false);
+  const [chaseDreamJob, setChaseDreamJob] = useState(false);
   const handleSendToPortal = () => setSendToPortal(true);
-  const handleRestBallState = () => setSendToPortal(false);
+  const handleChaseDreamJob = () => {
+    console.log({ chaseDreamJob });
+    setChaseDreamJob(true);
+  };
+  const handleRestBallState = () => {
+    setSendToPortal(false);
+    setChaseDreamJob(false);
+  };
+  const ballState = { chaseDreamJob, sendToPortal };
+  const ballAction = { handleChaseDreamJob, handleSendToPortal };
 
   return (
-    <ResetBallStateContext.Provider value={handleRestBallState}>
-      <PortalContext.Provider value={sendToPortal}>
-        <SendToPortalContext.Provider value={handleSendToPortal}>
+    <BallStateContext.Provider value={ballState}>
+      <BallActionContext.Provider value={ballAction}>
+        <ResetBallStateContext.Provider value={handleRestBallState}>
           {children}
-        </SendToPortalContext.Provider>
-      </PortalContext.Provider>
-    </ResetBallStateContext.Provider>
+        </ResetBallStateContext.Provider>
+      </BallActionContext.Provider>
+    </BallStateContext.Provider>
   );
 }
