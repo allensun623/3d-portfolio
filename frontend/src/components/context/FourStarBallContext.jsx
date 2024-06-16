@@ -5,11 +5,19 @@ const BallActionContext = createContext();
 const ResetBallStateContext = createContext();
 
 export function useBallState() {
-  return useContext(BallStateContext);
+  const context = useContext(BallStateContext);
+  if (!context) {
+    throw new Error('useBallState must be used within a FourStarBallContext');
+  }
+  return context;
 }
 
 export function useBallAction() {
-  return useContext(BallActionContext);
+  const context = useContext(BallActionContext);
+  if (!context) {
+    throw new Error('useBallAction must be used within a FourStarBallContext');
+  }
+  return context;
 }
 
 export function useBallStateReset() {
@@ -20,10 +28,7 @@ export function FourStarBallContext({ children }) {
   const [sendToPortal, setSendToPortal] = useState(false);
   const [chaseDreamJob, setChaseDreamJob] = useState(false);
   const handleSendToPortal = () => setSendToPortal(true);
-  const handleChaseDreamJob = () => {
-    console.log({ chaseDreamJob });
-    setChaseDreamJob(true);
-  };
+  const handleChaseDreamJob = () => setChaseDreamJob(true);
   const handleRestBallState = () => {
     setSendToPortal(false);
     setChaseDreamJob(false);
