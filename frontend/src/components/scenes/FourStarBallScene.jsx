@@ -42,7 +42,7 @@ export default function FourStarBallScene({ section }) {
       }}
     >
       <motion.group animate={clickable ? clickableHeartBeatMotion() : {}}>
-        <GlassBall isFourStar={true} {...glassBallProps[section]} />
+        <GlassBall isFourStar {...glassBallProps[section]} />
       </motion.group>
     </motion.group>
   );

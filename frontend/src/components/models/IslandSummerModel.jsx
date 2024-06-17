@@ -619,7 +619,7 @@ export function Model(props) {
         castShadow
         receiveShadow
         geometry={nodes.KorinTowerpillarbase.geometry}
-        material={materials.white}
+        material={materials['white.cream']}
         position={[0.383, 0.219, 0.442]}
         rotation={[Math.PI, -0.445, Math.PI]}
         scale={[0.057, 0.036, 0.057]}
@@ -633,7 +633,7 @@ export function Model(props) {
             castShadow
             receiveShadow
             geometry={nodes['Karin_Tower-Bottom'].geometry}
-            material={materials.white}
+            material={materials['white.cream']}
           />
           <mesh
             castShadow
@@ -646,7 +646,7 @@ export function Model(props) {
           castShadow
           receiveShadow
           geometry={nodes.KorinTowerpillar.geometry}
-          material={materials.white}
+          material={materials['white.cream']}
           position={[0, 3.6, 0]}
           scale={[0.195, 3.384, 0.195]}
         />
@@ -654,7 +654,7 @@ export function Model(props) {
           castShadow
           receiveShadow
           geometry={nodes.KorinTowertoppillar.geometry}
-          material={nodes.KorinTowertoppillar.material}
+          material={materials['white.cream']}
           position={[0.007, 6.695, 0.001]}
           scale={[0.968, 1, 0.968]}
         />
@@ -669,7 +669,7 @@ export function Model(props) {
             castShadow
             receiveShadow
             geometry={nodes['Karin_Tower-Top_1'].geometry}
-            material={materials.white}
+            material={materials['white.cream']}
           />
         </group>
       </mesh>
@@ -857,13 +857,13 @@ export function Model(props) {
         castShadow
         receiveShadow
         geometry={nodes.Korin_stack.geometry}
-        material={materials.white}
+        material={materials['brown.stack']}
       />
       <mesh
         castShadow
         receiveShadow
         geometry={nodes.Korin_stack_1.geometry}
-        material={materials['brown.stack']}
+        material={materials['white.cold']}
       />
     </group>
   );
