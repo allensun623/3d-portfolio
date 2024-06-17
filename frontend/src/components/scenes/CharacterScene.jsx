@@ -14,6 +14,7 @@ export default function CharacterScene({ section, viewport }) {
   const [animation, setAnimation] = useState(sectionTransitAnimations[0]);
   const characterGroup = useRef();
   const { chaseDreamJob } = useBallState();
+  const { handleUpdateClickable } = useBallAction();
 
   useEffect(() => {
     setAnimation(sectionTransitAnimations[section]);
@@ -34,6 +35,10 @@ export default function CharacterScene({ section, viewport }) {
         delay: 0.6,
       }}
       variants={variants(viewport)}
+      onAnimationComplete={(definition) => {
+        console.log('Completed animating', definition);
+        if (Number(definition) === section) handleUpdateClickable();
+      }}
     >
       <Character animation={animation} position-y={0.3} position-x={0.05} />
       {/* Cloud */}

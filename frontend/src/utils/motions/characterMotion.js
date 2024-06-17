@@ -34,7 +34,7 @@ const experienceChaseDreamJob = (viewport) => {
 
 const PortalAnimation = (viewport) => {
   const x = [-0.3, 0.05];
-  const y = [-viewport.height * 4 + 0.7, -viewport.height * 4 + 0.55];
+  const y = [-viewport.height * 4 + 0.75, -viewport.height * 4 + 0.6];
   const z = [-viewport.height + 5.5, -viewport.height + 5];
   const rotateY = [(Math.PI * 3) / 4, (Math.PI * 3) / 4];
   const scale = [0.2, 0.16];
@@ -66,7 +66,7 @@ const variants = (viewport) => ({
   },
   3: {
     x: 1.5,
-    y: -viewport.height * 3 - 1.25,
+    y: -viewport.height * 3 - 1.15,
     z: -viewport.height,
     scale: 0.5,
   },

@@ -11,7 +11,10 @@ export default function Scene({ section }) {
   const { viewport } = useThree();
   const resetBallState = useBallStateReset();
 
-  useEffect(() => resetBallState(), [section]);
+  useEffect(() => {
+    console.log('section update', section);
+    resetBallState();
+  }, [section]);
 
   // TODO remove memo
   const sectionScene = useMemo(() => {

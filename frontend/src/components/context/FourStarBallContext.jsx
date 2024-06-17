@@ -27,14 +27,29 @@ export function useBallStateReset() {
 export function FourStarBallContext({ children }) {
   const [sendToPortal, setSendToPortal] = useState(false);
   const [chaseDreamJob, setChaseDreamJob] = useState(false);
-  const handleSendToPortal = () => setSendToPortal(true);
-  const handleChaseDreamJob = () => setChaseDreamJob(true);
+  const [clickable, setClickable] = useState(false);
+  const handleSendToPortal = () => {
+    if (!clickable) return;
+    setSendToPortal(true);
+    setClickable(false);
+  };
+  const handleChaseDreamJob = () => {
+    if (!clickable) return;
+    setChaseDreamJob(true);
+    setClickable(false);
+  };
+  const handleUpdateClickable = () => setClickable(true);
   const handleRestBallState = () => {
     setSendToPortal(false);
     setChaseDreamJob(false);
+    setClickable(false);
   };
-  const ballState = { chaseDreamJob, sendToPortal };
-  const ballAction = { handleChaseDreamJob, handleSendToPortal };
+  const ballState = { chaseDreamJob, sendToPortal, clickable };
+  const ballAction = {
+    handleChaseDreamJob,
+    handleSendToPortal,
+    handleUpdateClickable,
+  };
 
   return (
     <BallStateContext.Provider value={ballState}>

@@ -85,6 +85,7 @@ export default function SkillBall({
             setBallThetaLength((prev) => (prev += Math.PI / 180));
           },
         }}
+        clickable
       />
     </Float>
   );

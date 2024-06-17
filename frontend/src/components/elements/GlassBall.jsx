@@ -12,14 +12,16 @@ export default function GlassBall({
   innerProps,
   position = [0, 0, 0],
   scale = 0.2,
-  handleClick,
+  handleClick = () => {},
+  clickable = false,
+  emissiveColor = '#ffd7a2',
   ...otherProps
 }) {
   const [decal] = useTexture([skill.iconURL]);
   const [hovered, setHovered] = useState(false);
 
   useEffect(() => {
-    document.body.style.cursor = hovered ? 'pointer' : 'auto';
+    document.body.style.cursor = hovered && clickable ? 'pointer' : 'auto';
     return () => {
       document.body.style.cursor = 'auto';
     };
@@ -95,7 +97,10 @@ export default function GlassBall({
           // [radius, widthSegments, heightSegments, phiStart, phiLength, thetaStart, thetaLength]
           args={[innerRadius, ...Array(5).fill(undefined), innerThetaLength]}
         />
-        <motion.meshPhysicalMaterial color={color} />
+        <motion.meshPhysicalMaterial
+          color={color}
+          // emissive={emissiveColor || undefined}
+        />
       </motion.mesh>
       {/* outer glass */}
       <motion.mesh>

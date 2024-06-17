@@ -15,7 +15,7 @@ export default function Skills() {
             repeat: false,
           }}
         >
-          Skill Ball Collection
+          Click & Collect Skill Ball
         </motion.div>
       </div>
     </SectionContainer>
