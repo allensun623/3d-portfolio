@@ -37,7 +37,7 @@ const skillNames = [
 const skills = skillNames.map(({ name, score }) => ({
   name,
   score,
-  iconURL: `src/assets/images/icons/${name}.svg`,
+  iconURL: `/assets/images/icons/${name}.svg`,
 }));
 
 export { skills };

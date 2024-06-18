@@ -17,7 +17,7 @@ export default function Welcome({ setEntered }) {
 
   const handleClickEnter = () => {
     setPlayEnterAnimate(true);
-    setTimeout(() => setEntered(true), 2500);
+    setTimeout(() => setEntered(true), 1200);
   };
 
   return (
@@ -34,7 +34,7 @@ export default function Welcome({ setEntered }) {
         <motion.group
           position={[0, -0.2, 0]}
           animate={
-            playEnterAnimate ? { scale: 20, transition: { duration: 3 } } : {}
+            playEnterAnimate ? { scale: 20, transition: { duration: 1.5 } } : {}
           }
         >
           <SparkleBall size={SCALE}>
