@@ -52,7 +52,7 @@ export default function App() {
         menuOpened={menuOpened}
         setMenuOpened={setMenuOpened}
       />
-      {/* <Leva hidden /> */}
+      <Leva hidden />
     </FourStarBallContext>
   );
 }

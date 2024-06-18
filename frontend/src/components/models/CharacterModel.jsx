@@ -68,18 +68,18 @@ export default function CharacterModel(props) {
     } else {
       cursorFollowRef.current = false;
     }
-    actions[animation].reset().fadeIn(0.5).play();
+    actions[animation]?.reset().fadeIn(0.5).play();
 
     return () => {
-      actions[animation].fadeOut(0.5);
+      actions[animation]?.fadeOut(0.5);
     };
   }, [animation]);
 
   useEffect(() => {
-    actions[animation].reset().fadeIn(0.5).play();
+    actions[animation]?.reset().fadeIn(0.5).play();
 
     return () => {
-      actions[animation].fadeOut(0.5);
+      actions[animation]?.fadeOut(0.5);
     };
   }, [animation]);
 

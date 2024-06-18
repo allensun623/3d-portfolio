@@ -11,10 +11,8 @@ export function Model(props) {
       <mesh
         castShadow
         receiveShadow
-        geometry={nodes.cloud.geometry}
+        geometry={nodes.Cube.geometry}
         material={materials['water.cloud']}
-        position={[2.819, 0, 0]}
-        scale={1.233}
       />
     </group>
   );
