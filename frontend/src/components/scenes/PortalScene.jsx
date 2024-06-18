@@ -4,6 +4,7 @@ import { motion } from 'framer-motion-3d';
 import CherryFlowerPathScene from './CherryFlowerPathScene';
 import { useBallState } from '../context/FourStarBallContext';
 import { useMemo } from 'react';
+import { Sparkles } from '@react-three/drei';
 
 export default function PortalScene({ viewport, isInView }) {
   const { sendToPortal } = useBallState();
@@ -12,7 +13,7 @@ export default function PortalScene({ viewport, isInView }) {
   }, [isInView]);
 
   return (
-    <motion.group>
+    <>
       <motion.group scale={2}>
         <IslandSpringModel />
         <motion.group
@@ -29,9 +30,18 @@ export default function PortalScene({ viewport, isInView }) {
           }
         >
           <PortalRingModel />
+          {isInView && (
+            <Sparkles
+              count={50}
+              scale={1.2}
+              size={30}
+              speed={0.1}
+              color={'#dfcee0'}
+            />
+          )}
         </motion.group>
       </motion.group>
       {cherryFlowersPath}
-    </motion.group>
+    </>
   );
 }

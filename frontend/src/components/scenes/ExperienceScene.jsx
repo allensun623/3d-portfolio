@@ -3,6 +3,8 @@ import GlassBall from '../elements/GlassBall';
 import { useBallState, useBallAction } from '../context/FourStarBallContext';
 import { clickableHeartBeatMotion } from '../../utils/motions/ballMotion';
 import ExperiencesText from './ExperiencesText';
+import SparkleBall from '../elements/SparkleBall';
+import { motion } from 'framer-motion-3d';
 
 export default function ExperienceScene({ isInView }) {
   const { handleChaseDreamJob } = useBallAction();
@@ -20,26 +22,38 @@ export default function ExperienceScene({ isInView }) {
     clickable: clickableHeartBeatMotion(0.12),
   };
 
+  const isClickableInView = clickable && isInView;
+
+  const animateState = isClickableInView
+    ? 'clickable'
+    : chaseDreamJob
+    ? 'chaseDreamJob'
+    : 'display';
+
+  const GlassBallComponent = (
+    <GlassBall
+      isFourStar={true}
+      handleClick={isClickableInView ? handleChaseDreamJob : () => {}}
+      clickable={isClickableInView}
+      animate={animateState}
+      variants={variants}
+    />
+  );
+
   return (
     <>
       <IslandSummerModel scale={2} />
-      {isInView ? <ExperiencesText /> : null}
-
-      <GlassBall
+      {isInView && <ExperiencesText />}
+      <motion.group
         position={[1.5, 0.21, -0.7]}
-        isFourStar={true}
         rotation={[-(Math.PI * 7) / 16, (Math.PI * 6) / 16, (Math.PI * 7) / 16]}
-        handleClick={clickable && isInView ? handleChaseDreamJob : () => {}}
-        clickable={clickable && isInView}
-        animate={
-          clickable && isInView
-            ? 'clickable'
-            : chaseDreamJob
-            ? 'chaseDreamJob'
-            : 'display'
-        }
-        variants={variants}
-      />
+      >
+        {isClickableInView ? (
+          <SparkleBall size={0.2}>{GlassBallComponent}</SparkleBall>
+        ) : (
+          GlassBallComponent
+        )}
+      </motion.group>
     </>
   );
 }
