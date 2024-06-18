@@ -73,7 +73,7 @@ export function Model(props) {
         receiveShadow
         geometry={nodes.palmtrunk004.geometry}
         material={materials['yellow.palm']}
-        position={[0.001, 0.069, -0.008]}
+        position={[0.13, 0.087, 0.096]}
         rotation={[-0.118, -0.043, -0.021]}
       >
         <mesh
@@ -90,6 +90,8 @@ export function Model(props) {
         receiveShadow
         geometry={nodes.palmtrunk005.geometry}
         material={materials['yellow.palm']}
+        position={[-0.026, 0, -0.954]}
+        rotation={[Math.PI, -0.489, Math.PI]}
       >
         <mesh
           castShadow
@@ -189,7 +191,7 @@ export function Model(props) {
         receiveShadow
         geometry={nodes.palmtrunk012.geometry}
         material={materials['yellow.palm']}
-        position={[0.566, 0.14, -0.319]}
+        position={[0.695, 0.158, -0.214]}
         rotation={[-3.009, 0.481, 3.064]}
       >
         <mesh
@@ -205,7 +207,7 @@ export function Model(props) {
         receiveShadow
         geometry={nodes.Text.geometry}
         material={materials['Material.001']}
-        position={[0.57, 0.151, -0.364]}
+        position={[0.699, 0.169, -0.259]}
         rotation={[Math.PI / 2, 0, -Math.PI / 2]}
         scale={0.069}
       />
@@ -214,7 +216,7 @@ export function Model(props) {
         receiveShadow
         geometry={nodes.Plane017.geometry}
         material={materials['yellow.mountain']}
-        position={[0.566, 0.164, -0.454]}
+        position={[0.694, 0.182, -0.35]}
         rotation={[0, 0, -Math.PI / 2]}
         scale={[0.029, 0.134, 0.134]}
       />
@@ -868,5 +870,4 @@ export function Model(props) {
     </group>
   );
 }
-
 useGLTF.preload('/models/island-summer.glb');

@@ -2,6 +2,7 @@ import { Model as IslandSummerModel } from '../models/IslandSummerModel';
 import GlassBall from '../elements/GlassBall';
 import { useBallState, useBallAction } from '../context/FourStarBallContext';
 import { clickableHeartBeatMotion } from '../../utils/motions/ballMotion';
+import ExperiencesText from './ExperiencesText';
 
 export default function ExperienceScene({ isInView }) {
   const { handleChaseDreamJob } = useBallAction();
@@ -22,10 +23,10 @@ export default function ExperienceScene({ isInView }) {
   return (
     <>
       <IslandSummerModel scale={2} />
-      {/* {isInView ? <ExperiencesText /> : null} */}
+      {isInView ? <ExperiencesText /> : null}
 
       <GlassBall
-        position={[1.1, 0.15, -0.9]}
+        position={[1.5, 0.21, -0.7]}
         isFourStar={true}
         rotation={[-(Math.PI * 7) / 16, (Math.PI * 6) / 16, (Math.PI * 7) / 16]}
         handleClick={clickable && isInView ? handleChaseDreamJob : () => {}}

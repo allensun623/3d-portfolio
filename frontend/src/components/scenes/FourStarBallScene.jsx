@@ -6,15 +6,6 @@ import { clickableHeartBeatMotion } from '../../utils/motions/ballMotion';
 export default function FourStarBallScene({ section }) {
   const { sendToPortal, chaseDreamJob, clickable } = useBallState();
   const { handleSendToPortal } = useBallAction();
-  const glassBallProps = [
-    {},
-    {},
-    {},
-    {},
-    {
-      ...(clickable ? { handleClick: handleSendToPortal } : {}),
-    },
-  ];
 
   return (
     <motion.group
@@ -42,7 +33,12 @@ export default function FourStarBallScene({ section }) {
       }}
     >
       <motion.group animate={clickable ? clickableHeartBeatMotion() : {}}>
-        <GlassBall isFourStar {...glassBallProps[section]} />
+        <GlassBall
+          isFourStar
+          {...(section === 4 && clickable
+            ? { clickable, handleClick: handleSendToPortal }
+            : {})}
+        />
       </motion.group>
     </motion.group>
   );

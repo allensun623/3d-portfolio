@@ -35,11 +35,11 @@ export default function MainScene({ section, viewport }) {
         0: {},
         1: {
           scale: 1.1,
-          x: -4.4,
+          x: -4.6,
           y: -viewport.height - 4.5,
           z: 0.5 - viewport.height,
-          // rotateX: Math.PI / 10,
-          rotateY: -Math.PI / 2,
+          rotateX: -Math.PI / 10,
+          rotateY: (-5 * Math.PI) / 8,
         },
         2: {
           scale: 3,
