@@ -38,7 +38,7 @@ const Sphere = ({
       rotation={[-Math.PI / 2, 0, 0]}
       scale={size * 1.5}
       position={[0, -size, 0]}
-      color='black'
+      color='white'
       opacity={1}
     />
   </mesh>

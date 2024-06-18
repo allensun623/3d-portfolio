@@ -14,7 +14,8 @@ export default function GlassBall({
   scale = 0.2,
   handleClick = () => {},
   clickable = false,
-  emissiveColor = '#ffd7a2',
+  emissive,
+  emissiveIntensity,
   ...otherProps
 }) {
   const [decal] = useTexture([skill.iconURL]);
@@ -75,6 +76,12 @@ export default function GlassBall({
     },
   };
 
+  const materialProps = {
+    color: color,
+    ...(emissive && { emissive }),
+    emissiveIntensity: emissiveIntensity || 0,
+  };
+
   return (
     <motion.group
       castShadow
@@ -97,10 +104,7 @@ export default function GlassBall({
           // [radius, widthSegments, heightSegments, phiStart, phiLength, thetaStart, thetaLength]
           args={[innerRadius, ...Array(5).fill(undefined), innerThetaLength]}
         />
-        <motion.meshPhysicalMaterial
-          color={color}
-          // emissive={emissiveColor || undefined}
-        />
+        <motion.meshPhysicalMaterial {...materialProps} />
       </motion.mesh>
       {/* outer glass */}
       <motion.mesh>
