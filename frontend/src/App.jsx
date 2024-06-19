@@ -49,6 +49,7 @@ export default function App() {
         {/* TODO move menu to interface */}
         {entered && (
           <Menu
+            section={section}
             onSectionChange={setSection}
             menuOpened={menuOpened}
             setMenuOpened={setMenuOpened}

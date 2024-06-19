@@ -1,4 +1,9 @@
-export default function Menu({ onSectionChange, menuOpened, setMenuOpened }) {
+export default function Menu({
+  onSectionChange,
+  menuOpened,
+  setMenuOpened,
+  section,
+}) {
   const menuBars = [
     {
       className: 'transition-all',
@@ -16,28 +21,8 @@ export default function Menu({ onSectionChange, menuOpened, setMenuOpened }) {
 
   // https://v2.tailwindcss.com/docs/just-in-time-mode
   // Tailwind doesn’t include any sort of client-side runtime, so class names need to be statically extractable at build-time, and can’t depend on any sort of arbitrary dynamic values that change on the client.
-  const menuButtons = [
-    {
-      label: 'Home',
-      hoverColor: 'hover:text-primary',
-    },
-    {
-      label: 'Experiences',
-      hoverColor: 'hover:text-summer',
-    },
-    {
-      label: 'Skills',
-      hoverColor: 'hover:text-fall',
-    },
-    {
-      label: 'Contact',
-      hoverColor: 'hover:text-winter',
-    },
-    {
-      label: 'Portal',
-      hoverColor: 'hover:text-spring',
-    },
-  ];
+  const sectionColors = ['primary', 'summer', 'fall', 'winter', 'spring'];
+  const sectionLabels = ['Home', 'Experiences', 'Skills', 'Contact', 'Portal'];
 
   return (
     <>
@@ -64,8 +49,14 @@ export default function Menu({ onSectionChange, menuOpened, setMenuOpened }) {
       ${menuOpened ? 'w-full md:w-80' : 'w-0'}`}
       >
         <div className='flex-1 flex justify-center flex-col gap-6 p-8'>
-          {menuButtons.map((mb, i) => (
-            <MenuButton key={i} {...mb} onClick={() => onSectionChange(i)} />
+          {sectionLabels.map((label, i) => (
+            <MenuButton
+              key={i}
+              label={label}
+              textColor={`text-${section === i ? sectionColors[i] : 'black'}`}
+              hoverColor={`hover:test-${sectionColors[i]}`}
+              onClick={() => onSectionChange(i)}
+            />
           ))}
         </div>
       </div>
@@ -73,12 +64,10 @@ export default function Menu({ onSectionChange, menuOpened, setMenuOpened }) {
   );
 }
 
-const MenuButton = ({ label, onClick, hoverColor }) => {
+const MenuButton = ({ label, onClick, hoverColor, textColor }) => {
+  const className = `text-2xl font-bold cursor-pointer ${textColor} ${hoverColor} transition-colors`;
   return (
-    <button
-      onClick={onClick}
-      className={`text-2xl font-bold cursor-pointer ${hoverColor} transition-colors`}
-    >
+    <button onClick={onClick} className={className}>
       {label}
     </button>
   );
