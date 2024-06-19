@@ -49,7 +49,7 @@ export default function ContactScene({ isInView }) {
       {/* Get in touch */}
       {isInView ? (
         <motion.group
-          position={[-0.72, 2.06, 0.25]}
+          position={[-0.7, 2.12, 0.25]}
           rotation-z={-Math.PI / 8}
           scale={0.4}
         >

@@ -62,7 +62,7 @@ const experienceAnimation = (viewport) => {
 };
 
 const experienceChaseDreamJob = (viewport) => {
-  const x = [1.7, 0, 0];
+  const x = [1.7, 0.4, 0];
   const y = [-2, -1.4, -0.5].map((v) => v - viewport.height);
   const z = [0.7, 2, 2.5].map((v) => v - viewport.height);
   const rotateY = [-2, -2, -0.5].map((v) => (v / 8) * Math.PI);
@@ -77,7 +77,7 @@ const experienceChaseDreamJob = (viewport) => {
 
 const PortalAnimation = (viewport) => {
   const x = [-0.3, 0.05];
-  const y = [-viewport.height * 4 + 0.75, -viewport.height * 4 + 0.6];
+  const y = [-viewport.height * 4 + 0.76, -viewport.height * 4 + 0.61];
   const z = [-viewport.height + 5.5, -viewport.height + 5];
   const rotateY = [(Math.PI * 3) / 4, (Math.PI * 3) / 4];
   const scale = [0.2, 0.16];
@@ -102,11 +102,11 @@ const variants = (viewport, x, y, z, scale, rotateY) => ({
   1: experienceAnimation(viewport),
   // 1: { x, y, z, scale, rotateY },
   2: {
-    x: 2.05,
-    y: (-viewport.height - 1) * 2 - 8.1,
-    z: -viewport.height - 13.7,
+    x: 1.81,
+    y: (-viewport.height - 1) * 2 - 7.4,
+    z: -viewport.height - 13,
     rotateY: -Math.PI / 16,
-    scale: 2.5,
+    scale: 2,
   },
   3: {
     x: 1.5,

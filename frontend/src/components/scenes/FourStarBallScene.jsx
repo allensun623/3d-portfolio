@@ -27,7 +27,7 @@ export default function FourStarBallScene({ section }) {
           scale: 0.8,
           transition: { duration: 2 },
           ...(sendToPortal
-            ? { x: 0.7, y: -0.3, z: 3.5 }
+            ? { x: 2.8, y: -1.3, z: 6.5 }
             : { x: 0.1, y: 0.75, z: 0.7 }),
         },
       }}

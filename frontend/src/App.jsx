@@ -55,7 +55,7 @@ export default function App() {
             setMenuOpened={setMenuOpened}
           />
         )}
-        <Leva hidden />
+        <Leva hidden /> 
       </motion.div>
     </FourStarBallContext>
   );
