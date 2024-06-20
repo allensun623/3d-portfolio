@@ -80,7 +80,7 @@ const PortalAnimation = (viewport) => {
   const y = [-viewport.height * 4 + 0.76, -viewport.height * 4 + 0.61];
   const z = [-viewport.height + 5.5, -viewport.height + 5];
   const rotateY = [(Math.PI * 3) / 4, (Math.PI * 3) / 4];
-  const scale = [0.2, 0.16];
+  const scale = [0.15, 0.1];
   const transition = {
     times: [0.5, 1],
     duration: 3,

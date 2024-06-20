@@ -26,6 +26,7 @@ export function useBallStateReset() {
 
 export function FourStarBallContext({ children }) {
   const [sendToPortal, setSendToPortal] = useState(false);
+  const [fireballCompleted, setFireballCompleted] = useState(false);
   const [chaseDreamJob, setChaseDreamJob] = useState(false);
   const [clickable, setClickable] = useState(false);
   const handleSendToPortal = () => {
@@ -38,17 +39,31 @@ export function FourStarBallContext({ children }) {
     setChaseDreamJob(true);
     setClickable(false);
   };
+  const handleFireballCompleted = () => {
+    console.log('handleFireballCompleted');
+    setFireballCompleted(true);
+  };
   const handleUpdateClickable = () => setClickable(true);
+
   const handleRestBallState = () => {
     setSendToPortal(false);
     setChaseDreamJob(false);
     setClickable(false);
+    setFireballCompleted(false);
   };
-  const ballState = { chaseDreamJob, sendToPortal, clickable };
+
+  const ballState = {
+    chaseDreamJob,
+    sendToPortal,
+    fireballCompleted,
+    clickable,
+  };
+
   const ballAction = {
     handleChaseDreamJob,
     handleSendToPortal,
     handleUpdateClickable,
+    handleFireballCompleted,
   };
 
   return (

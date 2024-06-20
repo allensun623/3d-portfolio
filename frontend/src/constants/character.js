@@ -10,6 +10,7 @@ const animationOptions = Object.freeze({
   LOOKING: 'Looking',
   SITTING_HOLD: 'Sitting Hold',
   WAVING_BYE: 'Waving Bye',
+  FIREBALL: 'Fireball',
 });
 
 // animations used in the scene
@@ -19,11 +20,12 @@ const selectedAnimations = Object.freeze([
   // animationOptions.RUNNING_AND_JUMPING,
   animationOptions.SITTING_CROSS_LEGGED,
   animationOptions.WAVING,
-  // animationOptions.STANDING,
+  animationOptions.STANDING,
   // animationOptions.WALKING,
   animationOptions.LOOKING,
   animationOptions.SITTING_HOLD,
   animationOptions.WAVING_BYE,
+  animationOptions.FIREBALL,
 ]);
 
 // transition animation in the order of section

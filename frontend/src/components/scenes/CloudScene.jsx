@@ -36,7 +36,7 @@ export default function CloudScene({ section }) {
           rotateY: -Math.PI / 8,
           // rotateZ: Math.PI / 4,
         },
-        4: { x: 0, y: 0.2, z: 0.5, scale: 0.35 },
+        4: { x: 0.1, y: 0.2, z: 0.4, scale: 0.4 },
       }}
     >
       <Cloud />
