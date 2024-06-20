@@ -7,7 +7,7 @@ import RIP from './interfaces/RIP';
 export default function Interface({ section }) {
   return (
     <div className='w-screen flex flex-col items-start'>
-      <About />
+      <About section={section} />
       <Experience isInView={section === 1} />
       <Skills />
       <Contact />
