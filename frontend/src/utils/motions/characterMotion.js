@@ -106,7 +106,7 @@ const variants = (viewport, x, y, z, scale, rotateY) => ({
     y: (-viewport.height - 1) * 2 - 7.4,
     z: -viewport.height - 13,
     rotateY: -Math.PI / 16,
-    scale: 2,
+    scale: 1.5,
   },
   3: {
     x: 1.5,
