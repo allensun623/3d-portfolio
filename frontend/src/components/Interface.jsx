@@ -2,7 +2,7 @@ import About from './interfaces/About';
 import Contact from './interfaces/Contact';
 import Skills from './interfaces/Skills';
 import Experience from './interfaces/Experience';
-import RIP from './interfaces/RIP';
+import Portal from './interfaces/Portal';
 
 export default function Interface({ section, ballState }) {
   return (
@@ -11,7 +11,7 @@ export default function Interface({ section, ballState }) {
       <Experience isInView={section === 1} />
       <Skills ballState={ballState} />
       <Contact />
-      <RIP />
+      <Portal ballState={ballState} />
     </div>
   );
 }

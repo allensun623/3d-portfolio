@@ -15,6 +15,16 @@ export default function Skills({ ballState }) {
   }, [showStateYourWish, showWishComeTrue]);
 
   return (
-    <SectionContainer>{text && <BottomBanner text={text} />}</SectionContainer>
+    <SectionContainer>
+      {text && (
+        <BottomBanner
+          text={text}
+          icon={{
+            src: '/assets/images/others/ShenronIcon.png',
+            alt: 'shenron',
+          }}
+        />
+      )}
+    </SectionContainer>
   );
 }
