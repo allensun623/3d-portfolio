@@ -1,8 +1,6 @@
-// import React from 'react'
-import { Text } from '@react-three/drei';
 import { motion } from 'framer-motion-3d';
-import { experiences } from '../../constants/experiences';
 import { Model as CloudModel } from '../models/CloudModel';
+import { experiences } from '@/constants/experiences';
 
 export default function ExperiencesText() {
   return (
@@ -18,24 +16,12 @@ export default function ExperiencesText() {
           animate={{ ...e?.text, scale: 1 }}
           transition={{ duration: 2, delay: e?.delay }}
         >
-          {i > 0 ? (
-            <motion.group>
-              <motion.group scale={5} position={e.cloud}>
-                <CloudModel />
-              </motion.group>
-              <motion.group scale={1.25}>
-                <Text color={e.color} position-y={0}>
-                  {e?.company}
-                </Text>
-                <Text color={e.color} fontSize={0.8} position-y={-1}>
-                  {e?.started} - {e?.ended}
-                </Text>
-                <Text color={e.color} position-y={-2}>
-                  {e?.role}
-                </Text>
-              </motion.group>
+          <motion.group>
+            <motion.group scale={5.5} position={e.cloud}>
+              <CloudModel />
             </motion.group>
-          ) : null}
+            <motion.group scale={e.textScale}>{e.textModel}</motion.group>
+          </motion.group>
         </motion.group>
       ))}
     </motion.group>
