@@ -5,7 +5,7 @@ import { useState, useMemo, useEffect } from 'react';
 import { clickableHeartBeatMotion } from '@/utils/motions/ballMotion';
 import { motion } from 'framer-motion-3d';
 import SparkleBall from '../elements/SparkleBall';
-import { useBallAction } from '../context/FourStarBallContext';
+import { useBallAction, useBallState } from '../context/FourStarBallContext';
 
 export default function SkillBallsScene() {
   const FULL_STAR_INIT_SCALE = 0.2;
@@ -14,6 +14,7 @@ export default function SkillBallsScene() {
   const positions = useMemo(() => generateSkillBallPositions(), []);
   const [countClicks, setCountClicks] = useState(1);
   const { handleShowStateYourWish, handleShowWishComeTrue } = useBallAction();
+  const { showWishComeTrue } = useBallState();
 
   // handle four start clicked, triggering big bang
   const handleBigBang = () => {
@@ -21,12 +22,12 @@ export default function SkillBallsScene() {
     setFourStarScale(FULL_STAR_INIT_SCALE);
     setCountClicks(1);
     handleShowStateYourWish(false);
-    handleShowWishComeTrue();
+    handleShowWishComeTrue(true);
   };
 
   const handleTapBall = (score, isFourStar) => {
-    if (isFourStar) handleBigBang();
     // trigger scaling after the skill ball merged into the four start ball
+    if (isFourStar) handleBigBang();
     else {
       setCountClicks((prev) => prev + 1);
       setTimeout(() => {
@@ -36,9 +37,8 @@ export default function SkillBallsScene() {
   };
 
   useEffect(() => {
-    if (countClicks === skills.length) {
-      handleShowStateYourWish(true);
-    }
+    if (countClicks === skills.length) handleShowStateYourWish(true);
+    else if (showWishComeTrue) handleShowWishComeTrue(false);
   }, [countClicks]);
 
   const fullFourStar = (i) => i === 0 && countClicks === skills.length;

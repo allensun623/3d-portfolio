@@ -49,7 +49,7 @@ export function FourStarBallContextProvider({ children }) {
   const handleFireballCompleted = () => setFireballCompleted(true);
   const handleShowStateYourWish = (state = false) =>
     setShowStateYourWish(state);
-  const handleShowWishComeTrue = (state = true) => setShowWishComeTrue(state);
+  const handleShowWishComeTrue = (state = false) => setShowWishComeTrue(state);
   const handleUpdateClickable = () => setClickable(true);
 
   const handleRestBallState = () => {
