@@ -29,9 +29,10 @@ export function useBallStateReset() {
 }
 
 export function FourStarBallContextProvider({ children }) {
+  const [chaseDreamJob, setChaseDreamJob] = useState(false);
+  const [relaxingInSkills, setRelaxingInSkills] = useState(true);
   const [sendToPortal, setSendToPortal] = useState(false);
   const [fireballCompleted, setFireballCompleted] = useState(false);
-  const [chaseDreamJob, setChaseDreamJob] = useState(false);
   const [clickable, setClickable] = useState(false);
   const [showStateYourWish, setShowStateYourWish] = useState(false);
   const [showWishComeTrue, setShowWishComeTrue] = useState(false);
@@ -50,6 +51,7 @@ export function FourStarBallContextProvider({ children }) {
   const handleShowStateYourWish = (state = false) =>
     setShowStateYourWish(state);
   const handleShowWishComeTrue = (state = false) => setShowWishComeTrue(state);
+  const handleRelaxingInSkills = (state = false) => setRelaxingInSkills(state);
   const handleUpdateClickable = () => setClickable(true);
 
   const handleRestBallState = () => {
@@ -59,6 +61,7 @@ export function FourStarBallContextProvider({ children }) {
     setFireballCompleted(false);
     setShowStateYourWish(false);
     setShowWishComeTrue(false);
+    setRelaxingInSkills(true);
   };
 
   const ballState = {
@@ -68,6 +71,7 @@ export function FourStarBallContextProvider({ children }) {
     clickable,
     showStateYourWish,
     showWishComeTrue,
+    relaxingInSkills,
   };
 
   const ballAction = {
@@ -77,6 +81,7 @@ export function FourStarBallContextProvider({ children }) {
     handleFireballCompleted,
     handleShowStateYourWish,
     handleShowWishComeTrue,
+    handleRelaxingInSkills,
   };
 
   return (

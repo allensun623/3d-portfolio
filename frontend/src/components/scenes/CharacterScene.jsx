@@ -14,7 +14,13 @@ import { useControls } from 'leva';
 export default function CharacterScene({ section, viewport }) {
   const [animation, setAnimation] = useState(sectionTransitAnimations[0]);
   const characterGroup = useRef();
-  const { chaseDreamJob, sendToPortal, fireballCompleted } = useBallState();
+  const {
+    relaxingInSkills,
+    chaseDreamJob,
+    sendToPortal,
+    fireballCompleted,
+    showStateYourWish,
+  } = useBallState();
   const { handleUpdateClickable } = useBallAction();
   const { x, y, z, scale, rotateY } = useControls({
     x: { value: -1.2, min: -5, max: 5 },
@@ -27,6 +33,14 @@ export default function CharacterScene({ section, viewport }) {
   useEffect(() => {
     setAnimation(sectionTransitAnimations[section]);
   }, [section]);
+
+  useEffect(() => {
+    if (section !== 2) return;
+
+    if (showStateYourWish) setAnimation(animationOptions.POINTING);
+    else if (relaxingInSkills) setAnimation(animationOptions.ARM_STRETCHING);
+    else setAnimation(animationOptions.PICK_FRUIT);
+  }, [relaxingInSkills, showStateYourWish]);
 
   useEffect(() => {
     if (chaseDreamJob && section === 1)

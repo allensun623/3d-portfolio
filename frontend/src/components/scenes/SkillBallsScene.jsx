@@ -8,13 +8,17 @@ import SparkleBall from '../elements/SparkleBall';
 import { useBallAction, useBallState } from '../context/FourStarBallContext';
 
 export default function SkillBallsScene() {
-  const FULL_STAR_INIT_SCALE = 0.2;
+  const FULL_STAR_INIT_SCALE = 0;
   const [fourStarScale, setFourStarScale] = useState(FULL_STAR_INIT_SCALE);
   const [countBigBang, setCountBigBang] = useState(0);
   const positions = useMemo(() => generateSkillBallPositions(), []);
   const [countClicks, setCountClicks] = useState(1);
-  const { handleShowStateYourWish, handleShowWishComeTrue } = useBallAction();
-  const { showWishComeTrue } = useBallState();
+  const {
+    handleShowStateYourWish,
+    handleShowWishComeTrue,
+    handleRelaxingInSkills,
+  } = useBallAction();
+  const { showWishComeTrue, relaxingInSkills } = useBallState();
 
   // handle four start clicked, triggering big bang
   const handleBigBang = () => {
@@ -22,7 +26,8 @@ export default function SkillBallsScene() {
     setFourStarScale(FULL_STAR_INIT_SCALE);
     setCountClicks(1);
     handleShowStateYourWish(false);
-    handleShowWishComeTrue(true);
+    handleRelaxingInSkills(true);
+    if (countClicks === skills.length) handleShowWishComeTrue(true);
   };
 
   const handleTapBall = (score, isFourStar) => {
@@ -30,31 +35,42 @@ export default function SkillBallsScene() {
     if (isFourStar) handleBigBang();
     else {
       setCountClicks((prev) => prev + 1);
+      // increase size after merging
       setTimeout(() => {
         setFourStarScale((prev) => prev + score / 5000);
       }, 1500);
     }
   };
 
-  useEffect(() => {
-    if (countClicks === skills.length) handleShowStateYourWish(true);
-    else if (showWishComeTrue) handleShowWishComeTrue(false);
-  }, [countClicks]);
+  const collectedAll = countClicks === skills.length;
+  const fullFourStar = (i) => i === 0 && collectedAll;
 
-  const fullFourStar = (i) => i === 0 && countClicks === skills.length;
+  useEffect(() => {
+    if (countClicks > 1 && relaxingInSkills) handleRelaxingInSkills(false);
+    if (!collectedAll) return;
+
+    if (!relaxingInSkills) handleRelaxingInSkills(true);
+    if (showWishComeTrue) handleShowWishComeTrue(false);
+    else handleShowStateYourWish(true);
+  }, [countClicks]);
 
   return (
     <>
       {skills.map((s, idx) => (
-        <motion.group key={s.name}>
+        <motion.group
+          key={s.name}
+          animate={
+            fullFourStar(idx) ? { y: 1, transition: { duration: 1 } } : {}
+          }
+        >
           {fullFourStar(idx) && (
-            <motion.group transition={{ delay: 1.5 }}>
+            <motion.group transition={{ delay: 1 }}>
               <SparkleBall size={fourStarScale * 4} />
             </motion.group>
           )}
           <motion.group
             animate={
-              fullFourStar(idx) ? clickableHeartBeatMotion({ delay: 1.5 }) : {}
+              fullFourStar(idx) ? clickableHeartBeatMotion({ delay: 1 }) : {}
             }
           >
             <SkillBall

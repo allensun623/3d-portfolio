@@ -8,7 +8,7 @@ export default function Interface({ section, ballState }) {
   return (
     <div className='w-screen flex flex-col items-start'>
       <About section={section} />
-      <Experience isInView={section === 1} />
+      <Experience isInView={section === 1} ballState={ballState} />
       <Skills ballState={ballState} />
       <Contact />
       <Portal ballState={ballState} />
