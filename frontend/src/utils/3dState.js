@@ -31,13 +31,14 @@ function getRandomArbitrary(min, max) {
  * @returns positions - a list of positions [[x, y, z]]
  */
 const generateSkillBallPositions = () => {
-  const positions = [[0, 0, 0]];
+  const positions = [[0.2, 0.5, 0.5]];
   while (positions.length < skills.length) {
     const x = getRandomArbitrary(-3, 1.3);
     const y = getRandomArbitrary(0, 2);
     const z = getRandomArbitrary(0, 2);
     // avoid point overlaps character
-    if (Math.abs(x) ** 2 + Math.abs(y) ** 2 > 0.5) positions.push([x, y, z]);
+    if ((x - positions[0][0]) ** 2 + (y - positions[0][1]) ** 2 > 0.5)
+      positions.push([x, y, z]);
   }
   return positions;
 };

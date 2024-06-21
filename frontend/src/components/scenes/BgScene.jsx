@@ -47,7 +47,7 @@ export default function MainScene({ section, viewport }) {
           y: -(viewport.height + 1.25) * 2 - 4.5,
           z: -viewport.height * 2 - 9,
           rotateX: -Math.PI / 12,
-          rotateY: Math.PI / 2.2,
+          rotateY: Math.PI / 2.1,
         },
         3: {
           scale: 2,

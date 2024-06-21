@@ -19,7 +19,7 @@ export default function ExperienceScene({ isInView }) {
       scale: 0,
       transition: { duration: 0.1, delay: 1 },
     },
-    clickable: clickableHeartBeatMotion(0.1),
+    clickable: clickableHeartBeatMotion({ scale: 0.1 }),
   };
 
   const isClickableInView = clickable && isInView;
