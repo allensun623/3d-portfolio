@@ -1,6 +1,36 @@
 import { motion } from 'framer-motion-3d';
 import { Model as CloudModel } from '../models/CloudModel';
-import { experiences } from '@/constants/experiences';
+import { Model as Beamery } from '../models/ExperienceBeameryModel';
+import { Model as MID } from '../models/ExperienceMIDModel';
+import { Model as UH } from '../models/ExperienceUHModel';
+
+const SPEED = 1;
+const experiences = [
+  {
+    textModel: <UH />,
+    initial: { x: -22, y: 0, z: 10 },
+    text: { x: -21, y: 9, z: 20 },
+    cloud: [-0.5, 0, -5],
+    delay: 4 * SPEED,
+    textScale: '1.45',
+  },
+  {
+    textModel: <MID />,
+    initial: { x: -10, y: 0, z: -15 },
+    text: { x: -8, y: 18, z: -5 },
+    cloud: [0, 0.5, -5],
+    delay: 8 * SPEED,
+    textScale: '1.5',
+  },
+  {
+    textModel: <Beamery />,
+    initial: { x: 23.5, y: 2.2, z: -10 },
+    text: { x: 21, y: 13, z: 0 },
+    cloud: [1, 0.5, -5],
+    delay: 12 * SPEED,
+    textScale: '1.1',
+  },
+];
 
 export default function ExperiencesText() {
   return (
