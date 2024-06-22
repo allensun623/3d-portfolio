@@ -18,7 +18,8 @@ export default function SkillBallsScene() {
     handleShowWishComeTrue,
     handleRelaxingInSkills,
   } = useBallAction();
-  const { showWishComeTrue, relaxingInSkills } = useBallState();
+  const { showStateYourWish, showWishComeTrue, relaxingInSkills } =
+    useBallState();
 
   // handle four start clicked, triggering big bang
   const handleBigBang = () => {
@@ -27,7 +28,7 @@ export default function SkillBallsScene() {
     setCountClicks(1);
     handleShowStateYourWish(false);
     handleRelaxingInSkills(true);
-    if (countClicks === skills.length) handleShowWishComeTrue(true);
+    handleShowWishComeTrue(true);
   };
 
   const handleTapBall = (score, isFourStar) => {
@@ -46,12 +47,9 @@ export default function SkillBallsScene() {
   const fullFourStar = (i) => i === 0 && collectedAll;
 
   useEffect(() => {
+    if (countClicks > 1 && showWishComeTrue) handleShowWishComeTrue(false);
     if (countClicks > 1 && relaxingInSkills) handleRelaxingInSkills(false);
-    if (!collectedAll) return;
-
-    if (!relaxingInSkills) handleRelaxingInSkills(true);
-    if (showWishComeTrue) handleShowWishComeTrue(false);
-    else handleShowStateYourWish(true);
+    if (collectedAll && !showStateYourWish) handleShowStateYourWish(true);
   }, [countClicks]);
 
   return (
@@ -64,13 +62,13 @@ export default function SkillBallsScene() {
           }
         >
           {fullFourStar(idx) && (
-            <motion.group transition={{ delay: 1 }}>
+            <motion.group transition={{ delay: 2 }}>
               <SparkleBall size={fourStarScale * 4} />
             </motion.group>
           )}
           <motion.group
             animate={
-              fullFourStar(idx) ? clickableHeartBeatMotion({ delay: 1 }) : {}
+              fullFourStar(idx) ? clickableHeartBeatMotion({ delay: 2 }) : {}
             }
           >
             <SkillBall
