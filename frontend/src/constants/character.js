@@ -12,6 +12,10 @@ const animationOptions = Object.freeze({
   WAVING_BYE: 'Waving Bye',
   FIREBALL: 'Fireball',
   PICK_FRUIT: 'Pick Fruit',
+  ARM_STRETCHING: 'Arm Stretching',
+  HOLDING: 'Holding',
+  CROUCH_POSE: 'Crouch Pose',
+  POINTING: 'Pointing',
 });
 
 // animations used in the scene
@@ -28,13 +32,17 @@ const selectedAnimations = Object.freeze([
   animationOptions.WAVING_BYE,
   animationOptions.FIREBALL,
   animationOptions.PICK_FRUIT,
+  animationOptions.ARM_STRETCHING,
+  animationOptions.HOLDING,
+  animationOptions.CROUCH_POSE,
+  animationOptions.POINTING,
 ]);
 
 // transition animation in the order of section
 const sectionTransitAnimations = [
   animationOptions.SITTING,
   animationOptions.LOOKING,
-  animationOptions.PICK_FRUIT,
+  animationOptions.ARM_STRETCHING,
   animationOptions.WAVING,
   animationOptions.SITTING_HOLD,
 ];

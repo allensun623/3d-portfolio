@@ -23,8 +23,8 @@ export default function Welcome({ setEntered }) {
   return (
     <>
       <div className='z-10 fixed top-0 left-0 overflow-hidden flex flex-col justify-center items-center w-full h-1/2'>
-        <p className='text-white text-9xl text-center'>Welcome to my world</p>
-        <p className='text-white text-9xl text-center'>
+        <p className='text-white text-7xl text-center'>Welcome to my world</p>
+        <p className='text-white text-7xl text-center'>
           {"I'm Allen Sun, a software engineer learning 3D."}
         </p>
       </div>
