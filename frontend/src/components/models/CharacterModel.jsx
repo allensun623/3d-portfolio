@@ -52,11 +52,13 @@ export default function CharacterModel(props) {
       new Set([
         animationOptions.WAVING,
         animationOptions.SITTING_CROSS_LEGGED,
+        animationOptions.PICK_FRUIT,
       ]).has(animation)
     ) {
       cursorFollowRef.current = true;
       switch (animation) {
         case animationOptions.WAVING:
+        case animationOptions.PICK_FRUIT:
           cursorFollowPartRef.current = 'Spine';
           break;
         case animationOptions.SITTING_CROSS_LEGGED:

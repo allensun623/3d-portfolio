@@ -14,7 +14,13 @@ import { useControls } from 'leva';
 export default function CharacterScene({ section, viewport }) {
   const [animation, setAnimation] = useState(sectionTransitAnimations[0]);
   const characterGroup = useRef();
-  const { chaseDreamJob } = useBallState();
+  const {
+    relaxingInSkills,
+    chaseDreamJob,
+    sendToPortal,
+    fireballCompleted,
+    showStateYourWish,
+  } = useBallState();
   const { handleUpdateClickable } = useBallAction();
   const { x, y, z, scale, rotateY } = useControls({
     x: { value: -1.2, min: -5, max: 5 },
@@ -29,9 +35,26 @@ export default function CharacterScene({ section, viewport }) {
   }, [section]);
 
   useEffect(() => {
+    if (section !== 2) return;
+
+    if (showStateYourWish) setAnimation(animationOptions.POINTING);
+    else if (relaxingInSkills) setAnimation(animationOptions.ARM_STRETCHING);
+    else setAnimation(animationOptions.PICK_FRUIT);
+  }, [relaxingInSkills, showStateYourWish]);
+
+  useEffect(() => {
     if (chaseDreamJob && section === 1)
       setAnimation(animationOptions.SITTING_CROSS_LEGGED);
   }, [chaseDreamJob]);
+
+  useEffect(() => {
+    if (sendToPortal && section === 4)
+      setAnimation(
+        fireballCompleted
+          ? animationOptions.WAVING_BYE
+          : animationOptions.FIREBALL
+      );
+  }, [sendToPortal, fireballCompleted]);
 
   // TODO flying animations
   return (

@@ -4,11 +4,11 @@ import { useEffect, useState } from 'react';
 
 // generate positions of each flower on the path
 const flowerRowsPositions = () => {
-  const rows = 11;
+  const rows = 10;
   const cols = 4;
   const gapX = 1.5 / rows;
   const gapY = 0.01 / rows;
-  const gapZ = 1 / rows;
+  const gapZ = 1.7 / rows;
   const path = [];
   for (let i = 0; i < rows; i++) {
     const positions = [];

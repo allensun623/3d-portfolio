@@ -24,7 +24,7 @@ export default function PortalScene({ viewport, isInView }) {
                   y: 0.3,
                   z: -0.1,
                   scale: 0,
-                  transition: { duration: 3, delay: 2.5 },
+                transition: { duration: 3, delay: 6 },
                 }
               : null
           }

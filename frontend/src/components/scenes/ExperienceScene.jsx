@@ -19,7 +19,7 @@ export default function ExperienceScene({ isInView }) {
       scale: 0,
       transition: { duration: 0.1, delay: 1 },
     },
-    clickable: clickableHeartBeatMotion(0.12),
+    clickable: clickableHeartBeatMotion({ scale: 0.1 }),
   };
 
   const isClickableInView = clickable && isInView;
@@ -32,6 +32,7 @@ export default function ExperienceScene({ isInView }) {
 
   const GlassBallComponent = (
     <GlassBall
+      scale={0.09}
       isFourStar={true}
       handleClick={isClickableInView ? handleChaseDreamJob : () => {}}
       clickable={isClickableInView}
@@ -49,7 +50,7 @@ export default function ExperienceScene({ isInView }) {
         rotation={[-(Math.PI * 7) / 16, (Math.PI * 6) / 16, (Math.PI * 7) / 16]}
       >
         {isClickableInView ? (
-          <SparkleBall size={0.2}>{GlassBallComponent}</SparkleBall>
+          <SparkleBall size={0.15}>{GlassBallComponent}</SparkleBall>
         ) : (
           GlassBallComponent
         )}

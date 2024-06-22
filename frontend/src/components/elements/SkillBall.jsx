@@ -13,6 +13,7 @@ export default function SkillBall({
   animation = true,
   clickable = true,
   countBigBang,
+  scale = 0.3,
 }) {
   const [ballThetaLength, setBallThetaLength] = useState(0);
   const [merged, setMerged] = useState(false);
@@ -24,12 +25,12 @@ export default function SkillBall({
   // add debounce with useCallback to avoid triggering rerendering within a short period of time
   const handleTap = useCallback(
     debounce(() => {
-      if (!clickable) return;
+      if (!clickable && merged) return;
       document.body.style.cursor = 'auto';
 
       setMerged(true);
       onTapBall(skill.score, isFourStar);
-    }, 300),
+    }, 500),
     []
   );
 
@@ -46,7 +47,7 @@ export default function SkillBall({
       y: position[1],
       z: position[2],
     },
-    hover: { scale: 0.3 },
+    hover: { scale: (isFourStar ? fourStarScale : scale) * 1.5 },
     merge: {
       scale: 0,
       x: FourStarPosition[0],
@@ -67,7 +68,7 @@ export default function SkillBall({
       <GlassBall
         skill={skill}
         isFourStar={isFourStar}
-        handleClick={handleTap}
+        handleClick={clickable && !merged ? handleTap : () => {}}
         innerThetaLength={ballThetaLength}
         initial='hidden'
         animate={`${isFourStar ? 'visible' : merged ? 'merge' : 'visible'}`}
@@ -85,7 +86,7 @@ export default function SkillBall({
             setBallThetaLength((prev) => (prev += Math.PI / 180));
           },
         }}
-        clickable
+        clickable={clickable && !merged}
       />
     </Float>
   );

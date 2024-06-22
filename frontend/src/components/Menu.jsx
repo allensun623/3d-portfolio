@@ -1,4 +1,9 @@
-export default function Menu({ onSectionChange, menuOpened, setMenuOpened }) {
+export default function Menu({
+  onSectionChange,
+  menuOpened,
+  setMenuOpened,
+  section,
+}) {
   const menuBars = [
     {
       className: 'transition-all',
@@ -19,22 +24,27 @@ export default function Menu({ onSectionChange, menuOpened, setMenuOpened }) {
   const menuButtons = [
     {
       label: 'Home',
+      color: 'text-primary',
       hoverColor: 'hover:text-primary',
     },
     {
       label: 'Experiences',
+      color: 'text-summer',
       hoverColor: 'hover:text-summer',
     },
     {
       label: 'Skills',
+      color: 'text-fall',
       hoverColor: 'hover:text-fall',
     },
     {
       label: 'Contact',
+      color: 'text-winter',
       hoverColor: 'hover:text-winter',
     },
     {
       label: 'Portal',
+      color: 'text-spring',
       hoverColor: 'hover:text-spring',
     },
   ];
@@ -65,7 +75,13 @@ export default function Menu({ onSectionChange, menuOpened, setMenuOpened }) {
       >
         <div className='flex-1 flex justify-center flex-col gap-6 p-8'>
           {menuButtons.map((mb, i) => (
-            <MenuButton key={i} {...mb} onClick={() => onSectionChange(i)} />
+            <MenuButton
+              key={i}
+              label={mb.label}
+              textColor={section === i ? mb.color : 'text-black'}
+              hoverColor={mb.hoverColor}
+              onClick={() => onSectionChange(i)}
+            />
           ))}
         </div>
       </div>
@@ -73,12 +89,10 @@ export default function Menu({ onSectionChange, menuOpened, setMenuOpened }) {
   );
 }
 
-const MenuButton = ({ label, onClick, hoverColor }) => {
+const MenuButton = ({ label, onClick, hoverColor, textColor }) => {
+  const className = `text-2xl font-bold cursor-pointer ${textColor} ${hoverColor} transition-colors`;
   return (
-    <button
-      onClick={onClick}
-      className={`text-2xl font-bold cursor-pointer ${hoverColor} transition-colors`}
-    >
+    <button onClick={onClick} className={className}>
       {label}
     </button>
   );

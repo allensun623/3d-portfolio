@@ -199,24 +199,6 @@ export function Model(props) {
       <mesh
         castShadow
         receiveShadow
-        geometry={nodes.Icosphere019.geometry}
-        material={materials['tree.orange']}
-        position={[0.168, 0.966, 1.538]}
-        rotation={[0.471, 1.144, 0.226]}
-        scale={[0.271, 0.184, 0.271]}
-      />
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={nodes.Icosphere020.geometry}
-        material={materials['tree.orange']}
-        position={[0.173, 1.257, -0.71]}
-        rotation={[Math.PI, 0, Math.PI]}
-        scale={[0.35, 0.237, 0.35]}
-      />
-      <mesh
-        castShadow
-        receiveShadow
         geometry={nodes.roots.geometry}
         material={materials['three.brown']}
         position={[0.004, 0.52, 0.096]}
