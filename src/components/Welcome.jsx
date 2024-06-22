@@ -25,7 +25,9 @@ export default function Welcome({ setEntered }) {
       <div className='z-10 fixed top-0 left-0 overflow-hidden flex flex-col justify-center items-center w-full h-1/2'>
         <p className='text-white text-7xl text-center'>Welcome to my world</p>
         <p className='text-white text-7xl text-center'>
-          {"I'm Allen Sun, a software engineer learning 3D."}
+          {
+            "I'm Allen Sun, a software engineer on a mission to transform ideas into stunning 3D realities. Join me to explore the endless possibilities of the 3D world."
+          }
         </p>
       </div>
       <Canvas shadows camera={{ position: [0, 2, 5], fov: 30 }}>
@@ -63,13 +65,13 @@ export default function Welcome({ setEntered }) {
         </motion.group>
       </Canvas>
       <div className='z-10 fixed bottom-0 left-0 overflow-hidden flex flex-col justify-center items-center w-full h-1/3 space-y-5'>
-        <p className='text-white text-6xl text-center pt-20'>
+        <p className='text-white text-4xl text-center pt-20'>
           In the Memory of
         </p>
-        <p className='text-white text-6xl text-center'>
+        <p className='text-white text-4xl text-center'>
           鳥山明 / とりやまあきら / Toriyama Akira
         </p>
-        <p className='text-white text-6xl text-center'>1982 - 2024</p>
+        <p className='text-white text-4xl text-center'>1982 - 2024</p>
       </div>
     </>
   );
