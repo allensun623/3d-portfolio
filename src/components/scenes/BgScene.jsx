@@ -31,6 +31,7 @@ export default function MainScene({ section, viewport }) {
         delay: 0.6,
         type: 'tween',
       }}
+      rotation-y={-Math.PI / 2}
       variants={{
         0: {},
         1: {
