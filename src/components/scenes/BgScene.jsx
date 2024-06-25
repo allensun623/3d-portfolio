@@ -36,11 +36,11 @@ export default function MainScene({ section, viewport }) {
         0: {},
         1: {
           scale: 1.1,
-          x: -6,
-          y: -viewport.height - 4.4,
-          z: 1 - viewport.height,
+          x: -3.5,
+          y: -viewport.height - 3,
+          z: 5 - viewport.height,
           rotateX: -Math.PI / 10,
-          rotateY: (-5 * Math.PI) / 8,
+          rotateY: -(7 * Math.PI) / 20,
         },
         2: {
           scale: 2.1,
@@ -68,7 +68,11 @@ export default function MainScene({ section, viewport }) {
       }}
     >
       {/* Experience Scene Summer */}
-      <motion.group position={[-3, 2, -5]} scale={1.5}>
+      <motion.group
+        position={[-3, 2, -5]}
+        scale={1.5}
+        rotation-y={-Math.PI / 4}
+      >
         <ExperienceScene isInView={isSectionInView(1)} />
       </motion.group>
 

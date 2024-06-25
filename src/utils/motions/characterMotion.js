@@ -42,7 +42,9 @@
 // };
 
 const experienceAnimation = (viewport) => {
-  const x = [-1.7, -1.4, -1.4, -1.4, -0.2, -0.2, -0.2, 1.7, 1.7, 1.7, 1.7];
+  const x = [-1.5, -1.3, -1.3, -1.3, -0.2, -0.2, -0.2, 1.7, 1.7, 1.7, 1.7].map(
+    (x) => x - 0.4
+  );
   const y = [
     -1.7, -1.8, -1.8, -1.8, -2.2, -2.2, -2.2, -2.2, -2.2, -2.2, -2,
   ].map((v) => v - viewport.height);
@@ -50,7 +52,9 @@ const experienceAnimation = (viewport) => {
     (v) => v - viewport.height
   );
   const scale = Array(x.length).fill(0.2);
-  const rotateY = [7, 7, 8, 7, 7, 8, 4, 6, 8, -2].map((v) => (v / 8) * Math.PI);
+  const rotateY = [7, 7, 8, 7, 7, 8, 4, 6, 9, 9, -2].map(
+    (v) => (v / 8) * Math.PI
+  );
   const transition = {
     // [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1],
     times: Array.from({ length: x.length }, (_, i) => i * 0.1),
@@ -62,8 +66,8 @@ const experienceAnimation = (viewport) => {
 };
 
 const experienceChaseDreamJob = (viewport) => {
-  const x = [1.7, 0.4, 0];
-  const y = [-2, -1.4, -0.5].map((v) => v - viewport.height);
+  const x = [1.2, 0.1, 0];
+  const y = [-2, -1.4, -0.1].map((v) => v - viewport.height);
   const z = [0.7, 2, 2.5].map((v) => v - viewport.height);
   const rotateY = [-2, -2, -0.5].map((v) => (v / 8) * Math.PI);
   const scale = [0.2, 0.5, 0.75];

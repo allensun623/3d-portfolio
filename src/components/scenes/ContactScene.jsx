@@ -7,6 +7,7 @@ import { Model as GetInTouchModel } from '../models/GetInTouch';
 export default function ContactScene({ isInView }) {
   return (
     <>
+      {/* House animation */}
       <motion.group
         position-y={0}
         animate={isInView ? 'inView' : 'init'}

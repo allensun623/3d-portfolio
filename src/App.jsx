@@ -44,14 +44,14 @@ export default function App() {
     preset,
   } = useControls({
     turbidity: { value: 0, min: 0, max: 20 },
-    rayleigh: { value: 0.01, min: 0, max: 4 },
+    rayleigh: { value: 0.1, min: 0, max: 4 },
     mieCoefficient: { value: 0.005, min: 0, max: 0.1 },
     mieDirectionalG: { value: 0.1, min: 0, max: 1 },
     inclination: { value: 0.1, min: 0, max: 1 },
     azimuth: { value: 0.1, min: 0, max: 1 },
     height: { value: 1, min: 0, max: 100 },
     radius: { value: 10, min: 0, max: 100 },
-    scale: { value: 50, min: 0, max: 200 },
+    scale: { value: 100, min: 0, max: 200 },
     preset: {
       value: 'sunset',
       options: [
@@ -96,7 +96,13 @@ export default function App() {
               far: 20000,
             }}
           >
-            <Sky sunPosition={[0, 5, 0]} {...skyProps} />
+            <motion.group
+              position-z={12}
+              position-y={-60}
+              rotation-x={Math.PI / 4}
+            >
+              <Sky sunPosition={[0, 10, 0]} {...skyProps} />
+            </motion.group>
             <Environment preset={preset} background />
             <ScrollControls pages={5} damping={0.1}>
               <ScrollManager section={section} onSectionChange={setSection} />
@@ -104,7 +110,11 @@ export default function App() {
                 <Scene section={section} cameraRef={cameraRef} />
               </Scroll>
               <Scroll html>
-                <Interface section={section} ballState={ballState} />
+                <Interface
+                  section={section}
+                  ballState={ballState}
+                  onSectionChange={setSection}
+                />
               </Scroll>
             </ScrollControls>
           </Canvas>

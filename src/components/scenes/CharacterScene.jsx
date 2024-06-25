@@ -74,7 +74,6 @@ export default function CharacterScene({ section, viewport }) {
         (Math.PI / 8) * rotateY
       )}
       onAnimationComplete={(definition) => {
-        console.log('Completed animating', definition);
         if (Number(definition) === section) handleUpdateClickable();
       }}
     >
