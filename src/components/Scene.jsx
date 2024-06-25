@@ -1,4 +1,3 @@
-import { motion } from 'framer-motion-3d';
 import { useThree } from '@react-three/fiber';
 import BgScene from './scenes/BgScene';
 import { useMemo, useEffect } from 'react';
@@ -27,11 +26,9 @@ export default function Scene({ section }) {
 
   return (
     <>
-      <motion.group>
-        <CharacterScene section={section} viewport={viewport} />
-        <BgScene section={section} viewport={viewport} />
-        {sectionScene}
-      </motion.group>
+      <CharacterScene section={section} viewport={viewport} />
+      <BgScene section={section} viewport={viewport} />
+      {sectionScene}
     </>
   );
 }
