@@ -10,7 +10,7 @@ export default function Interface({ section, ballState }) {
       <About section={section} />
       <Experience isInView={section === 1} ballState={ballState} />
       <Skills ballState={ballState} />
-      <Contact />
+      <Contact isInView={section === 3} />
       <Portal ballState={ballState} />
     </div>
   );

@@ -1,6 +1,5 @@
 import SectionContainer from '../../layouts/SectionContainer';
 import { useRef, useState } from 'react';
-import { motion } from 'framer-motion';
 // import emailjs from '@emailjs/browser';
 // import { slideIn } from '../../utils/motions/motion';
 
@@ -31,8 +30,20 @@ const fieldsConfig = [
   },
 ];
 
+const profile = [
+  {
+    name: 'linkedin',
+    link: 'https://www.linkedin.com/in/allensun623/',
+    src: '/assets/images/icons/Linkedin.svg',
+  },
+  {
+    name: 'github',
+    link: 'https://github.com/allensun623/3d-portfolio',
+    src: '/assets/images/icons/Github.svg',
+  },
+];
 
-export default function Contact() {
+export default function Contact({ isInView }) {
   const formRef = useRef();
   const [form, setForm] = useState({
     name: '',
@@ -58,6 +69,10 @@ export default function Contact() {
     setLoading(true);
   };
 
+  // Prevent tab while not in view
+  // https://stackoverflow.com/a/58253418/12395126
+  const tabIndex = isInView ? 0 : -1;
+
   const renderField = (field) => {
     const Component = field.component === 'input' ? 'input' : 'textarea';
     return (
@@ -74,34 +89,45 @@ export default function Contact() {
           value={form[field.props.id]}
           onChange={handleChange}
           onFocus={handleFocus}
+          tabIndex={tabIndex}
         />
       </div>
     );
   };
 
+  const profileIcon = (p) => (
+    <a
+      key={p.name}
+      href={p.link}
+      target={'_blank'}
+      className='max-h-14 max-w-14 opacity-50 hover:opacity-100'
+      tabIndex={tabIndex}
+    >
+      <img src={p.src} alt={p.name} />
+    </a>
+  );
+
   return (
     <SectionContainer>
-      <div className='w-[50%] p-10'>
-        <div
-          className={`xl:mt-12 flex flex-col-reverse gap-10 overflow-hidden bg-slate-200 rounded-xl`}
+      <div className='w-[50%] h-full flex items-center justify-center p-10 opacity-90'>
+        <form
+          ref={formRef}
+          onSubmit={handleSubmit}
+          className='flex flex-col p-8 rounded-2xl bg-slate-200 gap-8 w-full box-border h-fit'
         >
-          <motion.div className='flex-[0.75] p-8 rounded-2xl justify-center'>
-            <form
-              ref={formRef}
-              onSubmit={handleSubmit}
-              className='flex flex-col gap-8'
+          {fieldsConfig.map(renderField)}
+          <div className='flex flex-row justify-between items-center'>
+            <div className='flex flex-row'>{profile.map(profileIcon)}</div>
+            <button
+              type='submit'
+              className='bg-slate-600 text-3xl py-4 px-20 rounded-2xl outline-none text-slate-200 font-bold shadow-md shadow-slate-400 hover:bg-slate-500'
+              disabled={loading}
+              tabIndex={tabIndex}
             >
-              {fieldsConfig.map(renderField)}
-              <button
-                type='submit'
-                className='bg-slate-600 text-3xl py-3 px-8 rounded-xl outline-none text-slate-200 font-bold shadow-md shadow-slate-400 hover:bg-slate-500'
-                disabled={loading}
-              >
-                {loading ? 'Sending...' : 'Send'}
-              </button>
-            </form>
-          </motion.div>
-        </div>
+              {loading ? 'Sending...' : 'Send'}
+            </button>
+          </div>
+        </form>
       </div>
     </SectionContainer>
   );
