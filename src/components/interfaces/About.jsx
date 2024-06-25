@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react';
 const Chevron = () => (
   <div className='flex justify-center'>
     <img
-      className='h-auto w-16'
+      className='h-auto w-12'
       src='/assets/images/others/chevron.png'
       alt='chevron'
     />
@@ -14,12 +14,12 @@ const Chevron = () => (
 
 const AnimatedScrollIndicator = () => (
   <div className='flex justify-center'>
-    <div className='h-28 w-16 border-white border-solid border-8 rounded-full flex justify-center'>
+    <div className='h-20 w-12 border-white border-solid border-4 rounded-full flex justify-center'>
       <motion.div
-        className='border-white border-solid border-4 rounded-full h-6 w-1 mt-1'
+        className='border-white border-solid border-2 rounded-full h-6 w-1 mt-1'
         initial={{ y: '0px' }}
         animate={{
-          y: '20px',
+          y: '15px',
           transition: {
             duration: 1.5,
             repeat: Infinity,

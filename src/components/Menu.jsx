@@ -90,7 +90,7 @@ export default function Menu({
 }
 
 const MenuButton = ({ label, onClick, hoverColor, textColor }) => {
-  const className = `text-2xl font-bold cursor-pointer ${textColor} ${hoverColor} transition-colors`;
+  const className = `text-4xl font-bold cursor-pointer ${textColor} ${hoverColor} transition-colors`;
   return (
     <button onClick={onClick} className={className}>
       {label}
