@@ -64,10 +64,10 @@ export default function Welcome({ setEntered }) {
           </SparkleBall>
         </motion.group>
       </Canvas>
-      <div className='z-10 fixed bottom-0 left-0 overflow-hidden flex flex-col justify-center items-center w-full h-1/5 md:h-1/3 space-y-5'>
+      <div className='z-10 fixed bottom-0 left-0 overflow-hidden flex flex-col justify-center items-center w-full h-1/5 md:h-1/4 space-y-5'>
         <p className='text-white text-xl md:text-2xl xl:text-4xl text-center font-extralight whitespace-pre-line leading:none md:leading-normal'>
           {
-            'In Memory of\n鳥山明 / とりやまあきら / Toriyama Akira\n1982 - 2024'
+            'In Memory of\n鳥山明 / とりやまあきら / Toriyama Akira\n1955 - 2024'
           }
         </p>
       </div>

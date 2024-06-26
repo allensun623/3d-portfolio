@@ -15,6 +15,7 @@
     "@react-spring/three": "^9.7.3",
     "@react-three/drei": "9.75.0",
     "@react-three/fiber": "8.13.3",
+    "classnames": "^2.5.1",
     "framer-motion": "^11.2.9",
     "framer-motion-3d": "^11.2.9",
     "gsap": "^3.12.5",
