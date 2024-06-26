@@ -6,7 +6,7 @@ import ExperiencesText from './ExperiencesText';
 import SparkleBall from '../elements/SparkleBall';
 import { motion } from 'framer-motion-3d';
 
-export default function ExperienceScene({ isInView }) {
+export default function ExperienceScene({ isInView, isMobile }) {
   const { handleChaseDreamJob } = useBallAction();
   const { chaseDreamJob, clickable } = useBallState();
 
@@ -44,7 +44,7 @@ export default function ExperienceScene({ isInView }) {
   return (
     <>
       <IslandSummerModel scale={2} />
-      {isInView && <ExperiencesText />}
+      {isInView && <ExperiencesText isMobile={isMobile} />}
       <motion.group
         position={[1.5, 0.21, -0.7]}
         rotation={[-(Math.PI * 7) / 16, (Math.PI * 6) / 16, (Math.PI * 7) / 16]}

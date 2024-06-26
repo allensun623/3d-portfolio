@@ -6,7 +6,7 @@ import ExperienceScene from './ExperienceScene';
 import SkillScene from './SkillScene';
 import PortalScene from './PortalScene';
 
-export default function MainScene({ viewport, section }) {
+export default function BgScene({ isMobile, viewport, section }) {
   const carouselGroup = useRef();
   const isSectionInView = (v) => section === v;
   // Rotate the Scene
@@ -72,12 +72,12 @@ export default function MainScene({ viewport, section }) {
         scale={1.5}
         rotation-y={-Math.PI / 4}
       >
-        <ExperienceScene isInView={isSectionInView(1)} />
+        <ExperienceScene isInView={isSectionInView(1)} isMobile={isMobile} />
       </motion.group>
 
       {/* Skill Scene Fall */}
       <motion.group position={[4, -1, 5]}>
-        <SkillScene isInView={isSectionInView(2)} />
+        <SkillScene isInView={isSectionInView(2)} isMobile={isMobile} />
       </motion.group>
 
       {/* Contact Scene Winter */}

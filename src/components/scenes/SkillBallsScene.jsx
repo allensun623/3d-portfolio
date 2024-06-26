@@ -7,11 +7,11 @@ import { motion } from 'framer-motion-3d';
 import SparkleBall from '../elements/SparkleBall';
 import { useBallAction, useBallState } from '../context/FourStarBallContext';
 
-export default function SkillBallsScene() {
+export default function SkillBallsScene({ isMobile }) {
   const FULL_STAR_INIT_SCALE = 0;
   const [fourStarScale, setFourStarScale] = useState(FULL_STAR_INIT_SCALE);
   const [countBigBang, setCountBigBang] = useState(0);
-  const positions = useMemo(() => generateSkillBallPositions(), []);
+  const positions = useMemo(() => generateSkillBallPositions(isMobile), []);
   const [countClicks, setCountClicks] = useState(1);
   const {
     handleShowStateYourWish,
@@ -76,6 +76,7 @@ export default function SkillBallsScene() {
             }
           >
             <SkillBall
+              isMobile={isMobile}
               skill={s}
               isFourStar={idx === 0}
               onTapBall={(score, isFourStar) =>
@@ -85,6 +86,7 @@ export default function SkillBallsScene() {
               position={positions[idx]}
               FourStarPosition={positions[0]}
               countBigBang={countBigBang}
+              scale={isMobile ? 0.6 : 0.3}
             />
           </motion.group>
         </motion.group>
