@@ -16,7 +16,7 @@ import { animationOptions } from '../../constants/character';
 // TODO remove leva related: camera, wireframe, etc.
 
 export default function CharacterModel(props) {
-  const { animation } = props;
+  const { animation, isMobile } = props;
   const group = useRef();
   const selectedAnimations = useMemo(loadAnimations, []);
   const cursorFollowRef = useRef(false);
@@ -49,6 +49,7 @@ export default function CharacterModel(props) {
 
   useEffect(() => {
     if (
+      !isMobile &&
       new Set([
         animationOptions.WAVING,
         animationOptions.SITTING_CROSS_LEGGED,
@@ -67,7 +68,7 @@ export default function CharacterModel(props) {
         default:
           cursorFollowPartRef.current = null;
       }
-    } else {
+    } else if (cursorFollowRef.current) {
       cursorFollowRef.current = false;
     }
     actions[animation]?.reset().fadeIn(0.5).play();

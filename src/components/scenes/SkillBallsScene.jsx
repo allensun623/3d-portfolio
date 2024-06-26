@@ -25,10 +25,9 @@ export default function SkillBallsScene() {
   const handleBigBang = () => {
     setCountBigBang((prev) => prev + 1);
     setFourStarScale(FULL_STAR_INIT_SCALE);
-    setCountClicks(1);
-    handleShowStateYourWish(false);
-    handleRelaxingInSkills(true);
     handleShowWishComeTrue(true);
+    setCountClicks(1);
+    handleRelaxingInSkills(true);
   };
 
   const handleTapBall = (score, isFourStar) => {
@@ -49,8 +48,13 @@ export default function SkillBallsScene() {
   useEffect(() => {
     if (countClicks > 1 && showWishComeTrue) handleShowWishComeTrue(false);
     if (countClicks > 1 && relaxingInSkills) handleRelaxingInSkills(false);
+    if (!collectedAll && showStateYourWish) handleShowStateYourWish(false);
     if (collectedAll && !showStateYourWish) handleShowStateYourWish(true);
   }, [countClicks]);
+
+  // useEffect(() => {
+
+  // })
 
   return (
     <>

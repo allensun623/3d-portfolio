@@ -6,10 +6,9 @@ import ExperienceScene from './ExperienceScene';
 import SkillScene from './SkillScene';
 import PortalScene from './PortalScene';
 
-export default function MainScene({ section, viewport }) {
+export default function MainScene({ viewport, section }) {
   const carouselGroup = useRef();
   const isSectionInView = (v) => section === v;
-
   // Rotate the Scene
   useFrame((_, delta) => {
     if (carouselGroup.current && section === 0) {
@@ -58,12 +57,12 @@ export default function MainScene({ section, viewport }) {
           rotateY: Math.PI,
         },
         4: {
+          scale: 0.3,
           x: -1.4,
           y: -viewport.height * 4 + 2.4,
           z: -viewport.height + 4.5,
           rotateX: -Math.PI * 0.09,
           rotateY: -Math.PI / 4,
-          scale: 0.3,
         },
       }}
     >

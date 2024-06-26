@@ -95,7 +95,7 @@ const PortalAnimation = (viewport) => {
   return { x, y, z, scale, rotateY, transition };
 };
 
-const variants = (viewport, x, y, z, scale, rotateY) => ({
+const variants = (viewport) => ({
   0: {
     scale: 0.5,
     x: 0,
@@ -104,7 +104,6 @@ const variants = (viewport, x, y, z, scale, rotateY) => ({
     rotateY: Math.PI / 2,
   },
   1: experienceAnimation(viewport),
-  // 1: { x, y, z, scale, rotateY },
   2: {
     x: 1.81,
     y: (-viewport.height - 1) * 2 - 7.4,

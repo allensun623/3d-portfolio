@@ -1,11 +1,4 @@
-import {
-  Environment,
-  Sky,
-  Scroll,
-  ScrollControls,
-  SpotLight,
-  OrbitControls,
-} from '@react-three/drei';
+import { Environment, Sky, Scroll, ScrollControls } from '@react-three/drei';
 import { Canvas } from '@react-three/fiber';
 import Scene from './components/Scene';
 import Interface from './components/Interface';
@@ -38,8 +31,6 @@ export default function App() {
     mieDirectionalG,
     inclination,
     azimuth,
-    height,
-    radius,
     scale,
     preset,
   } = useControls({
@@ -127,7 +118,8 @@ export default function App() {
             setMenuOpened={setMenuOpened}
           />
         )}
-        <Leva collapsed />
+        {/* <Leva collapsed /> */}
+        <Leva hidden />
       </motion.div>
     </>
   );

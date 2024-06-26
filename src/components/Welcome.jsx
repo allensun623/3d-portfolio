@@ -4,16 +4,12 @@ import { motion } from 'framer-motion-3d';
 import { Canvas } from '@react-three/fiber';
 import { useProgress, Sky } from '@react-three/drei';
 import { clickableHeartBeatMotion } from '../utils/motions/ballMotion';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 export default function Welcome({ setEntered }) {
   const SCALE = 0.2;
   const { progress, loaded } = useProgress();
   const [playEnterAnimate, setPlayEnterAnimate] = useState(false);
-
-  useEffect(() => {
-    console.log({ progress });
-  }, [progress]);
 
   const handleClickEnter = () => {
     setPlayEnterAnimate(true);
@@ -24,12 +20,12 @@ export default function Welcome({ setEntered }) {
     <>
       <div className='z-10 fixed top-0 left-0 overflow-hidden flex flex-col justify-center items-center h-1/2 w-full'>
         <div className='max-w-screen-2xl flex flex-col justify-center items-center space-y-8'>
-          <p className='text-white text-9xl text-center whitespace-pre-line'>
+          <p className='text-white text-4xl md:text-9xl text-center whitespace-pre-line'>
             Welcome to my world!
           </p>
-          <p className='text-white text-7xl text-center font-light whitespace-pre-line'>
+          <p className='text-white text-3xl md:text-7xl text-center font-light whitespace-pre-line'>
             {
-              "I'm Allen Sun, a software engineer on a mission to transform ideas into stunning 3D realities. Join me to explore the endless possibilities of the 3D world."
+              "I'm Allen Sun, a software engineer on a mission to transform ideas into stunning 3D realities. Find every shining four-star ball, click and explore the endless possibilities of the world."
             }
           </p>
         </div>
@@ -68,8 +64,8 @@ export default function Welcome({ setEntered }) {
           </SparkleBall>
         </motion.group>
       </Canvas>
-      <div className='z-10 fixed bottom-0 left-0 overflow-hidden flex flex-col justify-center items-center w-full h-1/3 space-y-5'>
-        <p className='text-white text-4xl text-center font-extralight whitespace-pre-line leading-normal'>
+      <div className='z-10 fixed bottom-0 left-0 overflow-hidden flex flex-col justify-center items-center w-full h-1/5 md:h-1/3 space-y-5'>
+        <p className='text-white text-xl md:text-4xl text-center font-extralight whitespace-pre-line leading:none md:leading-normal'>
           {
             'In the Memory of\n鳥山明 / とりやまあきら / Toriyama Akira\n1982 - 2024'
           }
