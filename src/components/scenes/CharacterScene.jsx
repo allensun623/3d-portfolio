@@ -11,7 +11,7 @@ import { useBallState, useBallAction } from '../context/FourStarBallContext';
 import FourStarBallScene from './FourStarBallScene';
 import { useControls } from 'leva';
 
-export default function CharacterScene({ section, viewport }) {
+export default function CharacterScene({ section, viewport, isMobile }) {
   const [animation, setAnimation] = useState(sectionTransitAnimations[0]);
   const characterGroup = useRef();
   const {
@@ -74,11 +74,15 @@ export default function CharacterScene({ section, viewport }) {
         (Math.PI / 8) * rotateY
       )}
       onAnimationComplete={(definition) => {
-        console.log('Completed animating', definition);
         if (Number(definition) === section) handleUpdateClickable();
       }}
     >
-      <Character animation={animation} position-y={0.3} position-x={0.05} />
+      <Character
+        isMobile={isMobile}
+        animation={animation}
+        position-y={0.3}
+        position-x={0.05}
+      />
       {/* Cloud */}
       <CloudScene section={section} />
       {/* Four Stat Ball */}

@@ -6,10 +6,9 @@ import ExperienceScene from './ExperienceScene';
 import SkillScene from './SkillScene';
 import PortalScene from './PortalScene';
 
-export default function MainScene({ section, viewport }) {
+export default function MainScene({ viewport, section }) {
   const carouselGroup = useRef();
   const isSectionInView = (v) => section === v;
-
   // Rotate the Scene
   useFrame((_, delta) => {
     if (carouselGroup.current && section === 0) {
@@ -31,15 +30,16 @@ export default function MainScene({ section, viewport }) {
         delay: 0.6,
         type: 'tween',
       }}
+      rotation-y={-Math.PI / 2}
       variants={{
         0: {},
         1: {
           scale: 1.1,
-          x: -6,
-          y: -viewport.height - 4.4,
-          z: 1 - viewport.height,
+          x: -3.5,
+          y: -viewport.height - 3,
+          z: 5 - viewport.height,
           rotateX: -Math.PI / 10,
-          rotateY: (-5 * Math.PI) / 8,
+          rotateY: -(7 * Math.PI) / 20,
         },
         2: {
           scale: 2.1,
@@ -57,17 +57,21 @@ export default function MainScene({ section, viewport }) {
           rotateY: Math.PI,
         },
         4: {
+          scale: 0.3,
           x: -1.4,
           y: -viewport.height * 4 + 2.4,
           z: -viewport.height + 4.5,
           rotateX: -Math.PI * 0.09,
           rotateY: -Math.PI / 4,
-          scale: 0.3,
         },
       }}
     >
       {/* Experience Scene Summer */}
-      <motion.group position={[-3, 2, -5]} scale={1.5}>
+      <motion.group
+        position={[-3, 2, -5]}
+        scale={1.5}
+        rotation-y={-Math.PI / 4}
+      >
         <ExperienceScene isInView={isSectionInView(1)} />
       </motion.group>
 

@@ -24,7 +24,7 @@ const experiences = [
   },
   {
     textModel: <Beamery />,
-    initial: { x: 23.5, y: 2.2, z: -10 },
+    initial: { x: 23.5, y: 1.7, z: -8 },
     text: { x: 21, y: 13, z: 0 },
     cloud: [1, 0.5, -5],
     delay: 12 * SPEED,
