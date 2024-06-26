@@ -23,12 +23,12 @@ export default function Scene({ section }) {
       0: {},
       1: {
         x: 0.05,
-        y: -1.6,
+        y: -1.4,
         z: 1.5,
       },
       2: {
         x: 0.2,
-        y: -viewport.height * 2,
+        y: -viewport.height * 2 - 0.8,
         z: -2,
       },
       3: {

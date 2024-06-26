@@ -4,7 +4,7 @@ import { Model as GuideBoard } from '../models/IslandFallClickPickGuideBoard';
 import SkillBallsScene from './SkillBallsScene';
 import { useEffect, useState } from 'react';
 
-export default function SkillScene({ isInView }) {
+export default function SkillScene({ isInView, isMobile }) {
   const [showSkillBalls, setShowSkillBalls] = useState(false);
   useEffect(() => {
     if (!isInView) setShowSkillBalls(false);
@@ -14,7 +14,7 @@ export default function SkillScene({ isInView }) {
     <motion.group>
       {isInView && showSkillBalls ? (
         <motion.group position={[-2.6, 0.5, 2.55]} rotation-y={-Math.PI / 2}>
-          <SkillBallsScene />
+          <SkillBallsScene isMobile={isMobile} />
         </motion.group>
       ) : null}
       <motion.group scale={2.5}>

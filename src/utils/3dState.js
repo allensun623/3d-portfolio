@@ -30,11 +30,11 @@ function getRandomArbitrary(min, max) {
  * generate a list of random positions
  * @returns positions - a list of positions [[x, y, z]]
  */
-const generateSkillBallPositions = () => {
+const generateSkillBallPositions = (isMobile) => {
   const positions = [[0.2, 0.5, 0.5]];
   while (positions.length < skills.length) {
-    const x = getRandomArbitrary(-3, 1.3);
-    const y = getRandomArbitrary(0, 2);
+    const x = getRandomArbitrary(-3.2, 1);
+    const y = getRandomArbitrary(0, isMobile ? 8 : 2.5);
     const z = getRandomArbitrary(0, 2);
     // avoid point overlaps character
     if ((x - positions[0][0]) ** 2 + (y - positions[0][1]) ** 2 > 0.5)

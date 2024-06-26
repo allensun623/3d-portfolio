@@ -42,7 +42,7 @@ export default function SkillBall({
       z: animation ? -10 : position[2],
     },
     visible: {
-      scale: isFourStar ? fourStarScale : 0.15,
+      scale: isFourStar ? fourStarScale : scale / 2,
       x: position[0],
       y: position[1],
       z: position[2],
