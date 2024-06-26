@@ -25,7 +25,7 @@ export default function SkillBallsScene({ isMobile }) {
   const handleBigBang = () => {
     setCountBigBang((prev) => prev + 1);
     setFourStarScale(FULL_STAR_INIT_SCALE);
-    handleShowWishComeTrue(true);
+    if (collectedAll) handleShowWishComeTrue(true);
     setCountClicks(1);
     handleRelaxingInSkills(true);
   };

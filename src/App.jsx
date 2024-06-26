@@ -81,7 +81,6 @@ export default function App() {
             ref={cameraRef}
             camera={{
               position: [0, 2, 5],
-              // rotation: [-Math.PI / 12, 0, 0],
               fov: 30,
               near: 1,
               far: 20000,
