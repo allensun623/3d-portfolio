@@ -12,7 +12,7 @@ export default function SkillBallsScene({ isMobile }) {
   const [fourStarScale, setFourStarScale] = useState(FULL_STAR_INIT_SCALE);
   const [countBigBang, setCountBigBang] = useState(0);
   const positions = useMemo(() => generateSkillBallPositions(isMobile), []);
-  const [countClicks, setCountClicks] = useState(33);
+  const [countClicks, setCountClicks] = useState(1);
   const {
     handleShowStateYourWish,
     handleShowWishComeTrue,

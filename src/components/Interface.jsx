@@ -1,5 +1,5 @@
 import About from './interfaces/About';
-import Contact from './interfaces/Contact';
+import Contact from './interfaces/contact/Contact';
 import Skills from './interfaces/Skills';
 import Experience from './interfaces/Experience';
 import Portal from './interfaces/Portal';
