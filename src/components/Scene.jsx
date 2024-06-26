@@ -37,9 +37,9 @@ export default function Scene({ section }) {
         z: 4,
       },
       4: {
-        x: 0,
+        x: -0.01,
         y: -viewport.height * 4 + 4,
-        z: 3.5,
+        z: 3.45,
       },
     },
   };
