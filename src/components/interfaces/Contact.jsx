@@ -25,7 +25,7 @@ const fieldsConfig = [
     label: '🄼🄴🅂🅂🄰🄶🄴',
     props: {
       id: 'message',
-      rows: 7,
+      rows: 5,
     },
   },
 ];
@@ -78,13 +78,15 @@ export default function Contact({ isInView }) {
     return (
       <div
         key={field.props.id}
-        className={`box-content flex flex-col p-4 rounded-xl bg-white border-solid border-4 ${
+        className={`box-content flex flex-col p-2 md:p-4 rounded-xl bg-white border-solid border-4 ${
           form.focused === field.props.id ? 'border-slate-400' : 'border-white'
         }`}
       >
-        <span className='text-slate-400 text-xl mb-4'>{field.label}</span>
+        <span className='text-slate-400 text-md md:text-4xl'>
+          {field.label}
+        </span>
         <Component
-          className='text-slate-400 text-xl md:text-4xl focus:outline-none resize-none'
+          className='text-slate-400 text-md md:text-4xl focus:outline-none resize-none'
           {...field.props}
           value={form[field.props.id]}
           onChange={handleChange}
@@ -113,7 +115,7 @@ export default function Contact({ isInView }) {
         <form
           ref={formRef}
           onSubmit={handleSubmit}
-          className='w-full h-fit flex flex-col p-4 md:p-8 gap-4 md:gap-8  rounded-2xl bg-slate-200'
+          className='w-full h-fit flex flex-col p-4 md:p-8 gap-4 md:gap-8 rounded-2xl bg-slate-200'
         >
           {fieldsConfig.map(renderField)}
           <div className='flex flex-row justify-between items-center'>

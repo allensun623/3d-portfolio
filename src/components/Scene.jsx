@@ -8,7 +8,8 @@ import { motion } from 'framer-motion-3d';
 export default function Scene({ section }) {
   const { viewport } = useThree();
   const isMobile = window.innerWidth < 768;
-  const responsiveRatio = viewport.width / 6;
+  // equation calculated by iphone SE and and iphone XR
+  const offsetY = -viewport.factor * 0.0075 + 6.225;
 
   const resetBallState = useBallStateReset();
 
@@ -17,7 +18,7 @@ export default function Scene({ section }) {
   }, [section]);
 
   const mobileGroup = {
-    scale: responsiveRatio,
+    scale: viewport.width / 6,
     animate: `${section}`,
     variants: {
       0: {},
@@ -33,13 +34,13 @@ export default function Scene({ section }) {
       },
       3: {
         x: -0.18,
-        y: -viewport.height * 3 + 3.5,
+        y: -viewport.height * 3 + offsetY * 0.9 - 0.16,
         z: 4,
       },
       4: {
         x: -0.01,
-        y: -viewport.height * 4 + 4,
-        z: 3.45,
+        y: -viewport.height * 4 + offsetY,
+        z: 3.3,
       },
     },
   };
@@ -51,12 +52,7 @@ export default function Scene({ section }) {
         isMobile={isMobile}
         viewport={viewport}
       />
-      <BgScene
-        section={section}
-        responsiveRatio={responsiveRatio}
-        isMobile={isMobile}
-        viewport={viewport}
-      />
+      <BgScene section={section} isMobile={isMobile} viewport={viewport} />
     </motion.group>
   );
 }
