@@ -4,7 +4,7 @@ import ContactBanner from './ContactBanner';
 import ContactForm from './ContactForm';
 
 export default function Contact({ isInView }) {
-  const [hide, setHide] = useState(true);
+  const [hide, setHide] = useState(false);
 
   return (
     <SectionContainer>
