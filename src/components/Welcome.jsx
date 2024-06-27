@@ -4,10 +4,11 @@ import { motion } from 'framer-motion-3d';
 import { Canvas } from '@react-three/fiber';
 import { useProgress, Sky } from '@react-three/drei';
 import { clickableHeartBeatMotion } from '../utils/motions/ballMotion';
-import { useState } from 'react';
+import { useRef, useState, useEffect } from 'react';
 
 export default function Welcome({ setEntered }) {
   const SCALE = 0.2;
+  const rootRef = useRef(null);
   const { progress, loaded } = useProgress();
   const [playEnterAnimate, setPlayEnterAnimate] = useState(false);
 
@@ -15,6 +16,10 @@ export default function Welcome({ setEntered }) {
     setPlayEnterAnimate(true);
     setTimeout(() => setEntered(true), 1200);
   };
+
+  useEffect(() => {
+    rootRef.current.scrollIntoView({ behavior: 'smooth' });
+  });
 
   return (
     <>
@@ -64,7 +69,10 @@ export default function Welcome({ setEntered }) {
           </SparkleBall>
         </motion.group>
       </Canvas>
-      <div className='z-10 fixed bottom-0 left-0 overflow-hidden flex flex-col justify-center items-center w-full h-1/5 md:h-1/4 space-y-5'>
+      <div
+        ref={rootRef}
+        className='z-10 fixed bottom-0 left-0 overflow-hidden flex flex-col justify-center items-center w-full h-1/5 md:h-1/4 space-y-5'
+      >
         <p className='text-white text-lg sm:text-xl md:text-2xl xl:text-4xl text-center font-extralight whitespace-pre-line leading:none md:leading-normal'>
           {
             'In Memory of\n鳥山明 / とりやまあきら / Toriyama Akira\n1955 - 2024'
