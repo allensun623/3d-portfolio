@@ -36,16 +36,23 @@ export default function ScrollManager({ section, onSectionChange }) {
   useFrame(() => {
     // ignore while is scrolling animation is on
     if (isScrollAnimating.current) return;
+    if (lastSection.current !== section) return;
 
     const curScroll = scrollData.scroll.current;
-
-    if (lastSection.current !== section) return;
-    // ignore diff between lastScroll: 0.3333333333333333 and curScroll: 0.3338206627680312
+    // ignore diff between lastScroll and curScroll if the difference is minimal.
+    // e.g.lastScroll: 0.3333333333333333 and curScroll: 0.3338206627680312
     if (Math.abs(lastScroll.current - curScroll) < 0.001) return;
 
-    // update section
+    // decrease scroll threshold
+    if (Math.abs(lastScroll.current - curScroll) < 0.05) {
+      scrollData.scroll.current = lastScroll.current;
+      return;
+    }
+
+    // update section based on scroll direction
     if (lastScroll.current > curScroll) onSectionChange(section - 1);
     else onSectionChange(section + 1);
   });
+
   return null;
 }
