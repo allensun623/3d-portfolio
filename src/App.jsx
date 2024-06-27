@@ -21,7 +21,7 @@ export default function App() {
     if (menuOpened) setMenuOpened(false);
   }, [section]);
 
-  const canvasClassName = entered ? 'w-full h-full' : 'w-1, h-0';
+  const canvasClassName = entered ? 'w-full h-screen h-dvh' : 'w-1, h-0';
 
   const skyProps = {
     scale: 100,
@@ -38,7 +38,7 @@ export default function App() {
   return (
     <>
       {entered ? null : <Welcome setEntered={setEntered} />}
-      <motion.div className={canvasClassName}>
+      <div className={canvasClassName}>
         <Suspense>
           <Canvas
             ref={cameraRef}
@@ -80,7 +80,7 @@ export default function App() {
             setMenuOpened={setMenuOpened}
           />
         )}
-      </motion.div>
+      </div>
     </>
   );
 }

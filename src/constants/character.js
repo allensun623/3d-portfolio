@@ -47,4 +47,17 @@ const sectionTransitAnimations = [
   animationOptions.SITTING_HOLD,
 ];
 
-export { animationOptions, selectedAnimations, sectionTransitAnimations };
+// animations follow cursor
+const cursorFollowAnimations = new Set([
+  animationOptions.WAVING,
+  animationOptions.SITTING_CROSS_LEGGED,
+  animationOptions.PICK_FRUIT,
+]);
+
+
+export {
+  animationOptions,
+  selectedAnimations,
+  sectionTransitAnimations,
+  cursorFollowAnimations,
+};

@@ -8,30 +8,26 @@ import {
   loadAnimations,
   preloadAnimations,
 } from '../../utils/characterAnimations';
-import { animationOptions } from '../../constants/character';
+import {
+  animationOptions,
+  cursorFollowAnimations,
+} from '../../constants/character';
 
 // TODO remove leva related: camera, wireframe, etc.
 
 export default function CharacterModel(props) {
   const { animation, isMobile } = props;
-  const group = useRef();
-  const selectedAnimations = useMemo(loadAnimations, []);
+  const groupRef = useRef();
+  const selectedAnimations = useMemo(() => loadAnimations(), []);
   const cursorFollowRef = useRef(false);
   const cursorFollowPartRef = useRef(null);
 
   const { nodes, materials } = useGLTF('/assets/models/character.glb');
 
-  const { actions } = useAnimations(selectedAnimations, group);
+  const { actions } = useAnimations(selectedAnimations, groupRef);
 
   useEffect(() => {
-    if (
-      !isMobile &&
-      new Set([
-        animationOptions.WAVING,
-        animationOptions.SITTING_CROSS_LEGGED,
-        animationOptions.PICK_FRUIT,
-      ]).has(animation)
-    ) {
+    if (!isMobile && cursorFollowAnimations.has(animation)) {
       cursorFollowRef.current = true;
       switch (animation) {
         case animationOptions.WAVING:
@@ -42,7 +38,7 @@ export default function CharacterModel(props) {
           cursorFollowPartRef.current = 'Head';
           break;
         default:
-          cursorFollowPartRef.current = null;
+          cursorFollowPartRef.current = false;
       }
     } else if (cursorFollowRef.current) {
       cursorFollowRef.current = false;
@@ -63,7 +59,7 @@ export default function CharacterModel(props) {
   }, [animation]);
 
   return (
-    <group {...props} ref={group} dispose={null}>
+    <group {...props} ref={groupRef} dispose={null}>
       <skinnedMesh
         name='EyeLeft'
         geometry={nodes.EyeLeft.geometry}
