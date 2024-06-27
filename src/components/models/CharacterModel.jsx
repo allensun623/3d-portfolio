@@ -28,7 +28,7 @@ export default function CharacterModel(props) {
     wireframe: false,
   });
 
-  const { nodes, materials } = useGLTF('/models/character.glb');
+  const { nodes, materials } = useGLTF('/assets/models/character.glb');
 
   const { actions } = useAnimations(selectedAnimations, group);
 
@@ -171,6 +171,6 @@ export default function CharacterModel(props) {
   );
 }
 
-useGLTF.preload('/models/character.glb');
+useGLTF.preload('/assets/models/character.glb');
 
 preloadAnimations();

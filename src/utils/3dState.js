@@ -43,14 +43,4 @@ const generateSkillBallPositions = (isMobile) => {
   return positions;
 };
 
-/**
- * Generate positions (number of points including start and destination) between start position and destination position.
- * @param {Object} params - The parameters object.
- * @param {number[]} params.start - The starting position as an array of two numbers [x, y].
- * @param {number[]} params.destination - The destination position as an array of two numbers [x, y].
- * @param {number} params.points - The number of points to generate including start and destination.
- * @returns {number[][]} - Array of positions between the start and destination.
- */
-const getPathPositions = ({ start, destination, points }) => {};
-
-export { getPosition, generateSkillBallPositions, getPathPositions };
+export { getPosition, generateSkillBallPositions };

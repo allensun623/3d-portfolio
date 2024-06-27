@@ -93,7 +93,7 @@ export default function Contact({ isInView, handleAnimationComplete }) {
       onAnimationComplete={() => {
         if (state.succeeded) handleAnimationComplete();
       }}
-      className='w-full md:w-[50%] h-full flex flex-col items-center justify-end md:justify-center p-2 md:p-10 opacity-90'
+      className='w-full md:w-[50%] h-full flex flex-col items-center justify-end md:justify-center p-2 pb-10 md:p-10 opacity-90'
     >
       <form
         className='w-full h-fit flex flex-col p-4 md:p-8 gap-4 md:gap-8 rounded-2xl bg-slate-200'

@@ -2,11 +2,11 @@ import { useFBX } from '@react-three/drei';
 import { selectedAnimations } from '../constants/character';
 
 /**
- * all animations must be in the folder 'public/animations'
+ * all animations must be in the folder '/public/assets/animations/'
  * @param {*} name
- * @returns animation path animations/${name}.fbx
+ * @returns animation path /assets/animations/${name}.fbx
  */
-const animationModelPath = (name) => `animations/${name}.fbx`;
+const animationModelPath = (name) => `/assets/animations/${name}.fbx`;
 
 /**
  * load a list of selected animations, and rename them
