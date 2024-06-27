@@ -9,8 +9,6 @@ import Welcome from './components/Welcome';
 import { motion } from 'framer-motion-3d';
 import { useBallState } from './components/context/FourStarBallContext';
 
-// TODO remove leva
-
 export default function App() {
   const [section, setSection] = useState(0);
   const [menuOpened, setMenuOpened] = useState(false);

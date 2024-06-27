@@ -64,10 +64,7 @@ export default function GlassBall({
       transition={{ duration: 2 }}
       onPointerOver={() => setHovered(true)}
       onPointerOut={() => setHovered(false)}
-      onClick={() => {
-        console.log('onclick');
-        handleClick();
-      }}
+      onClick={handleClick}
       {...otherProps}
     >
       {/* inner fill */}

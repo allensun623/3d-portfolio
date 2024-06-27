@@ -14,13 +14,14 @@ export default function CharacterScene({ section, viewport, isMobile }) {
   const [animation, setAnimation] = useState(sectionTransitAnimations[0]);
   const characterGroup = useRef();
   const {
+    clickable,
     relaxingInSkills,
     chaseDreamJob,
     sendToPortal,
     fireballCompleted,
     showStateYourWish,
   } = useBallState();
-  const { handleUpdateClickable } = useBallAction();
+  const { handleUpdateClickable, handleSendToPortal } = useBallAction();
 
   useEffect(() => {
     setAnimation(sectionTransitAnimations[section]);
@@ -48,6 +49,15 @@ export default function CharacterScene({ section, viewport, isMobile }) {
       );
   }, [sendToPortal, fireballCompleted]);
 
+  // make whole character clickable in case the screen is too small
+  const handleClick = () => {
+    if (clickable && section === 4) handleSendToPortal();
+  };
+
+  const handleAnimationComplete = (definition) => {
+    if (Number(definition) === section) handleUpdateClickable();
+  };
+
   return (
     <motion.group
       ref={characterGroup}
@@ -56,10 +66,9 @@ export default function CharacterScene({ section, viewport, isMobile }) {
         duration: 1,
         delay: 0.6,
       }}
-      variants={variants(viewport)}
-      onAnimationComplete={(definition) => {
-        if (Number(definition) === section) handleUpdateClickable();
-      }}
+      variants={variants(viewport, isMobile)}
+      onAnimationComplete={handleAnimationComplete}
+      onClick={handleClick}
     >
       <Character
         isMobile={isMobile}
