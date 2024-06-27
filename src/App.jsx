@@ -14,6 +14,7 @@ export default function App() {
   const [menuOpened, setMenuOpened] = useState(false);
   const [entered, setEntered] = useState(false);
   const ballState = useBallState(); // pass state to interface with is rendering intermediate before the provider
+  const isMobile = window.innerWidth < 768;
 
   useEffect(() => {
     if (menuOpened) setMenuOpened(false);
@@ -58,13 +59,18 @@ export default function App() {
             <ScrollControls pages={5} damping={0.1}>
               <ScrollManager section={section} onSectionChange={setSection} />
               <Scroll>
-                <Scene section={section} cameraRef={cameraRef} />
+                <Scene
+                  section={section}
+                  cameraRef={cameraRef}
+                  isMobile={isMobile}
+                />
               </Scroll>
               <Scroll html>
                 <Interface
                   section={section}
                   ballState={ballState}
                   onSectionChange={setSection}
+                  isMobile={isMobile}
                 />
               </Scroll>
             </ScrollControls>

@@ -1,6 +1,7 @@
-import SectionContainer from '@/layouts/SectionContainer';
 import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
+import classNames from 'classnames';
+import SectionContainer from '@/layouts/SectionContainer';
 
 const Chevron = () => (
   <div className='flex justify-center'>
@@ -31,18 +32,23 @@ const AnimatedScrollIndicator = () => (
   </div>
 );
 
-export default function About({ section }) {
+export default function Home({ section, isMobile }) {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     if (section > 0 && !scrolled) setScrolled(true);
   }, [section]);
-
+  console.log({ isMobile });
   return (
     <SectionContainer>
       {!scrolled && (
         <div className='relative h-full w-full flex justify-center'>
-          <div className='py-2 absolute inset-x-0 bottom-1 h-auto w-full flex flex-col justify-center align-center'>
+          <div
+            className={classNames(
+              'absolute inset-x-0 h-auto w-full flex flex-col justify-center align-center',
+              isMobile ? 'bottom-3' : 'bottom-0'
+            )}
+          >
             <AnimatedScrollIndicator />
             <Chevron />
             <Chevron />

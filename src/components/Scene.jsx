@@ -5,9 +5,8 @@ import { useBallStateReset } from './context/FourStarBallContext';
 import { useThree } from '@react-three/fiber';
 import { motion } from 'framer-motion-3d';
 
-export default function Scene({ section }) {
+export default function Scene({ section, isMobile }) {
   const { viewport } = useThree();
-  const isMobile = window.innerWidth < 768;
   // equation calculated by iphone SE and and iphone XR
   const offsetY = -viewport.factor * 0.0075 + 6.225;
 
