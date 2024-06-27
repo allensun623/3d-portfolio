@@ -32,12 +32,12 @@ export default function SkillScene({ isInView, isMobile }) {
   );
 
   return (
-    <motion.group>
-      {isInView && showSkillBalls && renderSkillBalls()}
+    <>
+      {isInView && showSkillBalls ? renderSkillBalls() : null}
       <motion.group scale={2.5}>
         <IslandFall />
-        {isInView && renderGuideBoard()}
+        {isInView ? renderGuideBoard() : null}
       </motion.group>
-    </motion.group>
+    </>
   );
 }

@@ -43,28 +43,27 @@ export default function ContactFields({
         'box-content flex flex-col p-2 md:p-4 rounded-xl bg-white border-solid border-4',
         {
           'border-slate-400': id === focusedId,
-          'border-red-400': form[id].error,
-          'bg-red-100': form[id].error,
+          'border-red-400 bg-pink-100': form[id].error,
         }
       )}
     >
       <div className='flex flex-row gap-2'>
         <span
           className={classNames(
-            'text-slate-400 text-md md:text-xl xl:text-2xl',
-            { 'text-red-400': form[id].error }
+            'text-md md:text-xl xl:text-2xl',
+            form[id].error ? 'text-red-400' : 'text-slate-400'
           )}
         >
           {label}
         </span>
-        <span className='text-red-400 text-md md:text-xl xl:text-2xl'>
+        <span className={'text-red-400 text-md md:text-xl xl:text-2xl'}>
           {form[id].error ? errorMessage : ''}
         </span>
       </div>
       <Component
         className={classNames(
           'text-slate-400 text-md md:text-3xl focus:outline-none resize-none bg-white',
-          { 'bg-red-100': form[id].error }
+          { 'bg-pink-100': form[id].error }
         )}
         {...props}
         id={id}

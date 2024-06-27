@@ -22,7 +22,7 @@ export default function App() {
     if (menuOpened) setMenuOpened(false);
   }, [section]);
 
-  const canvasClassName = entered ? 'w-full h-full' : 'w-0, h-0';
+  const canvasClassName = entered ? 'w-full h-full' : 'w-1, h-0';
 
   const {
     turbidity,
@@ -91,9 +91,9 @@ export default function App() {
               position-y={-60}
               rotation-x={Math.PI / 4}
             >
-              <Sky sunPosition={[0, 10, 0]} {...skyProps} />
+              {entered && <Sky sunPosition={[0, 10, 0]} {...skyProps} />}
             </motion.group>
-            <Environment preset={preset} background />
+            {entered && <Environment preset={preset} background />}
             <ScrollControls pages={5} damping={0.1}>
               <ScrollManager section={section} onSectionChange={setSection} />
               <Scroll>

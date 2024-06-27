@@ -6,7 +6,9 @@ import { useGLTF } from '@react-three/drei';
 import { useEffect } from 'react';
 
 export function Model(props) {
-  const { nodes, materials } = useGLTF('/models/character-AkiraToriyama.glb');
+  const { nodes, materials } = useGLTF(
+    '/assets/models/character-AkiraToriyama.glb'
+  );
 
   useEffect(() => {
     Object.values(materials).forEach((materials) => {
@@ -83,4 +85,4 @@ export function Model(props) {
   );
 }
 
-useGLTF.preload('/models/character-AkiraToriyama.glb');
+useGLTF.preload('/assets/models/character-AkiraToriyama.glb');

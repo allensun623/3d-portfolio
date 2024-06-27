@@ -6,7 +6,7 @@ import { useGLTF } from '@react-three/drei';
 
 export function Model(props) {
   const { nodes, materials } = useGLTF(
-    '/models/island-winter-house-pillar.glb'
+    '/assets/models/island-winter-house-pillar.glb'
   );
   return (
     <group {...props} dispose={null}>
@@ -40,4 +40,4 @@ export function Model(props) {
   );
 }
 
-useGLTF.preload('/models/island-winter-house-pillar.glb');
+useGLTF.preload('/assets/models/island-winter-house-pillar.glb');
