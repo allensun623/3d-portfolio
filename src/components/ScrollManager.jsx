@@ -43,7 +43,7 @@ export default function ScrollManager({ section, onSectionChange }) {
     // e.g.lastScroll: 0.3333333333333333 and curScroll: 0.3338206627680312
     if (Math.abs(lastScroll.current - curScroll) < 0.001) return;
 
-    // decrease scroll threshold
+    // increase scroll threshold
     if (Math.abs(lastScroll.current - curScroll) < 0.05) {
       scrollData.scroll.current = lastScroll.current;
       return;

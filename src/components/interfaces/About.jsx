@@ -42,7 +42,7 @@ export default function About({ section }) {
     <SectionContainer>
       {!scrolled && (
         <div className='relative h-full w-full flex justify-center'>
-          <div className='py-2 absolute inset-x-0 bottom-0 h-auto w-full flex flex-col justify-center align-center'>
+          <div className='py-2 absolute inset-x-0 bottom-1 h-auto w-full flex flex-col justify-center align-center'>
             <AnimatedScrollIndicator />
             <Chevron />
             <Chevron />

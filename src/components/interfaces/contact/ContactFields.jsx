@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import { fields } from '@/constants/contact';
 
-const fieldsConfig = [
+const inputFields = [
   {
     Component: 'input',
     label: '🄽🄰🄼🄴',
@@ -76,5 +76,5 @@ export default function ContactFields({
     </div>
   );
 
-  return fieldsConfig.map(renderField);
+  return inputFields.map(renderField);
 }
