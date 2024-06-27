@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Decal, useTexture } from '@react-three/drei';
 import { motion } from 'framer-motion-3d';
-import { useControls } from 'leva';
 import { skills } from '../../constants/skills';
 
 export default function GlassBall({
@@ -28,39 +27,14 @@ export default function GlassBall({
     };
   }, [hovered]);
 
-  const {
-    color,
-    roughness,
-    metalness,
-    transmission,
-    ior,
-    thickness,
-    clearcoat,
-    specularIntensity,
-  } = useControls({
-    color: '#ffd7a2',
-    roughness: { value: 0, min: 0, max: 1 },
-    metalness: { value: 0, min: 0, max: 1 },
-    transmission: { value: 0.8, min: 0, max: 1 },
-    ior: { value: 1.33, min: 0, max: 2.33 },
-    thickness: { value: 0, min: 0, max: 100 },
-    clearcoat: { value: 0.1, min: 0, max: 1 },
-    specularIntensity: { value: 0.5, min: 0, max: 1 },
-    thetaLength: {
-      value: (skill.score / 100) * Math.PI,
-      min: 0,
-      max: 4 * Math.PI,
-    },
-  });
-
   const meshProps = {
-    roughness,
-    metalness,
-    transmission,
-    thickness,
-    clearcoat,
-    specularIntensity,
-    ior,
+    roughness: 0,
+    metalness: 0,
+    transmission: 0.8,
+    thickness: 0,
+    clearcoat: 0.1,
+    specularIntensity: 0.5,
+    ior: 1.33,
     polygonOffset: true,
     polygonOffsetFactor: -5,
     flatShading: true,
@@ -75,7 +49,7 @@ export default function GlassBall({
   };
 
   const materialProps = {
-    color: color,
+    color: '#ffd7a2',
     ...(emissive && { emissive }),
     emissiveIntensity: emissiveIntensity || 0,
   };
@@ -113,7 +87,7 @@ export default function GlassBall({
           map={decal}
           scale={1.5}
         />
-        <motion.meshPhysicalMaterial color={color} {...meshProps} />
+        <motion.meshPhysicalMaterial color={'#ffd7a2'} {...meshProps} />
       </motion.mesh>
     </motion.group>
   );

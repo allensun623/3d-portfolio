@@ -9,7 +9,6 @@ import CloudScene from './CloudScene';
 import { variants } from '../../utils/motions/characterMotion';
 import { useBallState, useBallAction } from '../context/FourStarBallContext';
 import FourStarBallScene from './FourStarBallScene';
-import { useControls } from 'leva';
 
 export default function CharacterScene({ section, viewport, isMobile }) {
   const [animation, setAnimation] = useState(sectionTransitAnimations[0]);
@@ -22,13 +21,6 @@ export default function CharacterScene({ section, viewport, isMobile }) {
     showStateYourWish,
   } = useBallState();
   const { handleUpdateClickable } = useBallAction();
-  const { x, y, z, scale, rotateY } = useControls({
-    x: { value: -1.2, min: -5, max: 5 },
-    y: { value: -2, min: -5, max: 10 },
-    z: { value: 1.5, min: -20, max: 10 },
-    scale: { value: 0.2, min: 0, max: 1 },
-    rotateY: { value: 8, min: -10, max: 32 },
-  });
 
   useEffect(() => {
     setAnimation(sectionTransitAnimations[section]);
@@ -56,7 +48,6 @@ export default function CharacterScene({ section, viewport, isMobile }) {
       );
   }, [sendToPortal, fireballCompleted]);
 
-  // TODO flying animations
   return (
     <motion.group
       ref={characterGroup}
@@ -65,14 +56,7 @@ export default function CharacterScene({ section, viewport, isMobile }) {
         duration: 1,
         delay: 0.6,
       }}
-      variants={variants(
-        viewport,
-        x,
-        y - viewport.height,
-        z - viewport.height,
-        scale,
-        (Math.PI / 8) * rotateY
-      )}
+      variants={variants(viewport)}
       onAnimationComplete={(definition) => {
         if (Number(definition) === section) handleUpdateClickable();
       }}

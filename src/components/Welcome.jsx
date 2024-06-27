@@ -35,44 +35,45 @@ export default function Welcome({ setEntered }) {
           </p>
         </div>
       </div>
-      <Canvas shadows camera={{ position: [0, 2, 5], fov: 30 }}>
-        <hemisphereLight intensity={0.5} color='white' groundColor='black' />
-        <Sky rayleigh={6} sunPosition={[0.1, 0, 0]} />
-        <motion.group
-          position={[0, -0.4, 0]}
-          animate={
-            playEnterAnimate ? { scale: 20, transition: { duration: 1.5 } } : {}
-          }
-        >
-          <SparkleBall size={SCALE}>
-            <motion.group
-              animate={
-                loaded && !playEnterAnimate ? clickableHeartBeatMotion() : {}
-              }
-            >
-              <GlassBall
-                isFourStar
-                scale={SCALE}
-                innerProps={{
-                  onTapBall: () => {},
-                  fourStarScale: SCALE,
-                  animation: false,
-                  clickable: loaded,
-                }}
-                innerThetaLength={(progress * Math.PI) / 100}
-                emissive={'#ffd7a2'}
-                emissiveIntensity={1}
-                clickable={loaded}
-                handleClick={handleClickEnter}
-              />
-            </motion.group>
-          </SparkleBall>
-        </motion.group>
-      </Canvas>
-      <div
-        ref={rootRef}
-        className='z-10 fixed bottom-0 left-0 overflow-hidden flex flex-col justify-center items-center w-full h-1/5 md:h-1/4 space-y-5'
-      >
+      <div ref={rootRef} className='w-full h-screen h-dvh'>
+        <Canvas shadows camera={{ position: [0, 2, 5], fov: 30 }}>
+          <hemisphereLight intensity={0.5} color='white' groundColor='black' />
+          <Sky rayleigh={6} sunPosition={[0.1, 0, 0]} />
+          <motion.group
+            position={[0, -0.4, 0]}
+            animate={
+              playEnterAnimate
+                ? { scale: 20, transition: { duration: 1.5 } }
+                : {}
+            }
+          >
+            <SparkleBall size={SCALE}>
+              <motion.group
+                animate={
+                  loaded && !playEnterAnimate ? clickableHeartBeatMotion() : {}
+                }
+              >
+                <GlassBall
+                  isFourStar
+                  scale={SCALE}
+                  innerProps={{
+                    onTapBall: () => {},
+                    fourStarScale: SCALE,
+                    animation: false,
+                    clickable: loaded,
+                  }}
+                  innerThetaLength={(progress * Math.PI) / 100}
+                  emissive={'#ffd7a2'}
+                  emissiveIntensity={1}
+                  clickable={loaded}
+                  handleClick={handleClickEnter}
+                />
+              </motion.group>
+            </SparkleBall>
+          </motion.group>
+        </Canvas>
+      </div>
+      <div className='z-10 fixed bottom-0 left-0 overflow-hidden flex flex-col justify-center items-center w-full h-1/5 md:h-1/4 space-y-5'>
         <p className='text-white text-lg sm:text-xl md:text-2xl xl:text-4xl text-center font-extralight whitespace-pre-line leading:none md:leading-normal'>
           {
             'In Memory of\n鳥山明 / とりやまあきら / Toriyama Akira\n1955 - 2024'
