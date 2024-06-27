@@ -38,7 +38,7 @@ export default function Home({ section, isMobile }) {
   useEffect(() => {
     if (section > 0 && !scrolled) setScrolled(true);
   }, [section]);
-  console.log({ isMobile });
+
   return (
     <SectionContainer>
       {!scrolled && (
