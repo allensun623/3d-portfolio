@@ -5,7 +5,6 @@ import Interface from './components/Interface';
 import { useEffect, Suspense, useState, useRef } from 'react';
 import ScrollManager from './components/ScrollManager';
 import Menu from './components/Menu';
-import { Leva, useControls } from 'leva';
 import Welcome from './components/Welcome';
 import { motion } from 'framer-motion-3d';
 import { useBallState } from './components/context/FourStarBallContext';
@@ -24,50 +23,14 @@ export default function App() {
 
   const canvasClassName = entered ? 'w-full h-full' : 'w-1, h-0';
 
-  const {
-    turbidity,
-    rayleigh,
-    mieCoefficient,
-    mieDirectionalG,
-    inclination,
-    azimuth,
-    scale,
-    preset,
-  } = useControls({
-    turbidity: { value: 0, min: 0, max: 20 },
-    rayleigh: { value: 0.1, min: 0, max: 4 },
-    mieCoefficient: { value: 0.005, min: 0, max: 0.1 },
-    mieDirectionalG: { value: 0.1, min: 0, max: 1 },
-    inclination: { value: 0.1, min: 0, max: 1 },
-    azimuth: { value: 0.1, min: 0, max: 1 },
-    height: { value: 1, min: 0, max: 100 },
-    radius: { value: 10, min: 0, max: 100 },
-    scale: { value: 100, min: 0, max: 200 },
-    preset: {
-      value: 'sunset',
-      options: [
-        'apartment',
-        'city',
-        'dawn',
-        'forest',
-        'lobby',
-        'night',
-        'park',
-        'studio',
-        'sunset',
-        'warehouse',
-      ],
-    },
-  });
-
   const skyProps = {
-    scale,
-    turbidity,
-    rayleigh,
-    mieCoefficient,
-    mieDirectionalG,
-    inclination,
-    azimuth,
+    scale: 100,
+    turbidity: 0,
+    rayleigh: 0.1,
+    mieCoefficient: 0.005,
+    mieDirectionalG: 0.1,
+    inclination: 0.1,
+    azimuth: 0.1,
   };
 
   const cameraRef = useRef();
@@ -93,7 +56,7 @@ export default function App() {
             >
               {entered && <Sky sunPosition={[0, 10, 0]} {...skyProps} />}
             </motion.group>
-            {entered && <Environment preset={preset} background />}
+            {entered && <Environment preset={'sunset'} background />}
             <ScrollControls pages={5} damping={0.1}>
               <ScrollManager section={section} onSectionChange={setSection} />
               <Scroll>
@@ -117,8 +80,6 @@ export default function App() {
             setMenuOpened={setMenuOpened}
           />
         )}
-        {/* <Leva collapsed /> */}
-        <Leva hidden />
       </motion.div>
     </>
   );
