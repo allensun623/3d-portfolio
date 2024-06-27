@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion-3d';
-import { useBallState, useBallAction } from '../context/FourStarBallContext';
 import GlassBall from '../elements/GlassBall';
+import { useBallState, useBallAction } from '../context/FourStarBallContext';
 import { clickableHeartBeatMotion } from '../../utils/motions/ballMotion';
 
 export default function FourStarBallScene({ section }) {

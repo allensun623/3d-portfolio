@@ -13,8 +13,6 @@ import {
   cursorFollowAnimations,
 } from '../../constants/character';
 
-// TODO remove leva related: camera, wireframe, etc.
-
 export default function CharacterModel(props) {
   const { animation, isMobile } = props;
   const groupRef = useRef();
@@ -43,6 +41,7 @@ export default function CharacterModel(props) {
     } else if (cursorFollowRef.current) {
       cursorFollowRef.current = false;
     }
+
     actions[animation]?.reset().fadeIn(0.5).play();
 
     return () => {
