@@ -8,7 +8,7 @@ export default function FourStarBallScene({ section }) {
     useBallState();
   const { handleSendToPortal, handleFireballCompleted } = useBallAction();
 
-  const fireball = {
+  const fireballAnimation = {
     rotateX: Array(8).fill(Math.PI / 32),
     rotateY: Array(8).fill((Math.PI * 17) / 16),
     x: [0.1, 0.09, 0.01, 0.2, 0.2, 0.01, 0, 4, 4],
@@ -22,46 +22,51 @@ export default function FourStarBallScene({ section }) {
     },
   };
 
+  const variants = {
+    0: { scale: 0 },
+    1: {
+      x: 0.1,
+      y: 0.7,
+      z: 0.45,
+      scale: chaseDreamJob ? 1.25 : 0,
+      transition: { duration: 0.2, delay: 1 },
+    },
+    2: { scale: 0 },
+    3: { scale: 0 },
+    4: {
+      rotateX: Math.PI / 32,
+      rotateY: (Math.PI * 17) / 16,
+      transition: { duration: 2 },
+      ...(fireballCompleted
+        ? {
+            x: 4,
+            y: -1.95,
+            z: 8,
+            scale: 1,
+          }
+        : { x: 0.1, y: 0.75, z: 0.7, scale: 0.8 }),
+    },
+    fireball: fireballAnimation,
+  };
+
+  const handleAnimationComplete = (definition) => {
+    if (definition === 'fireball') handleFireballCompleted();
+  };
+
+  const glassBallProps = {
+    isFourStar: true,
+    ...(section === 4 &&
+      clickable && { clickable, handleClick: handleSendToPortal }),
+  };
+
   return (
     <motion.group
       animate={sendToPortal && !fireballCompleted ? 'fireball' : `${section}`}
-      variants={{
-        0: { scale: 0 },
-        1: {
-          x: 0.1,
-          y: 0.7,
-          z: 0.45,
-          scale: chaseDreamJob ? 1.25 : 0,
-          transition: { duration: 0.2, delay: 1 },
-        },
-        2: { scale: 0 },
-        3: { scale: 0 },
-        4: {
-          rotateX: Math.PI / 32,
-          rotateY: (Math.PI * 17) / 16,
-          transition: { duration: 2 },
-          ...(fireballCompleted
-            ? {
-                x: 4,
-                y: -1.95,
-                z: 8,
-                scale: 1,
-              }
-            : { x: 0.1, y: 0.75, z: 0.7, scale: 0.8 }),
-        },
-        fireball,
-      }}
-      onAnimationComplete={(definition) => {
-        if (definition === 'fireball') handleFireballCompleted();
-      }}
+      variants={variants}
+      onAnimationComplete={handleAnimationComplete}
     >
-      <motion.group animate={clickable ? clickableHeartBeatMotion() : {}}>
-        <GlassBall
-          isFourStar
-          {...(section === 4 && clickable
-            ? { clickable, handleClick: handleSendToPortal }
-            : {})}
-        />
+      <motion.group animate={{ ...(clickable && clickableHeartBeatMotion()) }}>
+        <GlassBall {...glassBallProps} />
       </motion.group>
     </motion.group>
   );

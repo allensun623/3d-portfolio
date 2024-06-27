@@ -95,15 +95,16 @@ const PortalAnimation = (viewport) => {
   return { x, y, z, scale, rotateY, transition };
 };
 
-const variants = (viewport) => ({
+const variants = (viewport, isMobile = false) => ({
   0: {
-    scale: 0.5,
+    scale: isMobile ? 1 : 0.5,
     x: 0,
     y: -0.75,
     z: 0,
     rotateY: Math.PI / 2,
   },
   1: experienceAnimation(viewport),
+  chaseDreamJob: experienceChaseDreamJob(viewport),
   2: {
     x: 1.81,
     y: (-viewport.height - 1) * 2 - 7.4,
@@ -118,7 +119,6 @@ const variants = (viewport) => ({
     scale: 0.5,
   },
   4: PortalAnimation(viewport),
-  chaseDreamJob: experienceChaseDreamJob(viewport),
 });
 
 export { variants };
