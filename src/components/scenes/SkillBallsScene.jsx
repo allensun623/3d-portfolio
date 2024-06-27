@@ -1,7 +1,7 @@
 import SkillBall from '../elements/SkillBall';
 import { skills } from '../../constants/skills';
 import { generateSkillBallPositions } from '../../utils/3dState';
-import { useState, useMemo, useEffect, useRef } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import { clickableHeartBeatMotion } from '@/utils/motions/ballMotion';
 import { motion } from 'framer-motion-3d';
 import SparkleBall from '../elements/SparkleBall';
@@ -12,7 +12,6 @@ export default function SkillBallsScene({ isMobile }) {
   const SCALE_INCREMENT_DELAY = 1500;
   const SCALE_DIVISOR = 5000;
 
-  const timeoutRef = useRef(null);
   const [fourStarScale, setFourStarScale] = useState(FULL_STAR_INIT_SCALE);
   const [countBigBang, setCountBigBang] = useState(0);
   const positions = useMemo(
@@ -43,11 +42,10 @@ export default function SkillBallsScene({ isMobile }) {
       return;
     }
 
-    setCountClicks((prev) => prev + 1);
     // increase size after merging
-    if (timeoutRef.current) clearTimeout(timeoutRef.current);
-    timeoutRef.current = setTimeout(() => {
+    setTimeout(() => {
       setFourStarScale((prev) => prev + score / SCALE_DIVISOR);
+      setCountClicks((prev) => prev + 1);
     }, SCALE_INCREMENT_DELAY);
   };
 
@@ -66,37 +64,61 @@ export default function SkillBallsScene({ isMobile }) {
 
   return (
     <>
-      {skills.map((s, i) => (
-        <motion.group
-          key={s.name}
-          animate={{
-            ...(isFullFourStar(i) && { y: 1, transition: { duration: 1 } }),
-          }}
-        >
-          {isFullFourStar(i) && (
-            <motion.group transition={{ delay: 2 }}>
-              <SparkleBall size={fourStarScale * 4} />
-            </motion.group>
-          )}
-          <motion.group
-            animate={{
-              ...(isFullFourStar(i) && clickableHeartBeatMotion({ delay: 2 })),
-            }}
-          >
-            <SkillBall
-              isMobile={isMobile}
-              skill={s}
-              isFourStar={i === 0}
-              onTapBall={(s, isFourStar) => handleTapBall(s, isFourStar)}
-              fourStarScale={fourStarScale}
-              position={positions[i]}
-              FourStarPosition={positions[0]}
-              countBigBang={countBigBang}
-              scale={isMobile ? 0.6 : 0.3}
-            />
-          </motion.group>
-        </motion.group>
+      {skills.map((skill, index) => (
+        <SkillBallGroup
+          key={index}
+          index={index}
+          skill={skill}
+          isMobile={isMobile}
+          fourStarScale={fourStarScale}
+          positions={positions}
+          countBigBang={countBigBang}
+          handleTapBall={handleTapBall}
+          isFullFourStar={isFullFourStar(index)}
+        />
       ))}
     </>
   );
 }
+
+const SkillBallGroup = React.memo(
+  ({
+    index,
+    skill,
+    isMobile,
+    fourStarScale,
+    positions,
+    countBigBang,
+    handleTapBall,
+    isFullFourStar,
+  }) => (
+    <motion.group
+      animate={{ ...(isFullFourStar && { y: 1, transition: { duration: 1 } }) }}
+    >
+      {isFullFourStar && (
+        <motion.group transition={{ delay: 2 }}>
+          <SparkleBall size={fourStarScale * 4} />
+        </motion.group>
+      )}
+      <motion.group
+        animate={{
+          ...(isFullFourStar && clickableHeartBeatMotion({ delay: 2 })),
+        }}
+      >
+        <SkillBall
+          isMobile={isMobile}
+          skill={skill}
+          isFourStar={index === 0}
+          onTapBall={(score, isFourStar) => handleTapBall(score, isFourStar)}
+          fourStarScale={fourStarScale}
+          position={positions[index]}
+          FourStarPosition={positions[0]}
+          countBigBang={countBigBang}
+          scale={isMobile ? 0.6 : 0.3}
+        />
+      </motion.group>
+    </motion.group>
+  )
+);
+
+SkillBallGroup.displayName = 'SkillBallGroup';

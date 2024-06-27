@@ -12,15 +12,14 @@ export default function CloudScene({ section }) {
       rotation-y={Math.PI / 2}
       variants={{
         0: { x: 0.2, y: 0.05, z: 0.35, scale: 0.6 },
-        1: { x: 0, y: 0.1, scale: 0.6 },
+        1: { x: 0, y: 0.1, scale: 0.6, rotateX: 0, rotateY: 0 },
         2: {
           x: 0,
           y: 0.15,
           z: 0.2,
-          rotateY: Math.PI / 2,
           rotateX: -Math.PI / 12,
+          rotateY: Math.PI / 2,
           scale: 0.5,
-          // rotateZ: -Math.PI / 8,
         },
         3: {
           x: -2.5,
@@ -31,9 +30,8 @@ export default function CloudScene({ section }) {
           scaleZ: 0.8,
           rotateX: Math.PI / 2,
           rotateY: -Math.PI / 8,
-          // rotateZ: Math.PI / 4,
         },
-        4: { x: 0.1, y: 0.2, z: 0.4, scale: 0.4 },
+        4: { x: 0.1, y: 0.2, z: 0.4, scale: 0.4, rotateX: 0, rotateY: 0 },
       }}
     >
       <Cloud />
