@@ -7,7 +7,7 @@ import { useFrame } from '@react-three/fiber';
 import { useGLTF, useAnimations } from '@react-three/drei';
 import {
   loadAnimations,
-  preloadAnimations,
+  preloadModelAndAnimations,
 } from '../../utils/characterAnimations';
 import { CURSOR_FOLLOW_ARMATURES } from '../../constants/character';
 
@@ -21,7 +21,7 @@ export default function CharacterModel(props) {
   const { actions } = useAnimations(selectedAnimations, groupRef);
 
   useEffect(() => {
-    // Set cursor follow armature based on device type and animation
+    // Set cursor follow a based on device type and animation
     cursorFollowArmatureRef.current = isMobile
       ? null
       : CURSOR_FOLLOW_ARMATURES[animation] || null;
@@ -120,6 +120,4 @@ export default function CharacterModel(props) {
   );
 }
 
-useGLTF.preload('/assets/models/character.glb');
-
-preloadAnimations();
+preloadModelAndAnimations();

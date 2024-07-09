@@ -44,7 +44,7 @@ const ARMATURE = Object.freeze({
 });
 
 // animations follow cursor
-const CURSOR_FOLLOW_ARMATUREs = Object.freeze({
+const CURSOR_FOLLOW_ARMATURES = Object.freeze({
   [animationOptions.WAVING]: ARMATURE.SPINE,
   [animationOptions.PICK_FRUIT]: ARMATURE.SPINE,
   [animationOptions.SITTING_CROSS_LEGGED]: ARMATURE.HEAD,
