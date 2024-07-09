@@ -37,10 +37,10 @@ const sectionTransitAnimations = Object.freeze([
   animationOptions.SITTING_HOLD,
 ]);
 
-// character armature in blender model
+// character armature defined in the Blender model
 const ARMATURE = Object.freeze({
   SPINE: 'Spine',
-  HEAD: 'head',
+  HEAD: 'Head',
 });
 
 // animations follow cursor
