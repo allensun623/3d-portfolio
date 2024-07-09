@@ -29,24 +29,30 @@ const selectedAnimations = Object.freeze([
 ]);
 
 // transition animation in the order of section
-const sectionTransitAnimations = [
+const sectionTransitAnimations = Object.freeze([
   animationOptions.SITTING,
   animationOptions.LOOKING,
   animationOptions.ARM_STRETCHING,
   animationOptions.WAVING,
   animationOptions.SITTING_HOLD,
-];
+]);
+
+// character armature in blender model
+const ARMATURE = Object.freeze({
+  SPINE: 'Spine',
+  HEAD: 'head',
+});
 
 // animations follow cursor
-const cursorFollowAnimations = new Set([
-  animationOptions.PICK_FRUIT,
-  animationOptions.SITTING_CROSS_LEGGED,
-  animationOptions.WAVING,
-]);
+const CURSOR_FOLLOW_ARMATUREs = Object.freeze({
+  [animationOptions.WAVING]: ARMATURE.SPINE,
+  [animationOptions.PICK_FRUIT]: ARMATURE.SPINE,
+  [animationOptions.SITTING_CROSS_LEGGED]: ARMATURE.HEAD,
+});
 
 export {
   animationOptions,
   selectedAnimations,
   sectionTransitAnimations,
-  cursorFollowAnimations,
+  CURSOR_FOLLOW_ARMATURES,
 };
