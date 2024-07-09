@@ -1,4 +1,4 @@
-import { useFBX } from '@react-three/drei';
+import { useFBX, useGLTF } from '@react-three/drei';
 import { selectedAnimations } from '../constants/character';
 
 /**
@@ -26,9 +26,17 @@ function loadAnimations() {
  * preload a list of selected animations
  */
 function preloadAnimations() {
-  for (const a of selectedAnimations) {
-    useFBX.preload(animationModelPath(a));
+  for (const animation of selectedAnimations) {
+    useFBX.preload(animationModelPath(animation));
   }
 }
 
-export { loadAnimations, preloadAnimations };
+/**
+ * preload model and a list of selected animations
+ */
+function preloadModelAndAnimations() {
+  useGLTF.preload('/assets/models/character.glb');
+  preloadAnimations();
+}
+
+export { loadAnimations, preloadModelAndAnimations };

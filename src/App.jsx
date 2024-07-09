@@ -5,7 +5,7 @@ import Interface from './components/Interface';
 import { useEffect, Suspense, useState, useRef } from 'react';
 import ScrollManager from './components/ScrollManager';
 import Menu from './components/Menu';
-import Welcome from './components/Welcome';
+import Welcome from './components/welcome/Welcome';
 import { motion } from 'framer-motion-3d';
 import { useBallState } from './components/context/FourStarBallContext';
 
