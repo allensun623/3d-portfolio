@@ -11,30 +11,26 @@ export default function ExperienceScene({ isInView, isMobile }) {
   const { chaseDreamJob, clickable } = useBallState();
 
   const variants = {
-    display: {
-      scale: 0.1,
-      transition: { duration: 2 },
-    },
-    chaseDreamJob: {
-      scale: 0,
-      transition: { duration: 0.1, delay: 1 },
-    },
+    display: { scale: 0.1, transition: { duration: 2 } },
+    chaseDreamJob: { scale: 0, transition: { duration: 0.1, delay: 1 } },
     clickable: clickableHeartBeatMotion({ scale: 0.1 }),
   };
 
   const isClickableInView = clickable && isInView;
 
+  const handleClick = isClickableInView ? handleChaseDreamJob : () => {};
+
   const animateState = isClickableInView
-    ? 'clickable'
+    ? [variants.clickable]
     : chaseDreamJob
-    ? 'chaseDreamJob'
-    : 'display';
+    ? [variants.chaseDreamJob]
+    : [variants.display];
 
   const GlassBallComponent = (
     <GlassBall
       scale={0.09}
-      isFourStar={true}
-      handleClick={isClickableInView ? handleChaseDreamJob : () => {}}
+      isFourStar
+      handleClick={handleClick}
       clickable={isClickableInView}
       animate={animateState}
       variants={variants}

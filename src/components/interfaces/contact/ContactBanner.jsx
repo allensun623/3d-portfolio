@@ -1,5 +1,5 @@
 import BottomBanner from '@/components/elements/BottomBanner';
-import { bottomText } from '@/constants/text';
+import { bottomBannerText } from '@/constants/text';
 
 export default function ContactBanner() {
   return (
@@ -8,7 +8,7 @@ export default function ContactBanner() {
         src: '/assets/images/others/Goku Thank you.png',
         alt: 'Goku Thank you',
       }}
-      text={bottomText.contact}
+      text={bottomBannerText.contact}
     />
   );
 }

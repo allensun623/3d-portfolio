@@ -3,6 +3,8 @@ import GlassBall from '../elements/GlassBall';
 import { useBallState, useBallAction } from '../context/FourStarBallContext';
 import { clickableHeartBeatMotion } from '../../utils/motions/ballMotion';
 
+const FIREBALL = 'fireball';
+
 export default function FourStarBallScene({ section }) {
   const { sendToPortal, chaseDreamJob, fireballCompleted, clickable } =
     useBallState();
@@ -46,11 +48,11 @@ export default function FourStarBallScene({ section }) {
           }
         : { x: 0.1, y: 0.75, z: 0.7, scale: 0.8 }),
     },
-    fireball: fireballAnimation,
+    [FIREBALL]: fireballAnimation,
   };
 
   const handleAnimationComplete = (definition) => {
-    if (definition === 'fireball') handleFireballCompleted();
+    if (definition === FIREBALL) handleFireballCompleted();
   };
 
   const glassBallProps = {
@@ -61,7 +63,7 @@ export default function FourStarBallScene({ section }) {
 
   return (
     <motion.group
-      animate={sendToPortal && !fireballCompleted ? 'fireball' : `${section}`}
+      animate={sendToPortal && !fireballCompleted ? FIREBALL : `${section}`}
       variants={variants}
       onAnimationComplete={handleAnimationComplete}
     >

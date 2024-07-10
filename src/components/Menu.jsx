@@ -88,7 +88,7 @@ export default function Menu({
       <div
         className={classNames(
           'z-9 fixed top-0 left-0 bottom-0 bg-black transition-all overflow-hidden flex flex-col opacity-0',
-          menuOpened ? 'w-full md:w-80' : 'w-0'
+          menuOpened ? 'w-full' : 'w-0'
         )}
         onClick={toggleMenu}
       ></div>

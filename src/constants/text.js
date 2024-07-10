@@ -1,4 +1,4 @@
-export const bottomText = {
+export const bottomBannerText = Object.freeze({
   experience: {
     offer: 'Would you like to offer me a job?',
     getInTouch: 'Get in touch',
@@ -10,4 +10,4 @@ export const bottomText = {
   contact: 'Thanks for your message! I will get back to you soon.',
   portal:
     'Thank you for watching! Sharing this moment with you has been truly special! Your presence here means the world to me!',
-};
+});

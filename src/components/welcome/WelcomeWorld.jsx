@@ -1,7 +1,7 @@
 export default function WelcomeWorld() {
   return (
     <>
-      <div className='z-10 fixed top-0 left-0 overflow-hidden flex flex-col justify-center items-center h-1/2 w-full'>
+      <div className='z-10 fixed top-0 left-0 overflow-hidden flex flex-col justify-center items-center w-full h-1/2'>
         <div className='max-w-screen-2xl flex flex-col justify-center items-center space-y-2 md:space-y-8 px-3'>
           <p className='text-white text-3xl sm:text-4xl md:text-7xl xl:text-9xl text-center whitespace-pre-line'>
             WELCOME TO MY WORLD!
