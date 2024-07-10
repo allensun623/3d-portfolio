@@ -1,6 +1,7 @@
 import classNames from 'classnames';
 import SectionContainer from '../../layouts/SectionContainer';
 import BottomBanner from '../elements/BottomBanner';
+import { bottomText } from '@/constants/text';
 
 export default function Experience({ ballState, onSectionChange }) {
   const { chaseDreamJob } = ballState;
@@ -12,14 +13,14 @@ export default function Experience({ ballState, onSectionChange }) {
       )}
       onClick={() => onSectionChange(3)}
     >
-      Get in touch
+      {bottomText.contact.getInTouch}
     </span>
   );
   return (
     <SectionContainer>
       {chaseDreamJob && (
         <BottomBanner
-          text={'Would you like to offer me a job?'}
+          text={bottomText.contact.offer}
           afterContent={GetInTouch}
         />
       )}
