@@ -1,6 +1,6 @@
-import { Model as CherryFlowerModel } from '../models/CherryFlowerModel';
 import { motion } from 'framer-motion-3d';
 import { useMemo } from 'react';
+import { Model as CherryFlowerModel } from '../models/CherryFlowerModel';
 
 // Generate positions of each flower on the path
 const generateFlowerPositions = () => {

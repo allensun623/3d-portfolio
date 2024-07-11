@@ -1,11 +1,11 @@
-import SkillBall from '../elements/SkillBall';
-import { skills } from '../../constants/skills';
-import { generateSkillBallPositions } from '../../utils/3dState';
-import { useState, useMemo, useEffect } from 'react';
 import { clickableHeartBeatMotion } from '@/utils/motions/ballMotion';
 import { motion } from 'framer-motion-3d';
-import SparkleBall from '../elements/SparkleBall';
+import { useEffect, useMemo, useState } from 'react';
+import { skills } from '../../constants/skills';
+import { generateSkillBallPositions } from '../../utils/3dState';
 import { useBallAction, useBallState } from '../context/FourStarBallContext';
+import SkillBall from '../elements/SkillBall';
+import SparkleBall from '../elements/SparkleBall';
 
 const FULL_STAR_INIT_SCALE = 0;
 const SCALE_INCREMENT_DELAY = 1500;

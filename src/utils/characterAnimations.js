@@ -1,5 +1,5 @@
+import { selectedAnimations } from '@/constants';
 import { useFBX, useGLTF } from '@react-three/drei';
-import { selectedAnimations } from '../constants/character';
 
 /**
  * all animations must be in the folder '/public/assets/animations/'

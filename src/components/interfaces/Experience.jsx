@@ -1,6 +1,6 @@
-import classNames from 'classnames';
-import SectionContainer from '@/layouts/SectionContainer';
 import { bottomBannerText } from '@/constants/text';
+import SectionContainer from '@/layouts/SectionContainer';
+import classNames from 'classnames';
 import BottomBanner from '../elements/BottomBanner';
 
 export default function Experience({ ballState, onSectionChange }) {

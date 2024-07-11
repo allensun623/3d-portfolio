@@ -1,8 +1,8 @@
 import { motion } from 'framer-motion-3d';
-import { Model as HouseModel } from '../models/IslandWinterHouseModel';
-import { Model as IslandWinterModel } from '../models/IslandWinterModel';
-import { Model as PillarModel } from '../models/IslandWinterHousePillarModel';
 import { Model as GetInTouchModel } from '../models/GetInTouch';
+import { Model as HouseModel } from '../models/IslandWinterHouseModel';
+import { Model as PillarModel } from '../models/IslandWinterHousePillarModel';
+import { Model as IslandWinterModel } from '../models/IslandWinterModel';
 
 export default function ContactScene({ isInView }) {
   return (

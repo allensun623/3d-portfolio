@@ -1,13 +1,13 @@
-import { Environment, Sky, Scroll, ScrollControls } from '@react-three/drei';
+import { Environment, Scroll, ScrollControls, Sky } from '@react-three/drei';
 import { Canvas } from '@react-three/fiber';
-import Scene from './components/Scene';
-import Interface from './components/Interface';
-import { useEffect, Suspense, useState, useRef } from 'react';
-import ScrollManager from './components/ScrollManager';
-import Menu from './components/Menu';
-import Welcome from './components/welcome/Welcome';
 import { motion } from 'framer-motion-3d';
+import { Suspense, useEffect, useRef, useState } from 'react';
 import { useBallState } from './components/context/FourStarBallContext';
+import Interface from './components/Interface';
+import Menu from './components/Menu';
+import Scene from './components/Scene';
+import ScrollManager from './components/ScrollManager';
+import Welcome from './components/welcome/Welcome';
 
 export default function App() {
   const [section, setSection] = useState(0);

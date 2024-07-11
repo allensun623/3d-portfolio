@@ -1,10 +1,10 @@
 import { useFrame } from '@react-three/fiber';
-import { useRef } from 'react';
 import { motion } from 'framer-motion-3d';
+import { useRef } from 'react';
 import ContactScene from './ContactScene';
 import ExperienceScene from './ExperienceScene';
-import SkillScene from './SkillScene';
 import PortalScene from './PortalScene';
+import SkillScene from './SkillScene';
 
 export default function BgScene({ isMobile, viewport, section }) {
   const carouselGroup = useRef();

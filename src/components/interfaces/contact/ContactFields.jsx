@@ -1,5 +1,5 @@
-import classNames from 'classnames';
 import { inputFields } from '@/constants/contact';
+import classNames from 'classnames';
 
 export default function ContactFields({
   form,

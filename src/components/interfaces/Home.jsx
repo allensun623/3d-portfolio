@@ -1,7 +1,7 @@
-import { motion } from 'framer-motion';
-import { useState, useEffect } from 'react';
-import classNames from 'classnames';
 import SectionContainer from '@/layouts/SectionContainer';
+import classNames from 'classnames';
+import { motion } from 'framer-motion';
+import { useEffect, useState } from 'react';
 
 const Chevron = () => (
   <div className='flex justify-center'>

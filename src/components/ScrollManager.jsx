@@ -1,7 +1,7 @@
-import { useRef, useEffect } from 'react';
 import { useScroll } from '@react-three/drei';
 import { useFrame } from '@react-three/fiber';
 import gsap from 'gsap';
+import { useEffect, useRef } from 'react';
 
 export default function ScrollManager({ section, onSectionChange }) {
   const scrollData = useScroll();

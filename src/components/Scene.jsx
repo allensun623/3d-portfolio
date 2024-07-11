@@ -1,9 +1,9 @@
-import BgScene from './scenes/BgScene';
-import { useEffect } from 'react';
-import CharacterScene from './scenes/CharacterScene';
-import { useBallStateReset } from './context/FourStarBallContext';
 import { useThree } from '@react-three/fiber';
 import { motion } from 'framer-motion-3d';
+import { useEffect } from 'react';
+import { useBallStateReset } from './context/FourStarBallContext';
+import BgScene from './scenes/BgScene';
+import CharacterScene from './scenes/CharacterScene';
 
 export default function Scene({ section, isMobile }) {
   const { viewport } = useThree();
