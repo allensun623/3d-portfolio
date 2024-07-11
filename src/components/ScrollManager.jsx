@@ -3,7 +3,7 @@ import { useFrame } from '@react-three/fiber';
 import gsap from 'gsap';
 import { useEffect, useRef } from 'react';
 
-export default function ScrollManager({ section, onSectionChange }) {
+export default function ScrollManager({ section, handleSectionChange }) {
   const scrollData = useScroll();
   const prevScroll = useRef(0);
   const prevSection = useRef(0);
@@ -51,8 +51,8 @@ export default function ScrollManager({ section, onSectionChange }) {
     }
 
     // update section based on scroll direction
-    if (prevScroll.current > curScroll) onSectionChange(section - 1);
-    else onSectionChange(section + 1);
+    if (prevScroll.current > curScroll) handleSectionChange(section - 1);
+    else handleSectionChange(section + 1);
   });
 
   return null;

@@ -4,19 +4,14 @@ import Home from './interfaces/Home';
 import Portal from './interfaces/Portal';
 import Skills from './interfaces/Skills';
 
-export default function Interface({
-  section,
-  ballState,
-  onSectionChange,
-  isMobile,
-}) {
+export default function Interface({ section, ballState, handleSectionChange, isMobile }) {
   return (
     <div className='w-screen flex flex-col items-start'>
       <Home section={section} isMobile={isMobile} />
       <Experience
         isInView={section === 1}
         ballState={ballState}
-        onSectionChange={onSectionChange}
+        handleSectionChange={handleSectionChange}
       />
       <Skills ballState={ballState} />
       <Contact isInView={section === 3} />

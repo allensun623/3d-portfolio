@@ -58,12 +58,7 @@ const MenuButton = ({ label, onClick, hoverColor, textColor }) => {
   );
 };
 
-export default function Menu({
-  onSectionChange,
-  menuOpened,
-  setMenuOpened,
-  section,
-}) {
+export default function Menu({ handleSectionChange, menuOpened, setMenuOpened, section }) {
   const menuBar = (mb, i) => (
     <div
       key={i}
@@ -105,7 +100,7 @@ export default function Menu({
               label={mb.label}
               textColor={section === i ? mb.color : 'text-black'}
               hoverColor={mb.hoverColor}
-              onClick={() => onSectionChange(i)}
+              onClick={() => handleSectionChange(i)}
             />
           ))}
         </div>
