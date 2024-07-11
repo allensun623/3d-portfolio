@@ -1,4 +1,4 @@
-const skillNames = [
+const skillsEnum = Object.freeze([
   { name: 'four star', score: 100 },
   { name: 'AWS', score: 60 },
   { name: 'Blender', score: 60 },
@@ -32,9 +32,9 @@ const skillNames = [
   { name: 'ThreeJS', score: 50 },
   { name: 'TypeScript', score: 75 },
   { name: 'Vue', score: 80 },
-];
+]);
 
-const skills = skillNames.map(({ name, score }) => ({
+const skills = skillsEnum.map(({ name, score }) => ({
   name,
   score,
   iconURL: `/assets/images/icons/${name}.svg`,

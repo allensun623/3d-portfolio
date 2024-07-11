@@ -30,9 +30,13 @@ export default function CharacterScene({ section, viewport, isMobile }) {
   useEffect(() => {
     if (section !== 2) return;
 
-    if (showStateYourWish) setAnimation(animationOptions.POINTING);
-    else if (relaxingInSkills) setAnimation(animationOptions.ARM_STRETCHING);
-    else setAnimation(animationOptions.PICK_FRUIT);
+    const newAnimation = showStateYourWish
+      ? animationOptions.POINTING
+      : relaxingInSkills
+      ? animationOptions.ARM_STRETCHING
+      : animationOptions.PICK_FRUIT;
+
+    setAnimation(newAnimation);
   }, [relaxingInSkills, showStateYourWish]);
 
   useEffect(() => {
@@ -41,12 +45,13 @@ export default function CharacterScene({ section, viewport, isMobile }) {
   }, [chaseDreamJob]);
 
   useEffect(() => {
-    if (sendToPortal && section === 4)
-      setAnimation(
-        fireballCompleted
-          ? animationOptions.WAVING_BYE
-          : animationOptions.FIREBALL
-      );
+    if (!sendToPortal || section !== 4) return;
+
+    const newAnimation = fireballCompleted
+      ? animationOptions.WAVING_BYE
+      : animationOptions.FIREBALL;
+
+    setAnimation(newAnimation);
   }, [sendToPortal, fireballCompleted]);
 
   // make whole character clickable in case the screen is too small

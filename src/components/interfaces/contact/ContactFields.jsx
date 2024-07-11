@@ -1,32 +1,5 @@
 import classNames from 'classnames';
-import { fields } from '@/constants/contact';
-
-const inputFields = [
-  {
-    Component: 'input',
-    label: '🄽🄰🄼🄴',
-    errorMessage: 'Please enter your name.',
-    id: fields.NAME,
-    type: 'text',
-    name: fields.NAME,
-  },
-  {
-    Component: 'input',
-    label: '🄴🄼🄰🄸🄻',
-    errorMessage: 'Please enter a valid email address.',
-    type: 'text',
-    id: fields.EMAIL,
-    name: fields.EMAIL,
-  },
-  {
-    Component: 'textarea',
-    label: '🄼🄴🅂🅂🄰🄶🄴',
-    errorMessage: 'Please enter your message.',
-    id: fields.MESSAGE,
-    name: fields.MESSAGE,
-    rows: 5,
-  },
-];
+import { inputFields } from '@/constants/contact';
 
 export default function ContactFields({
   form,

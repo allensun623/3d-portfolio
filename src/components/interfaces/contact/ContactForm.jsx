@@ -3,7 +3,7 @@ import { useForm } from '@formspree/react';
 import { isEmpty } from 'lodash';
 import isEmail from 'validator/lib/isEmail';
 import { motion } from 'framer-motion';
-import { fields } from '@/constants/contact';
+import { fieldsEnum } from '@/constants/contact';
 import ContactFields from './ContactFields';
 import ContactProfileIcon from './ContactSocials';
 import ContactSubmitButton from './ContactSubmitButton';
@@ -60,15 +60,15 @@ export default function Contact({ isInView, handleAnimationComplete }) {
 
   const validateForm = () => {
     if (isEmpty(form.name.value.trim())) {
-      handleUpdateError(fields.NAME);
+      handleUpdateError(fieldsEnum.NAME);
       return false;
     }
     if (!isEmail(form.email.value.trim())) {
-      handleUpdateError(fields.EMAIL);
+      handleUpdateError(fieldsEnum.EMAIL);
       return false;
     }
     if (isEmpty(form.message.value.trim())) {
-      handleUpdateError(fields.MESSAGE);
+      handleUpdateError(fieldsEnum.MESSAGE);
       return false;
     }
     return true;

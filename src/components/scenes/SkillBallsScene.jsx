@@ -1,24 +1,24 @@
 import SkillBall from '../elements/SkillBall';
 import { skills } from '../../constants/skills';
 import { generateSkillBallPositions } from '../../utils/3dState';
-import React, { useState, useMemo, useEffect } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { clickableHeartBeatMotion } from '@/utils/motions/ballMotion';
 import { motion } from 'framer-motion-3d';
 import SparkleBall from '../elements/SparkleBall';
 import { useBallAction, useBallState } from '../context/FourStarBallContext';
 
-export default function SkillBallsScene({ isMobile }) {
-  const FULL_STAR_INIT_SCALE = 0;
-  const SCALE_INCREMENT_DELAY = 1500;
-  const SCALE_DIVISOR = 5000;
+const FULL_STAR_INIT_SCALE = 0;
+const SCALE_INCREMENT_DELAY = 1500;
+const SCALE_DIVISOR = 5000;
 
+export default function SkillBallsScene({ isMobile }) {
   const [fourStarScale, setFourStarScale] = useState(FULL_STAR_INIT_SCALE);
   const [countBigBang, setCountBigBang] = useState(0);
+  const [countClicks, setCountClicks] = useState(1);
   const positions = useMemo(
     () => generateSkillBallPositions(isMobile),
     [isMobile]
   );
-  const [countClicks, setCountClicks] = useState(1);
   const {
     handleShowStateYourWish,
     handleShowWishComeTrue,
@@ -50,7 +50,6 @@ export default function SkillBallsScene({ isMobile }) {
   };
 
   const collectedAll = countClicks === skills.length;
-  const isFullFourStar = (i) => i === 0 && collectedAll;
 
   useEffect(() => {
     if (countClicks > 1 && showWishComeTrue) handleShowWishComeTrue(false);
@@ -74,24 +73,24 @@ export default function SkillBallsScene({ isMobile }) {
           positions={positions}
           countBigBang={countBigBang}
           handleTapBall={handleTapBall}
-          isFullFourStar={isFullFourStar(index)}
+          isFullFourStar={index === 0 && collectedAll}
         />
       ))}
     </>
   );
 }
 
-const SkillBallGroup = React.memo(
-  ({
-    index,
-    skill,
-    isMobile,
-    fourStarScale,
-    positions,
-    countBigBang,
-    handleTapBall,
-    isFullFourStar,
-  }) => (
+function SkillBallGroup({
+  index,
+  skill,
+  isMobile,
+  fourStarScale,
+  positions,
+  countBigBang,
+  handleTapBall,
+  isFullFourStar,
+}) {
+  return (
     <motion.group
       animate={{ ...(isFullFourStar && { y: 1, transition: { duration: 1 } }) }}
     >
@@ -109,7 +108,7 @@ const SkillBallGroup = React.memo(
           isMobile={isMobile}
           skill={skill}
           isFourStar={index === 0}
-          onTapBall={(score, isFourStar) => handleTapBall(score, isFourStar)}
+          onTapBall={handleTapBall}
           fourStarScale={fourStarScale}
           position={positions[index]}
           FourStarPosition={positions[0]}
@@ -118,7 +117,5 @@ const SkillBallGroup = React.memo(
         />
       </motion.group>
     </motion.group>
-  )
-);
-
-SkillBallGroup.displayName = 'SkillBallGroup';
+  );
+}
