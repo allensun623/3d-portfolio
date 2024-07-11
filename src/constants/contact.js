@@ -43,3 +43,19 @@ export const inputFields = Object.freeze([
     rows: 5,
   },
 ]);
+
+export const ActionTypes = Object.freeze({
+  SET_VALUE: 'SET_VALUE',
+  SET_ERROR: 'SET_ERROR',
+  CLEAR_ERROR: 'CLEAR_ERROR',
+  RESET_FORM: 'RESET_FORM',
+});
+
+export const initFields = Object.freeze({ value: '', error: false });
+
+export const initFormState = Object.freeze(
+  Object.values(fieldsEnum).reduce((acc, field) => {
+    acc[field] = { ...initFields };
+    return acc;
+  }, {})
+);

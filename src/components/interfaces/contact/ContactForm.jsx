@@ -2,9 +2,9 @@ import { motion } from 'framer-motion';
 import ContactFields from './ContactFields';
 import ContactProfileIcon from './ContactSocials';
 import ContactSubmitButton from './ContactSubmitButton';
-import { useFormStore } from './formStore';
+import { useFormStore } from '@/store/formStore';
 
-export default function Contact({ isInView, handleAnimationComplete }) {
+export default function ContactForm({ isInView, handleAnimationComplete }) {
   const {
     state,
     form,
@@ -19,13 +19,13 @@ export default function Contact({ isInView, handleAnimationComplete }) {
   // https://stackoverflow.com/a/58253418/12395126
   const tabIndex = isInView ? 0 : -1;
 
+  const stateAnimate = state.succeeded
+    ? { scale: 0, transition: { duration: 1.5 } }
+    : { scale: 1 };
+
   return (
     <motion.div
-      animate={
-        state.succeeded
-          ? { scale: 0, transition: { duration: 2 } }
-          : { scale: 1 }
-      }
+      animate={stateAnimate}
       onAnimationComplete={() => {
         if (state.succeeded) handleAnimationComplete();
       }}
