@@ -1,8 +1,8 @@
 import classNames from 'classnames';
 import { Suspense, useEffect, useState } from 'react';
+import MainCanvas from './components/MainCanvas';
 import Menu from './components/Menu';
 import Welcome from './components/welcome/Welcome';
-import MainCanvas from './MainCanvas';
 
 export default function App() {
   const [section, setSection] = useState(0);

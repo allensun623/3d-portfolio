@@ -1,10 +1,10 @@
 import { Environment, Scroll, ScrollControls, Sky } from '@react-three/drei';
 import { Canvas } from '@react-three/fiber';
 import { motion } from 'framer-motion-3d';
-import { useBallState } from './components/context/FourStarBallContext';
-import Interface from './components/Interface';
-import Scene from './components/Scene';
-import ScrollManager from './components/ScrollManager';
+import { useBallState } from './context/FourStarBallContext';
+import Interface from './Interface';
+import Scene from './Scene';
+import ScrollManager from './ScrollManager';
 
 export default function MainCanvas({ entered, section, handleSectionChange }) {
   const ballState = useBallState(); // pass state to interface with is rendering intermediate before the provider
