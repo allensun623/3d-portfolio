@@ -1,4 +1,11 @@
 export const bottomBannerText = Object.freeze({
+  welcome: {
+    welcomeToMyWorld: 'WELCOME TO MY WORLD!',
+    introduction:
+      "I'm Allen Sun, a full stack software engineer on a mission to transform ideas into stunning 3D realities.\nJoin me by finding every shining four-star ball, clicking and exploring the endless possibilities of the world.",
+    memory:
+      'In Memory of\n鳥山明 / とりやまあきら / Toriyama Akira\n1955 - 2024',
+  },
   experience: {
     offer: 'Would you like to offer me a job?',
     getInTouch: 'Get in touch',
