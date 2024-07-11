@@ -19,24 +19,24 @@
 
 <p align="center">
  <a href="https://allensunworld.com" target="_blank">
-    <img src="https://img.shields.io/badge/孫_MY_Website-f4aa24?style=for-the-badge" alt="allensunworld" />
+    <img src="https://img.shields.io/badge/孫_MY_Website-f4aa24?style=for-the-badge" alt="allensunworld"/>
  </a>
  &emsp;
  <a href="https://linkedin.com/in/allensun623" target="_blank">
   <img src="https://img.shields.io/badge/LinkedIn-1768bf?style=for-the-badge&logo=linkedin&logoColor=white" alt="allensun623"/>
  </a>
 </p>
-<br />
+<br/>
 
 <!-- About Section -->
- # About me
+ # 🧐 About me
  
 <p>
  <img align="right" height="200" width='auto' src="/gif/hello.gif" alt="Hello gif" />
   🚀 &emsp; Passionate about exploring new technologies and trends. <br/><br/>
   🎨 &emsp; Enthusiast for creating intuitive UI/UX<br/><br/>
   🏞️ &emsp; When not coding, I'm hiking and exploring nature.<br/><br/>
-  📧 &emsp; Reach out via <a href="mailto:allensun623@gmail.com">email</a> to discuss tech or collaboration opportunities!<br/><br/>
+  📫 &emsp; Reach out via <a href="mailto:allensun623@gmail.com">email</a> to discuss tech or collaboration opportunities!<br/><br/>
 </p>
 
 <br/>
@@ -69,13 +69,13 @@
 
 
 <!-- ABOUT THE PROJECT -->
-## About The Project
+# 🏗️ About The Project
 
 [![Product Name Screen Shot][product-welcome]](https://allensunworld.com)
 
 
 
-## Built With
+## ⛏️ Built With
 
 [![React][React]][React-url]
 [![Javascript][Javascript]][Javascript-url]
@@ -97,7 +97,7 @@
 
 
 <!-- GETTING STARTED -->
-## Getting Started
+## ⌛️ Getting Started
 ### Installation
 
 _Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
@@ -120,14 +120,14 @@ This project uses [Formspreee](https://formspree.io/) for email service
    ```
 
 <!-- LICENSE -->
-## License
+## 🚦 License
 
 Distributed under the MIT License. See `LICENSE` for more information.
 
 
 
 <!-- ACKNOWLEDGMENTS -->
-## Acknowledgments
+## 🎉 Acknowledgments
 
 Tutorials and Open Sources acknowledged
 ### Blender 3D Modeling
@@ -140,9 +140,9 @@ Tutorials and Open Sources acknowledged
 * [Character Modeling for Beginners (Blender Tutorial)](https://www.youtube.com/watch?v=IhIGVO4fqLg)
 
 ### Web Development
-* [Build and Deploy an Amazing 3D Web Developer Portfolio in React JS | Beginner Three.js Tutorial](https://www.youtube.com/watch?v=0fYi8SGA20k&list=PLrNWy_o3d6U8Buuo2poVeE1WsIWC099oX)
 * [Build and Deploy an Amazing 3D Developer Portfolio in React with Three.js](https://www.youtube.com/watch?v=FkowOdMjvYo)
-* [Learn how to build a 3D Portfolio with threejs and React Three Fiber](https://www.youtube.com/playlist?list=PLpepLKamtPjguLKYT7c66998iTaWvqSRe)
+* [Build and Deploy an Amazing 3D Web Developer Portfolio in React JS | Beginner Three.js Tutorial](https://www.youtube.com/watch?v=0fYi8SGA20k&list=PLrNWy_o3d6U8Buuo2poVeE1WsIWC099oX)
+* [@wass08](https://github.com/wass08) - [Learn how to build a 3D Portfolio with threejs and React Three Fiber](https://www.youtube.com/playlist?list=PLpepLKamtPjguLKYT7c66998iTaWvqSRe)
 
 ### README Template
 * [Best-README-Template](https://github.com/othneildrew/Best-README-Template)
