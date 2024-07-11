@@ -1,8 +1,8 @@
 import { motion } from 'framer-motion-3d';
-import { Model as IslandFall } from '../models/IslandFallModel';
-import { Model as GuideBoard } from '../models/IslandFallClickPickGuideBoard';
-import SkillBallsScene from './SkillBallsScene';
 import { useEffect, useState } from 'react';
+import { Model as GuideBoard } from '../models/IslandFallClickPickGuideBoard';
+import { Model as IslandFall } from '../models/IslandFallModel';
+import SkillBallsScene from './SkillBallsScene';
 
 export default function SkillScene({ isInView, isMobile }) {
   const [showSkillBalls, setShowSkillBalls] = useState(false);

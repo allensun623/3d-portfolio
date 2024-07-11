@@ -1,11 +1,11 @@
-import BgScene from './scenes/BgScene';
-import { useEffect } from 'react';
-import CharacterScene from './scenes/CharacterScene';
-import { useBallStateReset } from './context/FourStarBallContext';
 import { useThree } from '@react-three/fiber';
 import { motion } from 'framer-motion-3d';
+import { useEffect } from 'react';
+import { useBallStateReset } from './context/FourStarBallContext';
+import BgScene from './scenes/BgScene';
+import CharacterScene from './scenes/CharacterScene';
 
-export default function Scene({ section, isMobile }) {
+export default function Scene({ section, isMobile, entered }) {
   const { viewport } = useThree();
   // equation calculated by iphone SE and and iphone XR
   const offsetY = -viewport.factor * 0.0075 + 6.225;
@@ -46,11 +46,13 @@ export default function Scene({ section, isMobile }) {
 
   return (
     <motion.group {...(isMobile && mobileGroup)}>
-      <CharacterScene
-        section={section}
-        isMobile={isMobile}
-        viewport={viewport}
-      />
+      {entered && (
+        <CharacterScene
+          section={section}
+          isMobile={isMobile}
+          viewport={viewport}
+        />
+      )}
       <BgScene section={section} isMobile={isMobile} viewport={viewport} />
     </motion.group>
   );

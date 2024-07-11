@@ -1,10 +1,10 @@
+import { Sky, useProgress } from '@react-three/drei';
+import { Canvas } from '@react-three/fiber';
+import { motion } from 'framer-motion-3d';
+import { useEffect, useRef, useState } from 'react';
+import { clickableHeartBeatMotion } from '../../utils/motions/ballMotion';
 import GlassBall from '../elements/GlassBall';
 import SparkleBall from '../elements/SparkleBall';
-import { motion } from 'framer-motion-3d';
-import { Canvas } from '@react-three/fiber';
-import { useProgress, Sky } from '@react-three/drei';
-import { clickableHeartBeatMotion } from '../../utils/motions/ballMotion';
-import { useRef, useState, useEffect } from 'react';
 
 export default function WelcomeBallCanvas({ setEntered }) {
   const SCALE = 0.2;

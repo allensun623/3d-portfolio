@@ -1,8 +1,8 @@
-import { useReducer, useState } from 'react';
+import { fieldsEnum, initFormState } from '@/constants';
 import { useForm } from '@formspree/react';
 import { isEmpty } from 'lodash';
+import { useReducer, useState } from 'react';
 import isEmail from 'validator/lib/isEmail';
-import { fieldsEnum, initFormState } from '@/constants';
 import { actions } from './formActions';
 import { formReducer } from './formReducer';
 

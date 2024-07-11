@@ -1,13 +1,13 @@
-import { useEffect, useRef, useState } from 'react';
-import { motion } from 'framer-motion-3d';
 import {
-  sectionTransitAnimations,
   animationOptions,
-} from '../../constants/character';
+  sectionTransitAnimations,
+} from '@/constants/character';
+import { variants } from '@/utils/motions/characterMotion';
+import { motion } from 'framer-motion-3d';
+import { useEffect, useRef, useState } from 'react';
+import { useBallAction, useBallState } from '../context/FourStarBallContext';
 import Character from '../models/CharacterModel';
 import CloudScene from './CloudScene';
-import { variants } from '../../utils/motions/characterMotion';
-import { useBallState, useBallAction } from '../context/FourStarBallContext';
 import FourStarBallScene from './FourStarBallScene';
 
 export default function CharacterScene({ section, viewport, isMobile }) {
@@ -88,4 +88,3 @@ export default function CharacterScene({ section, viewport, isMobile }) {
     </motion.group>
   );
 }
-

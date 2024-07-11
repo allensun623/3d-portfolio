@@ -1,7 +1,7 @@
-import { useEffect, useState } from 'react';
-import SectionContainer from '../../layouts/SectionContainer';
-import BottomBanner from '../elements/BottomBanner';
 import { bottomBannerText } from '@/constants/text';
+import SectionContainer from '@/layouts/SectionContainer';
+import { useEffect, useState } from 'react';
+import BottomBanner from '../elements/BottomBanner';
 
 export default function Skills({ ballState }) {
   const { showStateYourWish, showWishComeTrue } = ballState;

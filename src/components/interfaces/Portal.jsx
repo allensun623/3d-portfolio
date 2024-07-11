@@ -1,6 +1,6 @@
+import { bottomBannerText } from '@/constants/text';
 import SectionContainer from '@/layouts/SectionContainer';
 import BottomBanner from '../elements/BottomBanner';
-import { bottomBannerText } from '@/constants/text';
 
 export default function Portal({ ballState }) {
   const { fireballCompleted } = ballState;

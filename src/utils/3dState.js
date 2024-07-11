@@ -43,4 +43,4 @@ const generateSkillBallPositions = (isMobile) => {
   return positions;
 };
 
-export { getPosition, generateSkillBallPositions };
+export { generateSkillBallPositions, getPosition };

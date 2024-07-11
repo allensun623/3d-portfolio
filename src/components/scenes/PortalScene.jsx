@@ -1,10 +1,10 @@
+import { Sparkles } from '@react-three/drei';
+import { motion } from 'framer-motion-3d';
+import { useMemo } from 'react';
+import { useBallState } from '../context/FourStarBallContext';
 import { Model as IslandSpringModel } from '../models/IslandSpringModel';
 import { Model as PortalRingModel } from '../models/IslandSpringPortalRingModel';
-import { motion } from 'framer-motion-3d';
 import CherryFlowerPathScene from './CherryFlowerPathScene';
-import { useBallState } from '../context/FourStarBallContext';
-import { useMemo } from 'react';
-import { Sparkles } from '@react-three/drei';
 
 export default function PortalScene({ viewport, isInView }) {
   const { sendToPortal } = useBallState();
@@ -24,7 +24,7 @@ export default function PortalScene({ viewport, isInView }) {
                   y: 0.3,
                   z: -0.1,
                   scale: 0,
-                transition: { duration: 3, delay: 6 },
+                  transition: { duration: 3, delay: 6 },
                 }
               : null
           }

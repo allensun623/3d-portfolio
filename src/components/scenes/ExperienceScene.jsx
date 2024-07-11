@@ -1,10 +1,10 @@
-import { Model as IslandSummerModel } from '../models/IslandSummerModel';
-import GlassBall from '../elements/GlassBall';
-import { useBallState, useBallAction } from '../context/FourStarBallContext';
-import { clickableHeartBeatMotion } from '../../utils/motions/ballMotion';
-import ExperiencesText from './ExperiencesText';
-import SparkleBall from '../elements/SparkleBall';
+import { clickableHeartBeatMotion } from '@/utils/motions/ballMotion';
 import { motion } from 'framer-motion-3d';
+import { useBallAction, useBallState } from '../context/FourStarBallContext';
+import GlassBall from '../elements/GlassBall';
+import SparkleBall from '../elements/SparkleBall';
+import { Model as IslandSummerModel } from '../models/IslandSummerModel';
+import ExperiencesText from './ExperiencesText';
 
 export default function ExperienceScene({ isInView, isMobile }) {
   const { handleChaseDreamJob } = useBallAction();

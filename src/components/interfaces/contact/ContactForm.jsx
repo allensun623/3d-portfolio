@@ -1,8 +1,8 @@
+import { useFormStore } from '@/store/formStore';
 import { motion } from 'framer-motion';
 import ContactFields from './ContactFields';
 import ContactProfileIcon from './ContactSocials';
 import ContactSubmitButton from './ContactSubmitButton';
-import { useFormStore } from '@/store/formStore';
 
 export default function ContactForm({ isInView, handleAnimationComplete }) {
   const {

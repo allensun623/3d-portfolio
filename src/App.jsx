@@ -1,90 +1,41 @@
-import { Environment, Sky, Scroll, ScrollControls } from '@react-three/drei';
-import { Canvas } from '@react-three/fiber';
-import Scene from './components/Scene';
-import Interface from './components/Interface';
-import { useEffect, Suspense, useState, useRef } from 'react';
-import ScrollManager from './components/ScrollManager';
+import classNames from 'classnames';
+import { Suspense, useEffect, useState } from 'react';
+import MainCanvas from './components/MainCanvas';
 import Menu from './components/Menu';
 import Welcome from './components/welcome/Welcome';
-import { motion } from 'framer-motion-3d';
-import { useBallState } from './components/context/FourStarBallContext';
 
 export default function App() {
   const [section, setSection] = useState(0);
   const [menuOpened, setMenuOpened] = useState(false);
   const [entered, setEntered] = useState(false);
-  const ballState = useBallState(); // pass state to interface with is rendering intermediate before the provider
-  const isMobile = window.innerWidth < 768;
 
   useEffect(() => {
     if (menuOpened) setMenuOpened(false);
   }, [section]);
 
-  const canvasClassName = entered ? 'w-full h-screen h-dvh' : 'w-1, h-0';
-
-  const skyProps = {
-    scale: 100,
-    turbidity: 0,
-    rayleigh: 0.1,
-    mieCoefficient: 0.005,
-    mieDirectionalG: 0.1,
-    inclination: 0.1,
-    azimuth: 0.1,
-  };
-
-  const cameraRef = useRef();
+  const canvasClassName = classNames(
+    'w-full h-screen h-dvh',
+    entered ? 'opacity-100' : 'fixed top-0 left-0 opacity-0'
+  );
 
   return (
     <>
-      {entered ? null : <Welcome setEntered={setEntered} />}
-      <div className={canvasClassName}>
-        <Suspense>
-          <Canvas
-            ref={cameraRef}
-            camera={{
-              position: [0, 2, 5],
-              fov: 30,
-              near: 1,
-              far: 20000,
-            }}
-          >
-            <motion.group
-              position-z={12}
-              position-y={-60}
-              rotation-x={Math.PI / 4}
-            >
-              {entered && <Sky sunPosition={[0, 10, 0]} {...skyProps} />}
-            </motion.group>
-            {entered && <Environment preset={'sunset'} background />}
-            <ScrollControls pages={5} damping={0.1}>
-              <ScrollManager section={section} onSectionChange={setSection} />
-              <Scroll>
-                <Scene
-                  section={section}
-                  cameraRef={cameraRef}
-                  isMobile={isMobile}
-                />
-              </Scroll>
-              <Scroll html>
-                <Interface
-                  section={section}
-                  ballState={ballState}
-                  onSectionChange={setSection}
-                  isMobile={isMobile}
-                />
-              </Scroll>
-            </ScrollControls>
-          </Canvas>
-        </Suspense>
-        {entered && (
+      <Suspense>
+        <div className={canvasClassName}>
+          <MainCanvas
+            entered={entered}
+            section={section}
+            handleSectionChange={setSection}
+          />
           <Menu
             section={section}
-            onSectionChange={setSection}
+            handleSectionChange={setSection}
             menuOpened={menuOpened}
             setMenuOpened={setMenuOpened}
           />
-        )}
-      </div>
+        </div>
+      </Suspense>
+      {!entered && <Welcome setEntered={setEntered} />}
     </>
   );
 }
