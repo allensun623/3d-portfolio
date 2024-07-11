@@ -11,7 +11,7 @@
 <p align="center"> 
   <samp>
     <br>
-    「 I'm Allen Sun, a full stack software engineer on a mission to transform ideas into stunning 3D realities. 」
+    「 A full stack software engineer on a mission to transform ideas into stunning 3D realities. 」
     <br>
     <br>
   </samp>
@@ -32,10 +32,10 @@
  
 <p>
  <img align="right" width="250" src="/gif/hello.gif" alt="Hello gif" />
-  🚀 &emsp; Passionate about exploring new technologies and trends to stay ahead in the tech landscape. <br/><br/>
+  🚀 &emsp; Passionate about exploring new technologies and trends. <br/><br/>
   🎨 &emsp; Enthusiast for creating intuitive UI/UX<br/><br/>
-  🏞️ &emsp; When I'm not coding, you can find me hiking and exploring nature's beauty.<br/><br/>
-  🌐 &emsp; Reach out via email at allensun623@gmail.com to discuss anything tech or collaboration opportunities!<br/><br/>
+  🏞️ &emsp; When not coding, I'm hiking and exploring nature.<br/><br/>
+  🌐 &emsp; Reach out via <a href="mailto:allensun623@gmail.com">email</a> to discuss tech or collaboration opportunities!<br/><br/>
 </p>
 
 <br/>
@@ -142,8 +142,8 @@ Tutorials and Open Sources acknowledged
 * [Build and Deploy an Amazing 3D Web Developer Portfolio in React JS | Beginner Three.js Tutorial](https://www.youtube.com/watch?v=0fYi8SGA20k&list=PLrNWy_o3d6U8Buuo2poVeE1WsIWC099oX)
 * [Build and Deploy an Amazing 3D Developer Portfolio in React with Three.js](https://www.youtube.com/watch?v=FkowOdMjvYo)
 * [Learn how to build a 3D Portfolio with threejs and React Three Fiber](https://www.youtube.com/playlist?list=PLpepLKamtPjguLKYT7c66998iTaWvqSRe)
-* [Best-README-Template] (https://github.com/othneildrew/Best-README-Template)
-* [alsiam] (https://github.com/alsiam/alsiam)
+* [Best-README-Template](https://github.com/othneildrew/Best-README-Template)
+* [alsiam](https://github.com/alsiam/alsiam)
 
 
 
