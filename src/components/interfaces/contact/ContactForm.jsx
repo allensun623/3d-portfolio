@@ -8,32 +8,32 @@ import ContactFields from './ContactFields';
 import ContactProfileIcon from './ContactSocials';
 import ContactSubmitButton from './ContactSubmitButton';
 
+const handleUpdateState = ({ state, fieldId, fields }) => ({
+  ...state,
+  [fieldId]: { ...state[fieldId], ...fields },
+});
+
 const formReducer = (state, action) => {
+  const updateState = (fields) =>
+    handleUpdateState({ state, fieldId: action.field, fields });
+
   switch (action.type) {
     case 'SET_VALUE':
-      return {
-        ...state,
-        [action.field]: { ...state[action.field], value: action.value },
-      };
+      return updateState({ value: action.value });
     case 'SET_ERROR':
-      return {
-        ...state,
-        [action.field]: { ...state[action.field], error: action.error },
-      };
+      return updateState({ error: action.error });
     case 'CLEAR_ERROR':
-      return {
-        ...state,
-        [action.field]: { ...state[action.field], error: false },
-      };
+      return updateState({ error: false });
+
     default:
       return state;
   }
 };
 
 const formState = {
-  name: { value: '', error: false },
-  email: { value: '', error: false },
-  message: { value: '', error: false },
+  [fieldsEnum.NAME]: { value: '', error: false },
+  [fieldsEnum.EMAIL]: { value: '', error: false },
+  [fieldsEnum.MESSAGE]: { value: '', error: false },
 };
 
 export default function Contact({ isInView, handleAnimationComplete }) {
