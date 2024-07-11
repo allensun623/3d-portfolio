@@ -1,83 +1,19 @@
-import { useState, useReducer } from 'react';
-import { useForm } from '@formspree/react';
-import { isEmpty } from 'lodash';
-import isEmail from 'validator/lib/isEmail';
 import { motion } from 'framer-motion';
-import { fieldsEnum } from '@/constants/contact';
 import ContactFields from './ContactFields';
 import ContactProfileIcon from './ContactSocials';
 import ContactSubmitButton from './ContactSubmitButton';
-
-const handleUpdateState = ({ state, fieldId, fields }) => ({
-  ...state,
-  [fieldId]: { ...state[fieldId], ...fields },
-});
-
-const formReducer = (state, action) => {
-  const updateState = (fields) =>
-    handleUpdateState({ state, fieldId: action.field, fields });
-
-  switch (action.type) {
-    case 'SET_VALUE':
-      return updateState({ value: action.value });
-    case 'SET_ERROR':
-      return updateState({ error: action.error });
-    case 'CLEAR_ERROR':
-      return updateState({ error: false });
-
-    default:
-      return state;
-  }
-};
-
-const formState = {
-  [fieldsEnum.NAME]: { value: '', error: false },
-  [fieldsEnum.EMAIL]: { value: '', error: false },
-  [fieldsEnum.MESSAGE]: { value: '', error: false },
-};
+import { useFormStore } from './formStore';
 
 export default function Contact({ isInView, handleAnimationComplete }) {
-  const [state, submit] = useForm(import.meta.env.VITE_APP_EMAIL_KEY);
-  const [form, dispatch] = useReducer(formReducer, formState);
-  const [focusedId, setFocusedId] = useState('');
-
-  const handleChange = (e) => {
-    const { id, value } = e.target;
-    dispatch({ type: 'SET_VALUE', field: id, value });
-  };
-
-  const handleFocus = (e) => {
-    const { id } = e.target;
-    setFocusedId(id);
-    // only clear error while focus on the error one
-    dispatch({ type: 'CLEAR_ERROR', field: id });
-  };
-
-  const handleBlur = () => setFocusedId('');
-
-  const handleUpdateError = (field) =>
-    dispatch({ type: 'SET_ERROR', field, error: true });
-
-  const validateForm = () => {
-    if (isEmpty(form.name.value.trim())) {
-      handleUpdateError(fieldsEnum.NAME);
-      return false;
-    }
-    if (!isEmail(form.email.value.trim())) {
-      handleUpdateError(fieldsEnum.EMAIL);
-      return false;
-    }
-    if (isEmpty(form.message.value.trim())) {
-      handleUpdateError(fieldsEnum.MESSAGE);
-      return false;
-    }
-    return true;
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (validateForm()) submit(e);
-  };
+  const {
+    state,
+    form,
+    focusedId,
+    handleSubmit,
+    handleChange,
+    handleFocus,
+    handleBlur,
+  } = useFormStore();
 
   // Prevent tab while not in view
   // https://stackoverflow.com/a/58253418/12395126
