@@ -31,7 +31,7 @@
  # About me
  
 <p>
- <img align="right" width="250" src="/gif/hello.gif" alt="Hello gif" />
+ <img align="right" height="350" width='auto' src="/gif/hello.gif" alt="Hello gif" />
   🚀 &emsp; Passionate about exploring new technologies and trends. <br/><br/>
   🎨 &emsp; Enthusiast for creating intuitive UI/UX<br/><br/>
   🏞️ &emsp; When not coding, I'm hiking and exploring nature.<br/><br/>
@@ -142,6 +142,8 @@ Tutorials and Open Sources acknowledged
 * [Build and Deploy an Amazing 3D Web Developer Portfolio in React JS | Beginner Three.js Tutorial](https://www.youtube.com/watch?v=0fYi8SGA20k&list=PLrNWy_o3d6U8Buuo2poVeE1WsIWC099oX)
 * [Build and Deploy an Amazing 3D Developer Portfolio in React with Three.js](https://www.youtube.com/watch?v=FkowOdMjvYo)
 * [Learn how to build a 3D Portfolio with threejs and React Three Fiber](https://www.youtube.com/playlist?list=PLpepLKamtPjguLKYT7c66998iTaWvqSRe)
+
+### README Template
 * [Best-README-Template](https://github.com/othneildrew/Best-README-Template)
 * [alsiam](https://github.com/alsiam/alsiam)
 
