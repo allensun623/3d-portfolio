@@ -18,9 +18,10 @@
 </p>
 
 <p align="center">
- <a href="https://allensunworld.com" target="blank">
+ <a href="https://allensunworld.com" target="_blank">
     <img src="https://img.shields.io/badge/孫_MY_Website-f4aa24?style=for-the-badge" alt="allensunworld" />
  </a>
+ &emsp;
  <a href="https://linkedin.com/in/allensun623" target="_blank">
   <img src="https://img.shields.io/badge/LinkedIn-1768bf?style=for-the-badge&logo=linkedin&logoColor=white" alt="allensun623"/>
  </a>
@@ -31,11 +32,11 @@
  # About me
  
 <p>
- <img align="right" height="350" width='auto' src="/gif/hello.gif" alt="Hello gif" />
+ <img align="right" height="200" width='auto' src="/gif/hello.gif" alt="Hello gif" />
   🚀 &emsp; Passionate about exploring new technologies and trends. <br/><br/>
   🎨 &emsp; Enthusiast for creating intuitive UI/UX<br/><br/>
   🏞️ &emsp; When not coding, I'm hiking and exploring nature.<br/><br/>
-  🌐 &emsp; Reach out via <a href="mailto:allensun623@gmail.com">email</a> to discuss tech or collaboration opportunities!<br/><br/>
+  📧 &emsp; Reach out via <a href="mailto:allensun623@gmail.com">email</a> to discuss tech or collaboration opportunities!<br/><br/>
 </p>
 
 <br/>
