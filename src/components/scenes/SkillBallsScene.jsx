@@ -19,6 +19,8 @@ export default function SkillBallsScene({ isMobile }) {
     () => generateSkillBallPositions(isMobile),
     [isMobile]
   );
+  const scaleBase = isMobile ? 1.5 : 1;
+
   const {
     handleShowStateYourWish,
     handleShowWishComeTrue,
@@ -74,6 +76,7 @@ export default function SkillBallsScene({ isMobile }) {
           countBigBang={countBigBang}
           handleTapBall={handleTapBall}
           isFullFourStar={index === 0 && collectedAll}
+          scaleBase={scaleBase}
         />
       ))}
     </>
@@ -89,6 +92,7 @@ function SkillBallGroup({
   countBigBang,
   handleTapBall,
   isFullFourStar,
+  scaleBase,
 }) {
   return (
     <motion.group
@@ -113,7 +117,7 @@ function SkillBallGroup({
           position={positions[index]}
           FourStarPosition={positions[0]}
           countBigBang={countBigBang}
-          scale={isMobile ? 0.6 : 0.3}
+          scale={(0.15 + (0.3 * skill.score) / 100) * scaleBase}
         />
       </motion.group>
     </motion.group>
