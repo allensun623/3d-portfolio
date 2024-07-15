@@ -1,6 +1,6 @@
-import { useEffect, useState } from 'react';
 import { Decal, useTexture } from '@react-three/drei';
 import { motion } from 'framer-motion-3d';
+import { useEffect, useState } from 'react';
 import { skills } from '../../constants/skills';
 
 export default function GlassBall({
@@ -19,6 +19,7 @@ export default function GlassBall({
 }) {
   const [decal] = useTexture([skill.iconURL]);
   const [hovered, setHovered] = useState(false);
+  const COLOR = '#ffd7a2';
 
   useEffect(() => {
     document.body.style.cursor = hovered && clickable ? 'pointer' : 'auto';
@@ -49,7 +50,7 @@ export default function GlassBall({
   };
 
   const materialProps = {
-    color: '#ffd7a2',
+    color: COLOR,
     ...(emissive && { emissive }),
     emissiveIntensity: emissiveIntensity || 0,
   };
@@ -84,7 +85,7 @@ export default function GlassBall({
           map={decal}
           scale={1.5}
         />
-        <motion.meshPhysicalMaterial color={'#ffd7a2'} {...meshProps} />
+        <motion.meshPhysicalMaterial color={COLOR} {...meshProps} />
       </motion.mesh>
     </motion.group>
   );

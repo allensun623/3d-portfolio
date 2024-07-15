@@ -1,6 +1,6 @@
-import { debounce } from 'lodash';
 import { Float } from '@react-three/drei';
-import { useState, useEffect, useCallback } from 'react';
+import { debounce } from 'lodash';
+import { useCallback, useEffect, useState } from 'react';
 import GlassBall from './GlassBall';
 
 export default function SkillBall({
@@ -63,7 +63,7 @@ export default function SkillBall({
     <Float
       speed={isFourStar ? 0 : 0.5}
       rotationIntensity={isFourStar ? 0 : 2}
-      floatIntensity={isFourStar ? 0 : 2}
+      floatIntensity={isFourStar ? 0 : 3}
     >
       <GlassBall
         skill={skill}
