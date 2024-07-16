@@ -1,7 +1,7 @@
+import { skills } from '@/constants/skills';
 import { clickableHeartBeatMotion } from '@/utils/motions/ballMotion';
 import { motion } from 'framer-motion-3d';
 import { useEffect, useMemo, useState } from 'react';
-import { skills } from '../../constants/skills';
 import { generateSkillBallPositions } from '../../utils/3dState';
 import { useBallAction, useBallState } from '../context/FourStarBallContext';
 import SkillBall from '../elements/SkillBall';

@@ -1,12 +1,14 @@
-import { bottomBannerText } from '@/constants/text';
+import BottomBanner from '@/components/elements/BottomBanner';
+import { bottomBannerText, imageIcons } from '@/constants';
 import SectionContainer from '@/layouts/SectionContainer';
-import BottomBanner from '../elements/BottomBanner';
 
 export default function Portal({ ballState }) {
   const { fireballCompleted } = ballState;
   return (
     <SectionContainer>
-      {fireballCompleted && <BottomBanner text={bottomBannerText.portal} />}
+      {fireballCompleted && (
+        <BottomBanner text={bottomBannerText.portal} icon={imageIcons.goku} />
+      )}
     </SectionContainer>
   );
 }

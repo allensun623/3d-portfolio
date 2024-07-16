@@ -1,7 +1,7 @@
+import { skills } from '@/constants/skills';
 import { Decal, useTexture } from '@react-three/drei';
 import { motion } from 'framer-motion-3d';
 import { useEffect, useState } from 'react';
-import { skills } from '../../constants/skills';
 
 export default function GlassBall({
   isFourStar = false,
