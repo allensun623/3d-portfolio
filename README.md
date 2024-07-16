@@ -131,6 +131,8 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 Tutorials and Open Sources acknowledged
 ### Blender 3D Modeling
+* [Blender 4.0 Beginner Donut Tutorial (NEW)](https://www.youtube.com/playlist?list=PLjEaoINr3zgEPv5y--4MKpciLaoQYZB1Z)
+* [Introduction to Blender Series - For Absolute Beginners- Crossmind Studio](https://www.youtube.com/playlist?list=PLgO2ChD7acqH5S3fCO1GbAJC55NeVaCCp)
 * [I Speedrun Made Cloud from Dragon Ball in Blender in 3 MINUTES](https://www.youtube.com/watch?v=gUuvxZx4I6w&list=LL&index=1&t=63s)
 * [Build a 3D Portfolio with React Three Fiber - Avatar animations](https://www.youtube.com/watch?v=pGMKIyALcK0&list=LL&index=3&t=163s)
 * [Low Poly Island | Beginner | Blender 2.8 Tutorial](https://www.youtube.com/watch?v=0lj643VmTsg&list=PLrNWy_o3d6U9M_yAOB9jFMPqTWWmeThu1&index=3&t=1800s)
