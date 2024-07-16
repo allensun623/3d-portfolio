@@ -1,6 +1,11 @@
-import * as THREE from 'three';
-import { Sparkles, Shadow, Billboard } from '@react-three/drei';
-import { LayerMaterial, Depth } from 'lamina';
+import { Billboard, Shadow, Sparkles } from '@react-three/drei';
+import { Depth, LayerMaterial } from 'lamina';
+import {
+  AddEquation,
+  CustomBlending,
+  DstAlphaFactor,
+  SrcAlphaFactor,
+} from 'three';
 
 export default function SparkleBall({
   children,
@@ -51,10 +56,10 @@ const Glow = ({ color, scale = 0.5, near = -2, far = 1.4 }) => (
       <LayerMaterial
         transparent
         depthWrite={false}
-        blending={THREE.CustomBlending}
-        blendEquation={THREE.AddEquation}
-        blendSrc={THREE.SrcAlphaFactor}
-        blendDst={THREE.DstAlphaFactor}
+        blending={CustomBlending}
+        blendEquation={AddEquation}
+        blendSrc={SrcAlphaFactor}
+        blendDst={DstAlphaFactor}
       >
         <Depth
           colorA={color}

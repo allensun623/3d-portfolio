@@ -1,5 +1,5 @@
-import * as THREE from 'three';
-import { skills } from '../constants/skills';
+import { skills } from '@/constants/skills';
+// import { Vector3 } from 'three';
 /**
   Get information and state of a 3d Object
 */
@@ -9,11 +9,11 @@ import { skills } from '../constants/skills';
  * @param {*} geometry
  * @returns
  */
-const getPosition = (geometry) => {
-  const position = new THREE.Vector3();
-  geometry.current.getWorldPosition(position);
-  return position;
-};
+// const getPosition = (geometry) => {
+//   const position = new Vector3();
+//   geometry.current.getWorldPosition(position);
+//   return position;
+// };
 
 /**
  * Getting a random number between two values
@@ -43,4 +43,4 @@ const generateSkillBallPositions = (isMobile) => {
   return positions;
 };
 
-export { generateSkillBallPositions, getPosition };
+export { generateSkillBallPositions };

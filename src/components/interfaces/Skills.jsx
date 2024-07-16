@@ -1,7 +1,7 @@
-import { bottomBannerText } from '@/constants/text';
+import BottomBanner from '@/components/elements/BottomBanner';
+import { bottomBannerText, imageIcons } from '@/constants';
 import SectionContainer from '@/layouts/SectionContainer';
 import { useEffect, useState } from 'react';
-import BottomBanner from '../elements/BottomBanner';
 
 export default function Skills({ ballState }) {
   const { showStateYourWish, showWishComeTrue } = ballState;
@@ -21,15 +21,7 @@ export default function Skills({ ballState }) {
 
   return (
     <SectionContainer>
-      {text && (
-        <BottomBanner
-          text={text}
-          icon={{
-            src: '/assets/images/others/ShenronIcon.png',
-            alt: 'shenron',
-          }}
-        />
-      )}
+      {text && <BottomBanner text={text} icon={imageIcons.shenron} />}
     </SectionContainer>
   );
 }
