@@ -21,7 +21,10 @@ export default function WelcomeWorld() {
         animate={{ opacity: 1, x: 0, y: 0 }}
         transition={{ delay: 5 }}
       >
-        <img src='/public/assets/gif/Scroll Down Gesture.gif' alt='' />
+        <img
+          src='/assets/gif/Scroll Down Gesture.gif'
+          alt='click and explore'
+        />
       </motion.div>
       <div className='z-10 fixed bottom-0 left-0 overflow-hidden flex flex-col justify-center items-center w-full h-1/5 md:h-1/4 space-y-5'>
         <p className='text-white text-lg sm:text-xl md:text-2xl xl:text-4xl text-center font-extralight whitespace-pre-line leading:none md:leading-normal'>
