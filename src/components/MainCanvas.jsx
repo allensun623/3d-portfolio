@@ -1,25 +1,15 @@
-import { Environment, Scroll, ScrollControls, Sky } from '@react-three/drei';
+import { Environment, Scroll, ScrollControls } from '@react-three/drei';
 import { Canvas } from '@react-three/fiber';
 import { motion } from 'framer-motion-3d';
 import { useBallState } from './context/FourStarBallContext';
 import Interface from './Interface';
 import Scene from './Scene';
 import ScrollManager from './ScrollManager';
+import Sky from './Sky';
 
 export default function MainCanvas({ entered, section, handleSectionChange }) {
   const ballState = useBallState(); // pass state to interface with is rendering intermediate before the provider
   const isMobile = window.innerWidth < 768; // MOBILE_WIDTH_THRESHOLD
-
-  const skyProps = {
-    sunPosition: [0, 10, 0],
-    scale: 100,
-    turbidity: 0,
-    rayleigh: 0.1,
-    mieCoefficient: 0.005,
-    mieDirectionalG: 0.1,
-    inclination: 0.1,
-    azimuth: 0.1,
-  };
 
   return (
     <Canvas
@@ -31,9 +21,9 @@ export default function MainCanvas({ entered, section, handleSectionChange }) {
       }}
     >
       <motion.group position-z={12} position-y={-60} rotation-x={Math.PI / 4}>
-        {entered && <Sky {...skyProps} />}
+        {entered && <Sky />}
       </motion.group>
-      <Environment preset={'sunset'} background />
+      <Environment preset={'sunset'} />
       <ScrollControls pages={5} damping={0.1}>
         <ScrollManager
           section={section}
