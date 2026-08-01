@@ -1,34 +1,33 @@
 import { motion } from 'framer-motion-3d';
+import { experienceLabels } from '@/constants/experience';
 import { Model as CloudModel } from '../models/CloudModel';
-import { Model as Beamery } from '../models/ExperienceBeameryModel';
-import { Model as MID } from '../models/ExperienceMIDModel';
-import { Model as UH } from '../models/ExperienceUHModel';
+import ExperienceTextModel from '../models/ExperienceTextModel';
 
 const SPEED = 1;
 const experiences = (isMobile) => [
   {
-    textModel: <UH />,
+    ...experienceLabels[0],
     initial: { x: -22, y: 0, z: 10 },
     text: { x: isMobile ? -20 : -21, y: 9, z: 20 },
     cloudPosition: [-0.5, 0, -5],
     delay: 4 * SPEED,
-    textScale: '1.45',
+    textScale: 1.45,
   },
   {
-    textModel: <MID />,
+    ...experienceLabels[1],
     initial: { x: -10, y: 0, z: -15 },
     text: { x: -8, y: isMobile ? 25 : 18, z: -5 },
     cloudPosition: [0, isMobile ? 1 : 0.5, -5],
     delay: 8 * SPEED,
-    textScale: '1.5',
+    textScale: 1.5,
   },
   {
-    textModel: <Beamery />,
+    ...experienceLabels[2],
     initial: { x: 23.5, y: 1.7, z: -8 },
     text: { x: isMobile ? 18 : 21, y: 13, z: 0 },
     cloudPosition: [1, 0.5, -5],
     delay: 12 * SPEED,
-    textScale: '1.1',
+    textScale: 1.1,
   },
 ];
 
@@ -45,7 +44,9 @@ export default function ExperiencesText({ isMobile }) {
         <motion.group scale={5.5} position={e.cloudPosition}>
           <CloudModel />
         </motion.group>
-        <motion.group scale={e.textScale}>{e.textModel}</motion.group>
+        <motion.group scale={e.textScale}>
+          <ExperienceTextModel lines={e.lines} color={e.color} />
+        </motion.group>
       </motion.group>
     </motion.group>
   );
