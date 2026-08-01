@@ -1,8 +1,26 @@
+import React from 'react';
 import { createContext, useContext, useState } from 'react';
 
 const BallStateContext = createContext();
 const BallActionContext = createContext();
 const ResetBallStateContext = createContext();
+
+const Test = () => (
+  <mesh>
+    <boxGeometry />
+    <meshStandardMaterial
+      color="red"
+      aoMapIntensity={2}
+      bumpScale={2}
+      roughness={2}
+      alphaTest={2}
+      lightMapIntensity={2}
+      displacementBias={2}
+      displacementScale={2}
+      normalScale={2}
+    />
+  </mesh>
+)
 
 export function useBallState() {
   const context = useContext(BallStateContext);
